@@ -2,20 +2,22 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>profile</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>profile</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
 #write.first-line-indent p { text-indent: 2em; }
 #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 .typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   #write { padding-left: 20px; padding-right: 20px; }
@@ -24,14 +26,14 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
 button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
 p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
 p { orphans: 4; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
@@ -47,7 +49,7 @@ sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); 
 sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px !important; }
+figure > table { margin: 0px; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
@@ -76,28 +78,31 @@ div.hr:focus { cursor: none; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
 li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child, li > :first-child { margin-top: 0px; }
 .footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
   #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
 pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
 p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
 p > .md-image:only-child { display: inline-block; width: 100%; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
 .md-math-block { width: 100%; }
 .md-math-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
 .md-task-list-item { position: relative; list-style-type: none; }
 .task-list-item.md-task-list-item { padding-left: 0px; }
 .md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
@@ -141,16 +146,22 @@ a.md-print-anchor { white-space: pre !important; border-width: initial !importan
 .MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
 .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
-[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
 [lang="mermaid"] .node text { font-size: 1rem; }
 table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
-svg[id^="mermaidChart"] { line-height: 1em; }
 mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
 mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
 
 
 :root {
@@ -160,12 +171,16 @@ mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 @include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
-html {
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
     font-size: 16px;
 }
 
 body {
-    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
@@ -176,6 +191,19 @@ body {
   	padding: 30px;
     padding-bottom: 100px;
 }
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
 #write > ul:first-child,
 #write > ol:first-child{
     margin-top: 30px;
@@ -230,17 +258,33 @@ h6 code {
     font-size: inherit;
 }
 h1 {
-    padding-bottom: .3em;
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
 h2 {
-   padding-bottom: .3em;
     font-size: 1.75em;
     line-height: 1.225;
     border-bottom: 1px solid #eee;
 }
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
 h3 {
     font-size: 1.5em;
     line-height: 1.43;
@@ -313,24 +357,24 @@ table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-table tr th {
+table th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
     margin: 0;
     padding: 6px 13px;
 }
-table tr td {
+table td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
-table tr th:first-child,
-table tr td:first-child {
+table th:first-child,
+table td:first-child {
     margin-top: 0;
 }
-table tr th:last-child,
-table tr td:last-child {
+table th:last-child,
+table td:last-child {
     margin-bottom: 0;
 }
 
@@ -499,7 +543,6 @@ header, .context-menu, .megamenu-content, footer{
     color: white;
     background: #999;
 }
-
 @media screen and (min-width:471px) {
 	#avatar1 {
 		display: none!important;
@@ -518,17 +561,17 @@ header, .context-menu, .megamenu-content, footer{
 	}
 }
 
+
 </style>
 </head>
-<body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><div id="avatar1" style="position:relative;display:flex;justify-content:center;align-items:center;margin-bottom:20px"> <img style="width:20vw;height:auto;margin:0" src="https://s3.ax1x.com/2020/12/19/rNoaPe.png"></div><hr /><h4><a name="link-span-stylecolor131824基本信息span" class="md-header-anchor"></a>🔗<span> </span><span style="color:#131824"><span>基本信息：</span></span></h4><p>👨<span>  姓名： </span><span style="color:#134857"><span>孙中毅</span></span><span>  |  性别：</span><span style="color:#134857"><span>男</span></span><span>  |  年龄：</span><span style="color:#134857"><span>24</span></span>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><div id="avatar1" style="position:relative;display:flex;justify-content:center;align-items:center;margin-bottom:20px"> <img style="width:20vw;height:auto;margin:0" src="https://s3.ax1x.com/2020/12/19/rNoaPe.png"></div><hr /><h4><a name="link-span-stylecolor131824基本信息span" class="md-header-anchor"></a>🔗<span> </span><span style="color:#131824"><span>基本信息：</span></span></h4><p>👨<span>  姓名： </span><span style="color:#134857"><span>孙中毅</span></span><span>  |  性别：</span><span style="color:#134857"><span>男</span></span><span>  |  年龄：</span><span style="color:#134857"><span>25</span></span>
 🎓<span>  学历： 本科</span>
 📑<span>  外语语言能力： 英语CET6</span>
 ✒️<span>  博客： </span><a href='https://www.cnblogs.com/jaycethanks/' target='_blank' class='url'>https://www.cnblogs.com/jaycethanks/</a>
 🏫<span>  院校及专业： 湖北工业大学工程技术学院   |  电气工程及其自动化专业</span>
-📞<span>  联系方式： </span><span style="color:#134857"><u><span>电话(13407135362)</span></u></span><span>  |  微信(手机同号)  |  QQ (1278163849)</span>
-<span>	</span><span>   |  邮箱 (</span><a href='mailto:jaycethanks@outlook.com' target='_blank' class='url'>jaycethanks@outlook.com</a><span>) </span></p><div id="avatar2" style="position:relative">
+📞<span>  联系方式： </span><span style="color:#134857"><u><span>电话(13407135362)</span></u></span><span>  | 微信(手机同号)  |邮箱 (</span><a href='mailto:jaycethanks@outlook.com' target='_blank' class='url'>jaycethanks@outlook.com</a><span>) </span></p><div id="avatar2" style="position:relative">
 <img style="width:8vw;height:auto;margin:0;position:absolute;right:0;top:-15vw" src="https://s3.ax1x.com/2020/12/19/rNoaPe.png">
-</div><hr /><h4><a name="span-stylecolor131824pushpin-技术能力概览span" class="md-header-anchor"></a><span style="color:#131824">📌<span> 技术能力概览：</span></span></h4><ul><li><span>熟悉JavaScript, HTML, CSS 基本技术，能够较快建立静态页面，理解并运用数据分离，Web语义化，和HTML5 技术。</span></li><li><span>较熟悉数据驱动视图框架Vue, 并能够使用周边生态框架，如vue-router，Vuex 等进行开发工作</span></li><li><span>熟悉常用的js工具库，如moment.js ，lodash等, 有elementUI ,vant, iview，等流行视图框架使用经验，并具有快速轻型框架的学习使用能力。</span></li><li><span>能使用预处理语言sass，less 编写可维护的样式表。</span></li><li><span>能使用Azure简单设计UI原型。</span></li><li><span>熟悉常用的前端构建工具，webpack， 具有一定模块化开发意识。</span></li><li><span>了解HTTP协议。</span></li><li><span>有服务端nodejs 测试经验。</span></li><li><span>能写简单sql，能简单操作数据库。</span></li><li><span>对Linux 有一定了解， 能够在Linux 下进行开发工作。</span></li><li><span>有英文阅读的习惯，常年保持记单词的习惯，能够阅读源纯英文文档，能够借助Github社区，Google，Stackoverflow 解决实际问题。</span></li><li><span>有博客记录的习惯，有总结，保持不断主动学习的意识。</span></li></ul><hr /><h4><a name="span-stylecolor131824pushpin--工作经历永高股份有限公司----软件开发员----201907--------至今span" class="md-header-anchor"></a><span style="color:#131824">📌<span>  工作经历：永高股份有限公司  |  软件开发员  |  2019/07 —— 至今</span></span></h4><ol start='' ><li><p><strong><span>广告分布</span></strong></p><ul><li><span>背景：应公司市场部门需求开发的全国广告点分布情况</span></li><li><span>成果：色差渲染全国省级，市级广告分布密度和统计数据，自动渲染周围指定范围内广告标记点并支持条件过滤，点击具体广告点显示该坐标广告点列表。可点击自动跳转到高德地图，生成导航路径。</span></li><li><span>技术与任务：使用技术栈以Vue, axios, moment.js ,高德开放， 百度开放，云之家开放等。负责产品的UI 设计，逻辑设计架构等全部前端工作。</span></li></ul></li><li><p><strong><span>预约排队管理系统</span></strong></p><ul><li><span>背景：公司在全国分布厂区，厂区内车辆管理繁琐，不高效甚至引发安全隐患。急需一套切实可行的预约排队管理方案。</span></li><li><span>成果：设计构建完成一套登录管理系统，区分管理员和运输员，管理员又下级区分多个不同身份。 依据身份鉴权，不同身份有不同操作权限和操作界面。 运输员可以进行远程装车或者卸货预约申请，查看当前队列位置，以及预计等待时常，管理员可以进行申请审批，叫号，驳回等操作，以及厂区内车辆调度工作，叫号短信通知等。</span></li><li><span>技术与任务： 使用技术栈以Vue 为主，工具库和插件有vant, moment.js, vuex, vue-router，nodejs 等。负责产品的UI设计，逻辑设计架构，后端逻辑测试等全部前端工作。</span></li></ul></li><li><p><strong><span>基于Echart 的厂区设备传感器设备可视化</span></strong></p><ul><li><span>背景： 顺应公司智能化工厂的发展战略，公司基于vue-admin-element 构建了一套厂区设备传感监控平台。</span></li><li><span>成果：构建并设计了数据监控控制台。包括车间温湿度，物料熔体温度曲线，设备转速等十多个传感器数据指标</span></li><li><span>技术与任务：和后端对接，基于Echart 和 vue-admin-element 后台管理系统，负责数据的可视化展示。</span></li></ul></li><li><p><strong><span>装箱模型渲染</span></strong></p><ul><li><span>背景：为了最大化利用厂区物料在仓库和车辆内的堆存空间，方便厂区工作人员装车和进仓做到可见可得。</span></li><li><span>成果：成功对接后端算法工程师，基于Three.js 为核心技术的，对接后端贪心算法计算的数据结果和指标。对数据和指标进行动态的渲染。可视化物料的堆存规则。</span></li><li><span>技术：以Three.js 为核心技术。</span></li></ul></li><li><p><strong><span>AR墙体管道走线</span></strong></p><ul><li><span>背景：19年台风导致厂区很多墙体的电线管道，水管管道爆裂，抢修工作人员因为年限久远，没有图纸参考，维检困难。所以公司想构建厂区管线地图，因为该项目属于实验性项目，因为开发量大，维护人员不足，最后没有上线运行。开发也是只是做了很小一个demo，但是证明了可行性。</span></li><li><span>成果： 成功构建了墙体管道demo，实现了AR探查</span></li><li><span>技术与任务： 基于Three.js 构建空间墙体管线demo，实现AR体验。</span></li></ul></li><li><p><strong><span>wordpress 博客搭建</span></strong></p><ul><li><span>背景： 实验项目，公司建立了文化圈，重点期望构建一整套社区交互平台，丰富公司文化交际，以及构建公司人才画像系统，后因为技术框架限制较大，没有继续维护。</span></li><li><span>成果： 初步构建了集合 “博客”，“贴吧”，“相册” ，等前端模块，能够正常使用。基于echart 构建了前端人才画像展示页，但是由于没有数据源，该项目断尾。</span></li><li><span>技术与任务： 基于php，echart，Semantic-UI，jQuery。</span></li></ul></li><li><p><strong><span>等...</span></strong></p></li></ol><hr /><h4><a name="pushpin-自我评价" class="md-header-anchor"></a>📌<span> ​自我评价</span></h4><ul><li><p><strong><span>职业定位清晰明确：</span></strong></p><p><span>未来，一定是一个性能过剩的时代，前端作为一个人机交互的核心环节。一定有着巨大的发展空间和潜力。我的目标是，涉猎全栈，偏重前端，若干年后成为前端领域专家。</span></p></li><li><p><strong><span>工作的态度认真：</span></strong></p><p><span>追求高效完成工作，认真负责，是我的做事风格。</span></p></li><li><p><strong><span>保持面向未来的思考能力：</span></strong><span> </span></p><p><span>关注业界发展趋势，思考社会发展走向，我认为是一个成年人应当具备的素质能力。个人的发展，必须顺应时代的发展。这是过去几十年中国发展下的中国个人发展的铁证。面向未来，务实当下也是我的自我培养准则</span></p></li><li><p><strong><span>注重自我提升</span></strong><span>：</span></p><p><span>不断学习，不断提升自我，上进，注重未来发展，不拘泥于当下。</span></p></li></ul><hr /><h4><a name="pushpin-工作期望" class="md-header-anchor"></a>📌<span> ​工作期望：</span></h4><ul><li><span>能够接触到很多大牛，能够学习到很多技术。</span></li><li><span>企业文化不拘泥于传统，不形式主义。</span></li></ul><hr /><h4><a name="pushpin-相关证书" class="md-header-anchor"></a>📌<span> ​相关证书：</span></h4><ul><li><span>红帽RHCE认证</span></li><li><span>大学生全国英语竞赛三等奖</span></li><li><span>CET6</span></li><li><a href='[https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFDLAST2020&amp;filename=CXJL202003126&amp;v=b37wpUdgdrxeNm19RWdHC%25mmd2FnSi20iNudolAaUrSuMa4aoWGU0YUDxOyf3XrX9b8m9](https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFDLAST2020&amp;filename=CXJL202003126&amp;v=b37wpUdgdrxeNm19RWdHC%mmd2FnSi20iNudolAaUrSuMa4aoWGU0YUDxOyf3XrX9b8m9)'><span>知网期刊：[1]孙中毅.基于LiFi的物联网设备网络接入点方案研究[J].信息记录材料,2020,21(03):195-196.</span></a></li></ul><p>&nbsp;</p><p>&nbsp;</p></div>
+</div><hr /><h4><a name="span-stylecolor131824pushpin-技术能力概览span" class="md-header-anchor"></a><span style="color:#131824">📌<span> 技术能力概览：</span></span></h4><ul><li><span>熟悉JavaScript, HTML, CSS 基本技术，能够较快建立静态页面，理解并运用数据分离，Web语义化，和HTML5 技术。</span></li><li><span>较熟悉前端框架Vue, 并能够使用周边生态框架，如Router，Vuex 等进行开发工作</span></li><li><span>有vuetify, bootstrap , elementUI ,vant, iview，等流行视图框架使用经验，并具有快速轻型框架的学习使用能力。</span></li><li><span>能使用预处理语言scss编写可维护的样式表。</span></li><li><span>能使用Azure , Adobe XD简单设计UI原型。</span></li><li><span>有微信小程序开发项目经历。</span></li><li><span>了解HTTP协议。</span></li><li><span>有服务端node.js - express 开发测试服务经验。</span></li><li><span>能写简单sql，能简单操作数据库。</span></li><li><span>对Linux 有一定了解， 能够在Linux 下进行开发工作。</span></li><li><span>有英文阅读的习惯，常年保持记单词的习惯，能够阅读源纯英文文档，能够借助Github社区，Google，Stackoverflow 解决实际问题。</span></li><li><span>有博客记录的习惯，有总结，保持不断主动学习的意识。</span></li></ul><hr /><h4><a name="span-stylecolor131824pushpin--工作经历永高股份有限公司----软件开发员----201907--------至今span" class="md-header-anchor"></a><span style="color:#131824">📌<span>  工作经历：永高股份有限公司  |  软件开发员  |  2019/07 —— 至今</span></span></h4><ol start='' ><li><p><strong><span>广告分布</span></strong></p><ul><li><span>背景：应公司市场部门需求开发的全国广告点分布情况</span></li><li><span>任务：色差渲染全国省级，市级广告分布密度和统计数据，自动渲染周围指定范围内广告标记点并支持条件过滤，点击具体广告点显示该坐标广告点列表。可点击自动跳转到高德地图，生成导航路径。</span></li><li><span>技术：使用技术栈以Vue, axios, moment.js ,高德开放， 百度开放，云之家开放等。负责产品的UI 设计，逻辑设计架构等全部前端工作，以及后台node测试服务器开发工作。</span></li></ul></li><li><p><strong><span>预约排队管理系统</span></strong></p><ul><li><span>背景：公司在全国分布厂区，厂区内车辆管理繁琐，不高效甚至引发安全隐患。急需一套切实可行的预约排队管理方案。</span></li><li><span>任务：设计构建完成一套登录管理系统，依据身份鉴权，不同身份有不同操作权限和操作界面。 运输员可以进行远程装车或者卸货预约申请，查看当前队列位置，以及预计等待时常，管理员可以进行申请审批，叫号，驳回等操作，以及厂区内车辆调度工作，叫号短信通知等。</span></li><li><span>技术： 使用技术栈以Vue 为主，工具库和插件有vant, moment.js, vuex, vue-router，nodejs 等。负责产品的UI设计，逻辑设计架构等全部前端工作 ，以及后台node测试服务器开发工作。</span></li></ul></li><li><p><strong><span>基于Echart 的厂区Iot物联网传感器设备数据采集可视化</span></strong></p><ul><li><span>背景： 顺应公司智能化工厂的发展战略，公司基于vue-admin-element 构建了一套厂区设备传感监控平台。</span></li><li><span>任务：构建并设计了数据监控控制台。包括车间温湿度，物料熔体温度曲线，设备转速等传感器数据指标。</span></li><li><span>技术：和后端对接，基于Echart 和 vue-admin-element 后台管理系统，负责数据的前端可视化展示。</span></li></ul></li><li><p><strong><span>公司物流跟踪系统</span></strong></p><ul><li><p><span>背景：提高公司物流车辆的把控和管理能力，做到物流的直观查询，追踪。 </span></p></li><li><p><span>任务：</span></p><ul><li><span>小程序： 物流司机用户侧，查看自己所负责的物流运输单，能够发起运输， 上报地理位置信息，生成路径规划，更新当前所在位置等能力， 主要目的是物流数据的采集端。</span></li><li><span>云之家轻应用： 扫码查验小程序生成的发运码，标记对应运输单为发运状态。 </span></li><li><span>PC端：gps 总控平台，是一个轻量的后台管理平台。 1. 能够管理小程序用户注册，绑定公众号，绑定公司EAS相关信息； 管理平台普通管理员注册；2. 以及查看当前所在厂区物流发运列表，查看单据对应明细，生成地图路径信息，以及当前车辆所在位置。； 3. 运输单据的过滤查询 ；4： 当前厂区历史运输数据统计信息。 </span></li></ul></li><li><p><span>技术：微信小程序，腾讯web js API ,  Echarts 数据统计，Vue ， Vuetify ,  高德地图api。</span></p></li></ul></li><li><p><strong><span>装箱模型渲染</span></strong></p><ul><li><span>背景：为了最大化利用厂区物料在仓库和车辆内的堆存空间，方便厂区工作人员装车和进仓做到可见可得。</span></li><li><span>任务：成功对接后端算法工程师，基于Three.js 为核心技术的，对接后端贪心算法计算的数据结果和指标。对数据和指标进行动态的渲染。可视化物料的堆存规则。</span></li><li><span>技术：以Vue , Three.js 为核心技术。</span></li></ul></li><li><p><strong><span>AR墙体管道走线</span></strong></p><ul><li><span>背景：19年台风导致厂区很多墙体的电线管道，水管管道爆裂，抢修工作人员因为年限久远，没有图纸参考，维检困难。所以公司想构建厂区管线地图，因为该项目属于实验性项目，因为开发量大，模型采集复杂，维护人员不足，所以开发做了很小一个demo，但是证明了可行性。</span><a href='https://jaycethanks.github.io/3/index.html'><span>demo地址</span></a></li><li><span>任务： 成功构建了墙体管道demo，实现了AR探查</span></li><li><span>技术： 基于Three.js 构建空间墙体管线demo，实现AR体验。</span></li></ul></li><li><p><strong><span>wordpress 博客搭建</span></strong></p><ul><li><span>背景： 实验项目，公司建立了文化圈，重点期望构建一整套社区交互平台，丰富公司文化交际，以及构建公司人才画像系统，后因为技术框架限制较大，没有继续维护。</span></li><li><span>成果： 初步构建了集合 “博客”，“贴吧”，“相册” ，等前端模块，能够正常使用。基于echart 构建了前端人才画像展示页，但是由于没有数据源，该项目断尾。</span></li><li><span>技术： 基于php，echart，Semantic-UI，jQuery。</span></li></ul></li><li><p><strong><span>等...</span></strong></p></li></ol><hr /><h4><a name="pushpin-自我评价" class="md-header-anchor"></a>📌<span> ​自我评价</span></h4><ul><li><p><strong><span>职业定位清晰明确：</span></strong></p><p><span>未来，一定是一个性能过剩的时代，前端作为一个人机交互的核心环节。一定有着巨大的发展空间和潜力。我的目标是，涉猎全栈，偏重前端，若干年后成为前端领域专家。</span></p></li><li><p><strong><span>工作的态度认真：</span></strong></p><p><span>认真负责，注重细节，是我的做事风格。</span></p></li><li><p><strong><span>保持面向未来的思考能力：</span></strong><span> </span></p><p><span>关注业界发展趋势，思考社会发展走向，我认为是一个成年人应当具备的素质能力。个人的发展，必须顺应时代的发展。这是过去几十年中国发展下的中国个人发展的铁证。面向未来，务实当下也是我的自我培养准则</span></p></li><li><p><strong><span>注重自我提升</span></strong><span>：</span></p><p><span>不断学习，不断提升自我，上进，注重未来发展，不拘泥于当下。</span></p></li></ul><hr /><h4><a name="pushpin-工作期望" class="md-header-anchor"></a>📌<span> ​工作期望：</span></h4><ul><li><span>能够接触到很多大牛，能够学习到很多技术。</span></li><li><span>企业文化不拘泥于传统，形式主义。</span></li><li><span>工作之外，有自己学习的时间。</span></li></ul><hr /><h4><a name="pushpin-相关证书" class="md-header-anchor"></a>📌<span> ​相关证书：</span></h4><ul><li><span>红帽RHCE认证</span></li><li><span>大学生全国英语竞赛三等奖 </span></li><li><span>CET6</span></li><li><a href='[https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFDLAST2020&amp;filename=CXJL202003126&amp;v=b37wpUdgdrxeNm19RWdHC%25mmd2FnSi20iNudolAaUrSuMa4aoWGU0YUDxOyf3XrX9b8m9](https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFDLAST2020&amp;filename=CXJL202003126&amp;v=b37wpUdgdrxeNm19RWdHC%mmd2FnSi20iNudolAaUrSuMa4aoWGU0YUDxOyf3XrX9b8m9)'><span>知网期刊：[1]孙中毅.基于LiFi的物联网设备网络接入点方案研究[J].信息记录材料,2020,21(03):195-196.</span></a></li></ul><p>&nbsp;</p><p>&nbsp;</p></div>
 </body>
 </html>
