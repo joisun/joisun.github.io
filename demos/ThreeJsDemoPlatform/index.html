@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>InitModule</title>
+    <script type="text/javascript" charset="UTF-8" src="./lib/three.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./lib/OrbitControls.js"></script>
+
+    <script type="text/javascript" charset="UTF-8" src="./initialization.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./papare.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./draw.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="./lib/util/Stats.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="entryNode">
+        <script>
+            (function() {
+                //your page initialization here
+                init();
+            })()
+        </script>
+    </div>
+</body>
+
+</html>
