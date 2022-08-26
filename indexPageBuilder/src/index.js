@@ -1,5 +1,3 @@
-import md from './README.md'
-console.log(md)
-
-// import Remark from 'remark-html'
-// import RemarkHTML from 'remark-html'
+import md from './MENU.md'
+const root = document.querySelector('#root')
+root.innerHTML = md;

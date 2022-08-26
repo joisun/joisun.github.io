@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log('<h1>Hello world</h1> <h2>Content1. first</h2> <ol start="2"> <li>second</li> <li>third</li> </ol> ')})();
