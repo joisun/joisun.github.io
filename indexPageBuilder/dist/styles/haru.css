@@ -70,34 +70,16 @@ h6 {
 
 #root h2 {
   font-size: 28px;
-  border-radius: 0.5em;
+  /* border-radius: 0.2em; */
   width: fit-content;
-}
-
-#root h2::before {
-  content: 'H2';
-  border-radius: 0.3em;
-  font-size: 0.8em;
-  padding: 3px 7px;
-  margin-right: 15px;
-  background-color: var(--main-color);
-  color: white;
+  color: var(--main-color);
 }
 
 #root h3 {
   font-size: 24px;
-  border-radius: 0.3em;
-  width: fit-content;
-}
+  color: var(--main-color);
 
-#root h3::before {
-  content: 'H3';
-  color: white;
-  font-size: 0.8em;
-  background-color: var(--main-color);
-  border-radius: 0.3em;
-  margin-right: 12px;
-  padding: 4px 7px;
+  width: fit-content;
 }
 
 #root h4 {
