@@ -1,0 +1,37 @@
+{
+  "name": "jaycethanks.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaycethanks/jaycethanks.github.io.git"
+  },
+  "author": "jayce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaycethanks/jaycethanks.github.io/issues"
+  },
+  "homepage": "https://github.com/jaycethanks/jaycethanks.github.io#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.10",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-loader": "^4.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "remark-html": "^15.0.1",
+    "remark-loader": "^5.0.0",
+    "sass": "^1.54.5",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "showdown": "^2.1.0"
+  }
+}
