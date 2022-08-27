@@ -8,7 +8,8 @@
 
 #### 玩转 CSS
 
-🥱 太懒了， 还没有写 ~
+1. [动态颜色背景](https://jaycethanks.github.io/demos/CssTrick/DynamicBackgroundColor)
+2. [Happy New Year 2022 透视文字](https://jaycethanks.github.io/demos/CssTrick/HappyNewYear2022)
 
 #### 其它
 
