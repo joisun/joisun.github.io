@@ -1,0 +1,45 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #040204;
+  position: relative;
+}
+#title{
+  position:absolute;
+  z-index:1001;
+  font-size:12px;
+  text-align:center;
+  top:0;
+  color:#fff
+}
+.bg {
+  /*  initial  */
+  width: 240px;
+  height: 240px;
+  overflow: hidden;
+  /*   border:1px solid #fff; */
+  background-image: url("https://i.pinimg.com/originals/1b/5a/a7/1b5aa76e0a74d054756c7bf3cf9306c0.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+#wrapper {
+  content: "";
+  color: red;
+/*   border: 1px solid red; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1000;
+  /*  initial  */
+  backdrop-filter: blur(16px);
+}

@@ -17,6 +17,7 @@
 2. [下拉刷新 Demo](https://jaycethanks.github.io/demos/DragPullRefresh)
 3. [中国传统色 Picker, 一个还不错的颜色选择器](https://jaycethanks.github.io/demos/ChinaTradColorPick/)
 4. [一个基于 ThreeJS 实现的 VR Demo](https://jaycethanks.github.io/demos/ThreejsPipesMapping/)
+5. [[CSS] Scale+Blur 可爱的眼睛](https://jaycethanks.github.io/demos/scale-blur/)
 
 #
 
