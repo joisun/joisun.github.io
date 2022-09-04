@@ -1,5 +1,5 @@
 #! /bin/bash
 
-rm -rf ./index* ./assets ./styles
+rm -rf ./index*js ./index*html ./assets ./styles
 
 
