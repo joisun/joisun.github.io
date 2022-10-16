@@ -8,8 +8,8 @@
 
 #### 玩转 CSS
 
-1. [动态导航指示demo Dynamic Indicator](https://jaycethanks.github.io/demos/DynamicNavgatorIndicator/) 
-2. [视差Hover Parallax Card](https://jaycethanks.github.io/demos/CssTrick/CssTrick/ParallaxCard)
+1. [动态导航指示 demo Dynamic Indicator](https://jaycethanks.github.io/demos/DynamicNavgatorIndicator/)
+2. [视差 Hover Parallax Card](https://jaycethanks.github.io/demos/CssTrick/ParallaxCard)
 3. [动态颜色背景](https://jaycethanks.github.io/demos/CssTrick/DynamicBackgroundColor)
 4. [Happy New Year 2022 透视文字](https://jaycethanks.github.io/demos/CssTrick/HappyNewYear2022)
 5. [[CSS] Scale+Blur 可爱的眼睛](https://jaycethanks.github.io/demos/CssTrick/scale-blur/)
