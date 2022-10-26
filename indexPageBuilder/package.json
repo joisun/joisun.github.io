@@ -8,6 +8,11 @@
     "webpack": "webpack --watch",
     "commit": "git-cz"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaycethanks/jaycethanks.github.io.git"
