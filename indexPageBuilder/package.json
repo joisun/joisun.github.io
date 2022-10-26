@@ -8,11 +8,6 @@
     "webpack": "webpack --watch",
     "commit": "git-cz"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaycethanks/jaycethanks.github.io.git"
@@ -25,11 +20,14 @@
   "homepage": "https://github.com/jaycethanks/jaycethanks.github.io#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.18.10",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "html-loader": "^4.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
     "remark-html": "^15.0.1",
     "remark-loader": "^5.0.0",
     "sass": "^1.54.5",
@@ -39,8 +37,6 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "commitizen": "^4.2.5",
-    "cz-conventional-changelog": "^3.3.0",
     "showdown": "^2.1.0"
   }
 }
