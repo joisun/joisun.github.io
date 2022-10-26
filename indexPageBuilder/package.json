@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --watch"
+    "webpack": "webpack --watch",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "repository": {
     "type": "git",
@@ -33,6 +39,8 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
     "showdown": "^2.1.0"
   }
 }
