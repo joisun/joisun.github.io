@@ -2,7 +2,7 @@
 
 ## About Me
 
-![journey](https://jaycethanks.github.io/journey.png)
+![img](https://jaycethanks.github.io/journey.png)
 
 乘风而行，踏浪而游，于海之尽头，于山之峰巅。
 
