@@ -10,18 +10,19 @@
 
 #### 玩转 CSS
 
-1. [Expanding Cards 折叠卡Banner](https://jaycethanks.github.io/demos/expanding-cards)
-2. [Progress Steps 步进条](https://jaycethanks.github.io/demos/progress-steps) 
-3. [DuangDuang](https://jaycethanks.github.io/demos/CssTrick/DuangDuang/)
-4. [联动 Tab Pages](https://jaycethanks.github.io/demos/CssTrick/interactiveCarousel/)
-5. [鼠标视差效果 Parallax Page](https://jaycethanks.github.io/demos/CssTrick/ParallaxPage)
-6. [动态导航指示 demo Dynamic Indicator](https://jaycethanks.github.io/demos/DynamicNavgatorIndicator/)
-7. [视差 Hover Parallax Card](https://jaycethanks.github.io/demos/CssTrick/ParallaxCard)
-8. [动态颜色背景](https://jaycethanks.github.io/demos/CssTrick/DynamicBackgroundColor)
-9. [Happy New Year 2022 透视文字](https://jaycethanks.github.io/demos/CssTrick/HappyNewYear2022)
-10. [[CSS] Scale+Blur 可爱的眼睛](https://jaycethanks.github.io/demos/CssTrick/scale-blur/)
-11. [PureCSS 实现文章阅读更多+折叠效果](https://jaycethanks.github.io/demos/CssTrick/purecss-continue-reading)
-12. [一个 Css Filter 预览器的实现](https://jaycethanks.github.io/demos/CssTrick/filtercomparison)
+1. [Scroll Animation 视口元素检测案例](https://jaycethanks.github.io/demos/scroll-animation)
+2. [Expanding Cards 折叠卡Banner](https://jaycethanks.github.io/demos/expanding-cards)
+3. [Progress Steps 步进条](https://jaycethanks.github.io/demos/progress-steps) 
+4. [DuangDuang](https://jaycethanks.github.io/demos/CssTrick/DuangDuang/)
+5. [联动 Tab Pages](https://jaycethanks.github.io/demos/CssTrick/interactiveCarousel/)
+6. [鼠标视差效果 Parallax Page](https://jaycethanks.github.io/demos/CssTrick/ParallaxPage)
+7. [动态导航指示 demo Dynamic Indicator](https://jaycethanks.github.io/demos/DynamicNavgatorIndicator/)
+8. [视差 Hover Parallax Card](https://jaycethanks.github.io/demos/CssTrick/ParallaxCard)
+9. [动态颜色背景](https://jaycethanks.github.io/demos/CssTrick/DynamicBackgroundColor)
+10. [Happy New Year 2022 透视文字](https://jaycethanks.github.io/demos/CssTrick/HappyNewYear2022)
+11. [[CSS] Scale+Blur 可爱的眼睛](https://jaycethanks.github.io/demos/CssTrick/scale-blur/)
+12. [PureCSS 实现文章阅读更多+折叠效果](https://jaycethanks.github.io/demos/CssTrick/purecss-continue-reading)
+13. [一个 Css Filter 预览器的实现](https://jaycethanks.github.io/demos/CssTrick/filtercomparison)
 
 #### 其它
 

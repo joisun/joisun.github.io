@@ -1,0 +1,587 @@
+:root {
+  --main-color: rgba(128, 30, 255, 1);
+  --shadow-color: rgb(178, 80, 255);
+  --transplate-color: rgba(128, 30, 255, 0.1);
+  --dark-color: rgb(70, 18, 137);
+  --light-color: rgb(248, 242, 255);
+  --font-color: rgb(12, 12, 12);
+  --base-font: -apple-system, BlinkMacSystemFont, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, serif;
+  --title-font: -apple-system, BlinkMacSystemFont, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, serif;
+  --blockquote-font: -apple-system, BlinkMacSystemFont, segoe ui, Helvetica, Arial, sans-serif, apple color emoji, segoe ui emoji, serif;
+  --blockquote-color: rgba(117, 117, 117, 0.9);
+  --monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+
+  /* --background : url("https://cdn.jsdelivr.net/gh/LSTM-Kirigaya/KImage/Img/2k.jpg"); */
+
+  --quote-title-font-size: 0.9em;
+  --quote-tag-font-size: 1.1em;
+
+  /* typora GUI config */
+  --sidebar-font-color: black;
+  --main-panel-font-color: black;
+}
+
+/* global setting */
+body {
+  font-family: 'Roboto Slab', 'SimHei', serif;
+  /* background-color: rgb(255, 255, 255); */
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: initial;
+}
+
+/* write is a wrapper of writable region */
+#root {
+  position: static;
+  /* width: 90%; */
+  max-width: 1000px;
+  min-height: calc(100vh - 6rem);
+  min-width: calc(100vw - 45rem);
+  line-height: 1.6;
+  transform: none;
+  height: auto;
+  caret-color: var(--main-color);
+}
+
+#root h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--font-color);
+  font-family: var(--title-font);
+  font-weight: 800;
+  line-height: 1.5;
+  margin: 0 0 1em 0;
+}
+
+#root h1 {
+  font-size: 40px;
+  margin: 0 0 1em 0;
+  line-height: 1.3;
+  border-bottom: solid 3px var(--main-color);
+  width: fit-content;
+}
+
+#root h2 {
+  font-size: 28px;
+  /* border-radius: 0.2em; */
+  width: fit-content;
+  color: var(--main-color);
+}
+
+#root h3 {
+  font-size: 24px;
+  color: var(--main-color);
+
+  width: fit-content;
+}
+
+#root h4 {
+  font-size: 20px;
+}
+
+#root h5 {
+  font-size: 16px;
+}
+
+#root hr {
+  width: 60%;
+  text-align: center;
+  border-bottom: solid 1.8px var(--main-color);
+  margin: 4.5em auto;
+}
+
+#root img {
+  border-radius: 1.5em !important;
+  box-shadow: 0 0 10px 3px rgba(134, 136, 137, 0.8);
+  transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+}
+
+/* #root img:hover {
+    box-shadow: 0 0 10px 5px var(--shadow-color);
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+} */
+
+#root blockquote {
+  padding: 10px 10px;
+  font-size: var(--quote-title-font-size);
+  color: var(--blockquote-color);
+  border-left: 6px solid var(--main-color);
+  background: var(--light-color);
+  border-radius: 0.5em;
+  font-family: var(--blockquote-font);
+  line-height: 35px;
+}
+
+#root blockquote span {
+  word-break: break-all;
+}
+
+#root blockquote h1 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  border-bottom: none;
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#root blockquote h1::before {
+  content: 'Tips';
+  background-color: var(--main-color);
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+}
+
+#root blockquote h2 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#root blockquote h2::before {
+  content: 'Warning';
+  background-color: rgb(207, 210, 16);
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+}
+
+#root blockquote h3 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#root blockquote h3::before {
+  content: 'Error';
+  background-color: rgb(224, 66, 66);
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+  float: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: baseline;
+  border-width: 0;
+}
+
+#root blockquote h4 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#root blockquote h4::before {
+  content: 'Remind';
+  background-color: var(--shadow-color);
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+  float: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: baseline;
+  border-width: 0;
+}
+
+#root blockquote h5 {
+  font-weight: 200;
+  font-size: var(--quote-tag-font-size);
+  font-family: var(--base-font);
+  line-height: 35px;
+}
+
+#root blockquote h5::before {
+  content: 'Remind';
+  background-color: var(--shadow-color);
+  font-family: var(--title-font);
+  color: white;
+  font-size: var(--quote-tag-font-size);
+  border-radius: 0.3em;
+  padding: 3px 7px;
+  margin-right: 15px;
+  float: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  vertical-align: baseline;
+  border-width: 0;
+}
+
+/* code block */
+#root pre {
+  padding: 1rem 0.8rem 1rem;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  /* box-shadow: 0 0 6px 2px rgba(151, 151, 151, 0.9); */
+  /* border-top: rgb(51, 51, 51) solid 35px; */
+  /* border-top: rgb(244, 244, 244) solid 35px; */
+  background-color: rgb(244, 244, 244);
+}
+
+#root pre {
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  border-radius: 0.7em;
+  font-family: var(--monospace) !important;
+}
+
+/* inline code */
+p code {
+  margin: 0 2px;
+  padding: 4px 6px;
+  color: #666363;
+  white-space: pre-wrap;
+  background: var(--light-color);
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+pre code {
+  color: #171717;
+}
+
+#root blockquote code {
+  margin: 0 2px;
+  padding: 4px 6px;
+  color: white;
+  white-space: pre-wrap;
+  background: var(--main-color);
+  border-radius: 8px;
+}
+
+kbd,
+samp,
+tt,
+var {
+  font-family: var(--monospace) !important;
+}
+
+/* YAML */
+pre {
+  font-size: 0.8rem;
+  min-height: 0.8rem;
+  white-space: pre-wrap;
+  background: var(--main-color);
+  display: block;
+  overflow-x: hidden;
+  padding: 15px;
+  font-family: var(--monospace);
+  border-radius: 1.2em;
+  color: white;
+  caret-color: white;
+}
+
+/* Math */
+#math-inline-preview-content .MathJax {
+  color: white !important;
+}
+
+/* table */
+#root table {
+  width: 95%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: var(--monospace);
+  margin: 20px;
+}
+#root table td,
+table th {
+  border: 1px solid transparent;
+  color: rgb(18, 18, 18);
+  height: 30px;
+  padding: 10px;
+  border-radius: 0.5em;
+  transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+}
+#root table td {
+  font-family: var(--title-font);
+}
+#root table thead th {
+  background-color: var(--shadow-color);
+  font-size: 20px;
+  color: white;
+  font-weight: bolder;
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+table tr:nth-child(odd) {
+  background: white;
+}
+table tr:nth-child(even) {
+  background: var(--light-color);
+}
+table td:hover {
+  background-color: var(--shadow-color) !important;
+  color: white !important;
+  box-shadow: 0 0 10px 5px var(--shadow-color);
+  transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+}
+
+/* main element consisting of your text */
+p {
+  color: var(--font-color);
+  margin: 0 0 2em 0;
+  font-weight: 500;
+  line-height: 1.6;
+  font-family: var(--base-font);
+}
+
+a {
+  color: var(--main-color);
+  font-weight: 500;
+  text-decoration: none;
+  text-decoration-style: none;
+  cursor: pointer;
+  padding: 0 3px 0 3px;
+}
+
+/* list */
+
+ol,
+ul {
+  padding-left: 2em;
+  line-height: 2;
+}
+
+ul > li > ul > li {
+  list-style-type: circle;
+}
+
+ul > li > ul > li > ul > li {
+  list-style-type: square;
+}
+
+iframe {
+  border-radius: 1.2em;
+  box-shadow: 0 0 8px 3px rgba(181, 181, 182, 0.9);
+}
+
+/* bg color when text is selected */
+div::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+div::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+div::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+blockquote::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+blockquote::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+blockquote::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+p::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+p::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+p::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+label::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+label::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+label::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+span::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+span::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+span::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h1::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h1::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h1::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h2::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h2::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h2::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h3::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h3::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h3::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h4::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h4::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h4::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h5::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h5::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+h5::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+strong::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+strong::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+strong::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+li::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+li::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+li::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
+code::selection {
+  background: var(--main-color);
+  color: white;
+}
+
+code::-moz-selection {
+  background: var(--main-color);
+  color: white;
+}
+
+code::-webkit-selection {
+  background: var(--main-color);
+  color: white;
+}
