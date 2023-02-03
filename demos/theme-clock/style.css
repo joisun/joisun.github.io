@@ -1,0 +1,56 @@
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --second-pointer-color: #f00;
+  --minute-pointer-color: rgb(26, 26, 26);
+  --hour-pointer-color: rgb(81, 81, 81);
+}
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+  --second-pointer-color: #f00;
+  --minute-pointer-color: rgb(193, 193, 193);
+  --hour-pointer-color: rgb(255, 255, 255);
+}
+
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
+}
+body,
+html {
+  position: relative;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+.container {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.digital-original {
+  border: 1px solid red;
+  left: calc(100vw - 20rem);
+  top: 0;
+}
+
+/* material clock START */
+.material-original {
+  left: 0;
+  top: 100%;
+  transform: translate(0, -100%) scale(0.2);
+}
+.center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition: all 0.5s ease-in-out;
+}
