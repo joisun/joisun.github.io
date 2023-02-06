@@ -10,19 +10,21 @@
 
 #### 玩转 CSS
 
-1. [Scroll Animation 视口元素检测案例](https://jaycethanks.github.io/demos/scroll-animation)
-2. [Expanding Cards 折叠卡Banner](https://jaycethanks.github.io/demos/expanding-cards)
-3. [Progress Steps 步进条](https://jaycethanks.github.io/demos/progress-steps) 
-4. [DuangDuang](https://jaycethanks.github.io/demos/CssTrick/DuangDuang/)
-5. [联动 Tab Pages](https://jaycethanks.github.io/demos/CssTrick/interactiveCarousel/)
-6. [鼠标视差效果 Parallax Page](https://jaycethanks.github.io/demos/CssTrick/ParallaxPage)
-7. [动态导航指示 demo Dynamic Indicator](https://jaycethanks.github.io/demos/DynamicNavgatorIndicator/)
-8. [视差 Hover Parallax Card](https://jaycethanks.github.io/demos/CssTrick/ParallaxCard)
-9. [动态颜色背景](https://jaycethanks.github.io/demos/CssTrick/DynamicBackgroundColor)
-10. [Happy New Year 2022 透视文字](https://jaycethanks.github.io/demos/CssTrick/HappyNewYear2022)
-11. [[CSS] Scale+Blur 可爱的眼睛](https://jaycethanks.github.io/demos/CssTrick/scale-blur/)
-12. [PureCSS 实现文章阅读更多+折叠效果](https://jaycethanks.github.io/demos/CssTrick/purecss-continue-reading)
-13. [一个 Css Filter 预览器的实现](https://jaycethanks.github.io/demos/CssTrick/filtercomparison)
+1. [Theme clock 主题时钟](https://jaycethanks.github.io/demos/theme-clock)
+2. [Flipper Board 数字翻牌器](https://jaycethanks.github.io/demos/theme-clock)
+3. [Scroll Animation 视口元素检测案例](https://jaycethanks.github.io/demos/scroll-animation)
+4. [Expanding Cards 折叠卡Banner](https://jaycethanks.github.io/demos/expanding-cards)
+5. [Progress Steps 步进条](https://jaycethanks.github.io/demos/progress-steps) 
+6. [DuangDuang](https://jaycethanks.github.io/demos/CssTrick/DuangDuang/)
+7. [联动 Tab Pages](https://jaycethanks.github.io/demos/CssTrick/interactiveCarousel/)
+8. [鼠标视差效果 Parallax Page](https://jaycethanks.github.io/demos/CssTrick/ParallaxPage)
+9. [动态导航指示 demo Dynamic Indicator](https://jaycethanks.github.io/demos/DynamicNavgatorIndicator/)
+10. [视差 Hover Parallax Card](https://jaycethanks.github.io/demos/CssTrick/ParallaxCard)
+11. [动态颜色背景](https://jaycethanks.github.io/demos/CssTrick/DynamicBackgroundColor)
+12. [Happy New Year 2022 透视文字](https://jaycethanks.github.io/demos/CssTrick/HappyNewYear2022)
+13. [[CSS] Scale+Blur 可爱的眼睛](https://jaycethanks.github.io/demos/CssTrick/scale-blur/)
+14. [PureCSS 实现文章阅读更多+折叠效果](https://jaycethanks.github.io/demos/CssTrick/purecss-continue-reading)
+15. [一个 Css Filter 预览器的实现](https://jaycethanks.github.io/demos/CssTrick/filtercomparison)
 
 #### 其它
 
