@@ -25,15 +25,14 @@ function update() {
     let _second = (360 / 60) * second;
     let _minute = (360 / 60) * minute;
     let _hour = (360 / 60) * hour;
-    MeterailClock.secondPointer.style.transform = `rotate(${_second}deg)`;
-    MeterailClock.minutePointer.style.transform = `rotate(${_minute}deg)`;
-    MeterailClock.hourPointer.style.transform = `rotate(${_hour}deg)`;
+    MeterailClock.secondPointer.style.transform = `rotate(${360 + _second}deg)`;
+    MeterailClock.minutePointer.style.transform = `rotate(${360 + _minute}deg)`;
+    MeterailClock.hourPointer.style.transform = `rotate(${360 + _hour}deg)`;
 
-    // const hoursForClock = hour % 12 //24 => 12小时制
-    // const ampm = hour >= 12 ? 'PM' : 'AM'
+    const hoursForClock = hour % 12; //24 => 12小时制
+    const ampm = hour >= 12 ? "PM" : "AM";
     const date = new Date().toDateString();
-    TextClock.time.textContent = new Date().toLocaleTimeString();
-    // hoursForClock + ' : ' + minute + ' ' + ampm
+    TextClock.time.textContent = hoursForClock + " : " + minute + " " + ampm;
     TextClock.date.textContent = date;
 
     // digital clock
