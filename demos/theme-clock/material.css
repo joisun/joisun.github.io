@@ -10,7 +10,7 @@
   transform-origin: bottom;
   border-radius: 10px;
   bottom: 0;
-  transition: all 0.3s ease-in-out;
+  /* transition: all 0.3s ease-in-out; */
 }
 .hour-pointer {
   height: 4rem;

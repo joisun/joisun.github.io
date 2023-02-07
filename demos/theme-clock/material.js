@@ -29,10 +29,11 @@ function update() {
     MeterailClock.minutePointer.style.transform = `rotate(${360 + _minute}deg)`;
     MeterailClock.hourPointer.style.transform = `rotate(${360 + _hour}deg)`;
 
-    const hoursForClock = hour % 12; //24 => 12小时制
-    const ampm = hour >= 12 ? "PM" : "AM";
-    const date = new Date().toDateString();
-    TextClock.time.textContent = hoursForClock + " : " + minute + " " + ampm;
+    // const hoursForClock = hour % 12; //24 => 12小时制
+    // const ampm = hour >= 12 ? "PM" : "AM";
+    const date = time.toDateString();
+    TextClock.time.textContent = time.toLocaleTimeString();
+    // TextClock.time.textContent = hoursForClock + " : " + minute + " " + ampm;
     TextClock.date.textContent = date;
 
     // digital clock
