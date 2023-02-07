@@ -27,7 +27,7 @@ function update() {
             flip.classList.remove("down");
             flip.children[0].className = flip.children[0].className.replace(/number\d/, `number${time[index]}`);
             // 动画完成以后就可以移除动画类名 所以在 600 < x < 1000 以内都是可以的
-          }, 650);
+          }, 590);
         }
       } else {
         digital.classList.add(`number${time[index]}`);
