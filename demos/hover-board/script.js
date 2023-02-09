@@ -1,9 +1,9 @@
 const container =
   document.querySelector('.container')
-const SQUARE_SIZE = 10
+const SQUARE_SIZE = 16
 const BOARD_HEIGHT = container.offsetHeight
 const BOARD_WIDTH = container.offsetWidth
-const GAP = 5
+const GAP = 1
 const COL = Math.floor(
   BOARD_WIDTH / (SQUARE_SIZE + GAP)
 )
@@ -40,7 +40,7 @@ function attachEvent(square) {
   })
   square.addEventListener('mouseout', () => {
     square.style.backgroundColor = '#1a1a1a'
-    square.style.transition = 'all 1.5s ease-out'
+    square.style.transition = 'all 2.5s ease-out'
   })
 }
 const squares =
