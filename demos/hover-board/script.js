@@ -31,16 +31,19 @@ style.textContent = `
 
 function attachEvent(square) {
   square.addEventListener('mouseover', () => {
-    square.style.backgroundColor =
+    let color =
       '#' +
       Math.floor(Math.random() * 0xffffff)
         .toString(16)
         .padEnd(6, '0')
+    square.style.backgroundColor = color
     square.style.transition = 'unset'
+    square.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
   })
   square.addEventListener('mouseout', () => {
     square.style.backgroundColor = '#1a1a1a'
     square.style.transition = 'all 2.5s ease-out'
+    square.style.boxShadow = `0 0 2px #1a1a1a, 0 0 10px #1a1a1a`
   })
 }
 const squares =
