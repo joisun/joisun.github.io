@@ -189,7 +189,6 @@ function init() {
   const dialog = new Dialog(okDialog)
   dialog.instance.showModal()
   function okDialog(nickName: string) {
-    console.log('TRIGGER')
     const ws = new WebSocket(
       'wss://jaycethanks-github-io-8zio.vercel.app:8080'
     )
@@ -231,6 +230,8 @@ function init() {
 
     ws.onclose = function (evt) {
       console.log('Connection closed.')
+      okDialog(nickName)
+      console.log('重新连接中...')
     }
   }
 }

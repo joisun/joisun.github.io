@@ -141,7 +141,6 @@ function init() {
     const dialog = new Dialog(okDialog);
     dialog.instance.showModal();
     function okDialog(nickName) {
-        console.log('TRIGGER');
         const ws = new WebSocket('wss://jaycethanks-github-io-8zio.vercel.app:8080');
         const tw = new TalkWindow(ws, {
             nickname: nickName,
@@ -174,6 +173,8 @@ function init() {
         };
         ws.onclose = function (evt) {
             console.log('Connection closed.');
+            okDialog(nickName);
+            console.log('重新连接中...');
         };
     }
 }
