@@ -5,18 +5,25 @@ class TalkWindow {
             var d, timestamp;
             timestamp = $('<div>').addClass('timestamp');
             d = new Date();
-            timestamp.text(d.getHours() + ':' + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes());
+            timestamp.text(d.getHours() +
+                ':' +
+                (d.getMinutes() < 10 ? '0' : '') +
+                d.getMinutes());
             return timestamp.appendTo($('.message:last'));
         };
         this.updateScrollbar = () => {
-            return this.messages.mCustomScrollbar('update').mCustomScrollbar('scrollTo', 'bottom', {
+            return this.messages
+                .mCustomScrollbar('update')
+                .mCustomScrollbar('scrollTo', 'bottom', {
                 scrollInertia: 10,
                 timeout: 0,
             });
         };
         this.setMessage = (msgText, nickName) => {
             var typing;
-            typing = $('<div>').append('<span>').addClass('message typing');
+            typing = $('<div>')
+                .append('<span>')
+                .addClass('message typing');
             typing.appendTo($('.mCSB_container'));
             this.updateScrollbar();
             var name, msg, msgBox;
@@ -41,14 +48,20 @@ class TalkWindow {
             }
             msg = $('<div>').addClass('message');
             msg.text(msgText);
-            msg.addClass('personal').appendTo($('.mCSB_container'));
+            msg
+                .addClass('personal')
+                .appendTo($('.mCSB_container'));
             this.setDate();
             this.updateScrollbar();
             $('.action-box-input').val(null);
             $('.message.personal.typing').remove();
             this.isTyping = true;
             clearTimeout(this.uctTimer);
-            this.ws.send(JSON.stringify({ type: 2, msg: msgText, me: this.me }));
+            this.ws.send(JSON.stringify({
+                type: 2,
+                msg: msgText,
+                me: this.me,
+            }));
         };
         this.me = me;
         this.ws = ws;
@@ -75,7 +88,8 @@ class TalkWindow {
             }, 100);
         });
         $(window).on('keydown', (e) => {
-            if ($('.action-box-input').is(':focus') && e.key === 'Enter') {
+            if ($('.action-box-input').is(':focus') &&
+                e.key === 'Enter') {
                 this.insertMessage($('.action-box-input').val());
                 return false;
             }
@@ -85,8 +99,12 @@ class TalkWindow {
         });
         $('.action-box-input').on('keydown', (e) => {
             var typing;
-            if ($('.action-box-input') !== undefined && this.isTyping === true && e.which !== 13) {
-                typing = $('<div>').append('<span>').addClass('message personal typing');
+            if ($('.action-box-input') !== undefined &&
+                this.isTyping === true &&
+                e.which !== 13) {
+                typing = $('<div>')
+                    .append('<span>')
+                    .addClass('message personal typing');
                 typing.appendTo($('.mCSB_container'));
                 this.updateScrollbar();
                 this.isTyping = false;
@@ -105,7 +123,8 @@ class Dialog {
     constructor(cb) {
         this.instance = $('#favDialog').get(0);
         $(document).keyup((e) => {
-            if ($('#nickname').is(':focus') && e.keyCode == 13) {
+            if ($('#nickname').is(':focus') &&
+                e.keyCode == 13) {
                 // Do something
                 if ($('#nickname').val().trim().length > 10) {
                     alert('太长了，短一点！');
@@ -123,11 +142,17 @@ function init() {
     dialog.instance.showModal();
     function okDialog(nickName) {
         console.log('TRIGGER');
-        const ws = new WebSocket('ws://192.168.3.46:4567');
-        const tw = new TalkWindow(ws, { nickname: nickName, id: window.uuid.v4() });
+        const ws = new WebSocket('ws://81.69.243.70:4567');
+        const tw = new TalkWindow(ws, {
+            nickname: nickName,
+            id: window.uuid.v4(),
+        });
         // const tw = new TalkWindow(ws, { nickname: nickName, id: crypto.randomUUID() });
         ws.onopen = function (evt) {
-            ws.send(JSON.stringify({ type: 1, nickname: nickName }));
+            ws.send(JSON.stringify({
+                type: 1,
+                nickname: nickName,
+            }));
             console.log('Connection open ...');
         };
         ws.onmessage = function (evt) {
