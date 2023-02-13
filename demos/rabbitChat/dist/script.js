@@ -142,7 +142,7 @@ function init() {
     dialog.instance.showModal();
     function okDialog(nickName) {
         console.log('TRIGGER');
-        const ws = new WebSocket('wss://81.69.243.70:4567');
+        const ws = new WebSocket('wss://jaycethanks-github-io-8zio.vercel.app:8080');
         const tw = new TalkWindow(ws, {
             nickname: nickName,
             id: window.uuid.v4(),
