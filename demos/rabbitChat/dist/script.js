@@ -141,7 +141,7 @@ function init() {
     const dialog = new Dialog(okDialog);
     dialog.instance.showModal();
     function okDialog(nickName) {
-        const ws = new WebSocket('wss://jaycethanks-github-io-8zio.vercel.app:8080');
+        const ws = new WebSocket('wss://jaycethanks-github-io-8zio.vercel.app');
         const tw = new TalkWindow(ws, {
             nickname: nickName,
             id: window.uuid.v4(),
