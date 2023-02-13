@@ -29,10 +29,11 @@
 
 #### 其它
 
-1. [ThreeJS Demo 创建模板](https://jaycethanks.github.io/demos/ThreeJsDemoPlatform/)
-2. [下拉刷新 Demo](https://jaycethanks.github.io/demos/DragPullRefresh)
-3. [中国传统色 Picker, 一个还不错的颜色选择器](https://jaycethanks.github.io/demos/ChinaTradColorPick/)
-4. [一个基于 ThreeJS 实现的 VR Demo](https://jaycethanks.github.io/demos/ThreejsPipesMapping/)
+1. [社兔 Share-Talk](https://jaycethanks.github.io/demos/rabbitChat/dist)
+2. [ThreeJS Demo 创建模板](https://jaycethanks.github.io/demos/ThreeJsDemoPlatform/)
+3. [下拉刷新 Demo](https://jaycethanks.github.io/demos/DragPullRefresh)
+4. [中国传统色 Picker, 一个还不错的颜色选择器](https://jaycethanks.github.io/demos/ChinaTradColorPick/)
+5. [一个基于 ThreeJS 实现的 VR Demo](https://jaycethanks.github.io/demos/ThreejsPipesMapping/)
 
 #
 
