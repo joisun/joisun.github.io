@@ -190,7 +190,8 @@ function init() {
   dialog.instance.showModal()
   function okDialog(nickName: string) {
     const ws = new WebSocket(
-      'wss://jaycethanks-github-io-8zio.vercel.app:8080'
+      'wss://jayce.asia/ws'
+      // 'wss://jaycethanks-github-io-8zio.vercel.app:8080'
     )
 
     const tw = new TalkWindow(ws, {
