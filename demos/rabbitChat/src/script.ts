@@ -51,6 +51,7 @@ class TalkWindow {
         return false
       }
     })
+
     $('.action-box-submit').on('click', () => {
       this.insertMessage(
         $('.action-box-input').val()

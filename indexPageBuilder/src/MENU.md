@@ -27,6 +27,11 @@
 15. [PureCSS 实现文章阅读更多+折叠效果](https://jaycethanks.github.io/demos/CssTrick/purecss-continue-reading)
 16. [一个 Css Filter 预览器的实现](https://jaycethanks.github.io/demos/CssTrick/filtercomparison)
 
+#### Demos
+
+1. [Switcher](https://jaycethanks.github.io/demos/cuscomponents/switcher/dist)
+1. [Hidden Search Widget](https://jaycethanks.github.io/demos/cuscomponents/hidden-search-widget/dist)
+
 #### 其它
 
 1. [社兔 Share-Talk](https://jaycethanks.github.io/demos/rabbitChat/dist)
@@ -34,6 +39,8 @@
 3. [下拉刷新 Demo](https://jaycethanks.github.io/demos/DragPullRefresh)
 4. [中国传统色 Picker, 一个还不错的颜色选择器](https://jaycethanks.github.io/demos/ChinaTradColorPick/)
 5. [一个基于 ThreeJS 实现的 VR Demo](https://jaycethanks.github.io/demos/ThreejsPipesMapping/)
+
+#### 更多 https://codepen.io/Jaycethanks/pens/
 
 #
 
