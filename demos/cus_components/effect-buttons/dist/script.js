@@ -15,6 +15,25 @@ rippleBtn.addEventListener('click', (e) => {
     rippleBtn.appendChild(ripple);
     setTimeout(() => {
         rippleBtn.removeChild(ripple);
-    }, 300);
-    clickHandler();
+    }, 600);
+});
+document.addEventListener('click', (e) => {
+    const { nodeName } = e.target;
+    nodeName === 'BUTTON' && clickHandler();
+});
+const b = document.querySelector('.cus-btn--particle');
+b.addEventListener('click', (e) => {
+    const particles = [];
+    const particleCount = 20;
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particles.push(particle);
+        b.appendChild(particle);
+    }
+    particles.forEach(function (particle) {
+        setTimeout(function () {
+            particle.remove();
+        }, 1000);
+    });
 });
