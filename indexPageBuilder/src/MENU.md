@@ -14,8 +14,8 @@
 2. [Theme clock 主题时钟](https://jaycethanks.github.io/demos/theme-clock)
 3. [Flipper Board 数字翻牌器](https://jaycethanks.github.io/demos/fliper-board)
 4. [Scroll Animation 视口元素检测案例](https://jaycethanks.github.io/demos/scroll-animation)
-5. [Expanding Cards 折叠卡Banner](https://jaycethanks.github.io/demos/expanding-cards)
-6. [Progress Steps 步进条](https://jaycethanks.github.io/demos/progress-steps) 
+5. [Expanding Cards 折叠卡 Banner](https://jaycethanks.github.io/demos/expanding-cards)
+6. [Progress Steps 步进条](https://jaycethanks.github.io/demos/progress-steps)
 7. [DuangDuang](https://jaycethanks.github.io/demos/CssTrick/DuangDuang/)
 8. [联动 Tab Pages](https://jaycethanks.github.io/demos/CssTrick/interactiveCarousel/)
 9. [鼠标视差效果 Parallax Page](https://jaycethanks.github.io/demos/CssTrick/ParallaxPage)
@@ -29,9 +29,9 @@
 
 #### Demos
 
-1. [Button Effects](https://jaycethanks.github.io/demos/cuscomponents/effect-buttons/dist)
-1. [Switcher](https://jaycethanks.github.io/demos/cuscomponents/switcher/dist)
-1. [Hidden Search Widget](https://jaycethanks.github.io/demos/cuscomponents/hidden-search-widget/dist)
+1. [Button Effects](https://jaycethanks.github.io/demos/cus_components/effect-buttons/dist)
+1. [Switcher](https://jaycethanks.github.io/demos/cus_components/switcher/dist)
+1. [Hidden Search Widget](https://jaycethanks.github.io/demos/cus_components/hidden-search-widget/dist)
 
 #### 其它
 
