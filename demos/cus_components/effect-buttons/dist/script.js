@@ -21,15 +21,15 @@ document.addEventListener('click', (e) => {
     const { nodeName } = e.target;
     nodeName === 'BUTTON' && clickHandler();
 });
-const b = document.querySelector('.cus-btn--particle');
-b.addEventListener('click', (e) => {
+const particleBtn = document.querySelector('.cus-btn--particle');
+particleBtn.addEventListener('click', (e) => {
     const particles = [];
     const particleCount = 20;
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
         particles.push(particle);
-        b.appendChild(particle);
+        particleBtn.appendChild(particle);
     }
     particles.forEach(function (particle) {
         setTimeout(function () {
