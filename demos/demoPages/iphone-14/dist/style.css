@@ -1,0 +1,23 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  body .container {
+    width: 50rem;
+    height: 40rem;
+    border: 1px solid; }
+    body .container .colornav {
+      width: 100%;
+      height: 4rem; }
+      body .container .colornav ul li {
+        display: inline-block; }
+        body .container .colornav ul li label {
+          width: 2rem;
+          height: 2rem;
+          background-color: red; }
+    body .container .iphone14-wrapper {
+      width: 100%;
+      height: calc(100% - 4rem);
+      background-color: #efefef; }

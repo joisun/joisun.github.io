@@ -12,12 +12,13 @@ body {
     display: flex;
     justify-content: flex-start;
     gap: 1rem; }
-    body .emojis div {
+    body .emojis .empty {
       text-align: center;
       line-height: 6rem;
       font-size: 4rem;
       width: 6rem;
-      height: 6rem; }
+      height: 6rem;
+      border: 1px solid red; }
   body .container {
     margin-top: 2rem;
     display: grid;
