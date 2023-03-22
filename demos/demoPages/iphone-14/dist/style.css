@@ -9,15 +9,123 @@ body {
     height: 40rem;
     border: 1px solid; }
     body .container .colornav {
-      width: 100%;
-      height: 4rem; }
+      padding-right: 1rem;
+      height: 4rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; }
+      body .container .colornav .indicator {
+        font-family: SF Pro SC, SF Pro Text, SF Pro Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;
+        margin-right: 1rem;
+        font-size: 1.4rem;
+        font-weight: 600; }
       body .container .colornav ul li {
         display: inline-block; }
+        body .container .colornav ul li input {
+          display: none; }
         body .container .colornav ul li label {
+          margin-left: 0.5rem;
+          display: inline-block;
           width: 2rem;
           height: 2rem;
-          background-color: red; }
+          border-radius: 50%;
+          outline: 2px solid #0071e3;
+          text-align: center; }
+          body .container .colornav ul li label span {
+            display: inline-block;
+            margin-top: 0.1rem;
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%; }
+          body .container .colornav ul li label .color-switch-midnight {
+            background-color: #31353a; }
+          body .container .colornav ul li label .color-switch-starlight {
+            background-color: #f0ece8; }
+          body .container .colornav ul li label .color-switch-red {
+            background-color: #e11c2a; }
+          body .container .colornav ul li label .color-switch-blue {
+            background-color: #c0cfde; }
+          body .container .colornav ul li label .color-switch-purple {
+            background-color: #e7d7e9; }
+          body .container .colornav ul li label .color-switch-yellow {
+            background-color: #f5e488; }
     body .container .iphone14-wrapper {
+      position: relative;
       width: 100%;
       height: calc(100% - 4rem);
-      background-color: #efefef; }
+      background-color: #efefef;
+      transform: matrix(1.04327, -0.464493, 0.464493, 1.04327, -768.586, 130.872); }
+      body .container .iphone14-wrapper figure {
+        width: 336px;
+        height: 620px;
+        background-size: 336px 620px;
+        background-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        position: absolute;
+        transform-origin: 0 0; }
+        body .container .iphone14-wrapper figure.color-midnight {
+          left: 8px;
+          top: 233px;
+          background-image: url(./assets/black.jpg);
+          -webkit-mask-image: url(./assets/midnight_mask.png);
+          -webkit-mask-size: 346px 366px;
+          width: 346px;
+          height: 366px;
+          background-size: 346px 366px;
+          transform: matrix(0.51, 0, 0, 0.51, 0, 0);
+          opacity: 1; }
+        body .container .iphone14-wrapper figure.color-starlight {
+          left: 111px;
+          top: 118px;
+          width: 338px;
+          height: 380px;
+          background-size: 338px 380px;
+          background-image: url(./assets/white.jpg);
+          -webkit-mask-image: url(./assets/starlight_mask.png);
+          -webkit-mask-size: 338px 380px;
+          transform: matrix(0.52, 0, 0, 0.52, 0, 0);
+          opacity: 1; }
+        body .container .iphone14-wrapper figure.color-red {
+          left: 259px;
+          top: 49px;
+          width: 294px;
+          height: 370px;
+          background-size: 294px 370px;
+          background-image: url(./assets/red.jpg);
+          -webkit-mask-image: url(./assets/red_mask.png);
+          -webkit-mask-size: 294px 370px;
+          transform: matrix(0.54, 0, 0, 0.54, 0, 0);
+          opacity: 1; }
+        body .container .iphone14-wrapper figure.color-blue {
+          left: 437px;
+          top: 22px;
+          width: 240px;
+          height: 376px;
+          background-size: 240px 376px;
+          background-image: url(./assets/lightblue.jpg);
+          -webkit-mask-image: url(./assets/blue_mask.png);
+          -webkit-mask-size: 240px 376px;
+          transform: matrix(0.573, 0, 0, 0.573, 0, 0);
+          opacity: 1; }
+        body .container .iphone14-wrapper figure.color-purple {
+          left: 629px;
+          top: 18px;
+          width: 218px;
+          height: 404px;
+          background-size: 218px 404px;
+          background-image: url(./assets/lightpurple.jpg);
+          -webkit-mask-image: url(./assets/purple_mask.png);
+          -webkit-mask-size: 218px 404px;
+          transform: matrix(0.67, 0, 0, 0.67, 0, 0);
+          opacity: 1; }
+        body .container .iphone14-wrapper figure.color-yellow {
+          left: 781px;
+          top: 68px;
+          width: 280px;
+          height: 402px;
+          background-size: 280px 402px;
+          background-image: url(./assets/yellow.jpg);
+          -webkit-mask-image: url(./assets/yellow_mask.png);
+          -webkit-mask-size: 280px 402px;
+          transform: matrix(0.86, 0, 0, 0.86, 0, 0);
+          opacity: 1; }
