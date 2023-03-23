@@ -38,6 +38,7 @@
 
 #### Pages
 
+1. [DvD Screensaver](https://jaycethanks.github.io/demos/demoPages/dvd-screensaver/dist)
 1. [iphone14 Product Page](https://jaycethanks.github.io/demos/demoPages/iphone-14/dist)
 
 #### 其它
