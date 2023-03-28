@@ -36,7 +36,7 @@ function init() {
         angle: 90,
         length: getRandomInt(10, 20), // 树根长度
     };
-    step(startBranch);
+    const pendingTasks = [];
     function step(b) {
         drawBranch(b);
         const end = getEndPoint(b);
@@ -47,7 +47,7 @@ function init() {
                 angle: b.angle + 10,
                 length: getRandomInt(30, 40),
             };
-            step(rightBranch);
+            pendingTasks.push(() => step(rightBranch)); // 保存绘制步骤,不立即执行
         }
         if (Math.random() > 0.5) {
             const leftBranch = {
@@ -55,8 +55,29 @@ function init() {
                 angle: b.angle - 10,
                 length: getRandomInt(30, 40),
             };
-            step(leftBranch);
+            pendingTasks.push(() => step(leftBranch));
         }
     }
+    step(startBranch);
+    // 动画支持
+    function frame() {
+        // pendingTasks 中函数的执行,即 step 的执行, step的执行又会修改pendingTasks, 所以这里,pendingTasks需要浅拷贝一份
+        const tasks = [...pendingTasks];
+        pendingTasks.length = 0; //清零
+        console.log("[tasks]: ", tasks);
+        tasks.forEach((fn) => fn());
+    }
+    let frameCount = 0;
+    function startFrame() {
+        requestAnimationFrame(() => {
+            frameCount += 1;
+            if (frameCount % 3 === 0) {
+                // 通过控制绘制帧率间隔以达到动画效果
+                frame();
+            }
+            startFrame();
+        });
+    }
+    // startFrame();
 }
 init();
