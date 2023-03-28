@@ -45,31 +45,32 @@ function drawBranch(b: Branch) {
 
 function init() {
   const startBranch = {
-    startPoint: { x: width / 2, y: 0 }, // 起始点
-    angle: 90, // 树生成起点角度
+    startPoint: { x: 0, y: height / 3 }, // 起始点
+    angle: 0, // 树生成起点角度
     length: getRandomInt(10, 20), // 树根长度
   };
 
   const pendingTasks: Function[] = [];
-  function step(b: Branch) {
+  function step(b: Branch, depth = 0) {
+    // 为了生成的树效果更加茂盛,引入了depth值
     drawBranch(b);
     const end = getEndPoint(b);
     // 有0.5的概率是否生成左/右分支
-    if (Math.random() > 0.5) {
+    if (depth < 4 || Math.random() > 0.5) {
       const rightBranch: Branch = {
         startPoint: end,
         angle: b.angle + 10,
-        length: getRandomInt(30, 40),
+        length: getRandomInt(5, 10),
       };
-      pendingTasks.push(() => step(rightBranch)); // 保存绘制步骤,不立即执行
+      pendingTasks.push(() => step(rightBranch, depth + 1)); // 保存绘制步骤,不立即执行
     }
-    if (Math.random() > 0.5) {
+    if (depth < 4 || Math.random() > 0.5) {
       const leftBranch: Branch = {
         startPoint: end,
         angle: b.angle - 10,
-        length: getRandomInt(30, 40),
+        length: getRandomInt(5, 10),
       };
-      pendingTasks.push(() => step(leftBranch));
+      pendingTasks.push(() => step(leftBranch, depth + 1));
     }
   }
   step(startBranch);
@@ -79,6 +80,7 @@ function init() {
     // pendingTasks 中函数的执行,即 step 的执行, step的执行又会修改pendingTasks, 所以这里,pendingTasks需要浅拷贝一份
     const tasks = [...pendingTasks];
     pendingTasks.length = 0; //清零
+    if (tasks.length === 0) return;
     console.log("[tasks]: ", tasks);
     tasks.forEach((fn) => fn());
   }
@@ -93,7 +95,7 @@ function init() {
       startFrame();
     });
   }
-  // startFrame();
+  startFrame();
 }
 
 init();
