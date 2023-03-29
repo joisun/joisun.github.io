@@ -30,12 +30,7 @@ function lineTo(p1, p2) {
 function drawBranch(b) {
     lineTo(b.startPoint, getEndPoint(b));
 }
-function init() {
-    const startBranch = {
-        startPoint: { x: 0, y: height / 3 },
-        angle: 0,
-        length: getRandomInt(10, 20), // 树根长度
-    };
+function init(startBranch) {
     const pendingTasks = [];
     function step(b, depth = 0) {
         // 为了生成的树效果更加茂盛,引入了depth值
@@ -83,4 +78,15 @@ function init() {
     }
     startFrame();
 }
-init();
+const leftStartBranch = {
+    startPoint: { x: 0, y: height * Math.random() },
+    angle: 0,
+    length: getRandomInt(5, 10), // 树根长度
+};
+const rightStartBranch = {
+    startPoint: { x: width, y: height * Math.random() },
+    angle: 180,
+    length: getRandomInt(5, 10), // 树根长度
+};
+init(leftStartBranch);
+init(rightStartBranch);
