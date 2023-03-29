@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Share Talk 社兔</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="chat">
+      <div class="chat-title">
+        <p>Share Talk(社兔)</p>
+      </div>
+      <div class="messages">
+        <div class="messages-content"></div>
+      </div>
+      <div class="action-box">
+        <textarea
+          class="action-box-input"
+          type="text"
+          placeholder="Type message..."
+        ></textarea>
+        <button
+          class="action-box-submit"
+          type="submit"
+        >
+          <i class="fa fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <p id="info-text"></p>
+    <dialog id="favDialog">
+      <label for="昵称">昵称</label>
+      <input type="text" id="nickname" />
+      <p>回车就好啦：）</p>
+    </dialog>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="uuid.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('https://w.wallhaven.cc/full/4l/wallhaven-4lpxyy.jpg');
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: 120%;
+  background-position: center center;
+  overflow: hidden;
+  /* animation: loop 1s infinite linear; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: brightness(0.7);
+  z-index: 1000;
+  /* position: absolute; */
+}
+.box {
+  perspective: 700px;
+  transform-style: preserve-3d;
+  position: relative;
+  /* border: 1px solid blue; */
+  min-width: 800px;
+  width: 30vw;
+  height: 80vh;
+}
+.inner-box {
+  perspective: 1300px;
+  transform-style: preserve-3d;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+  /* border: 2px solid red; */
+  /* background-image: linear-gradient(
+      to top right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) calc(50% - 1.5px),
+      green 50%,
+      rgba(0, 0, 0, 0) calc(50% + 1.5px),
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) calc(50% - 1.5px),
+      green 50%,
+      rgba(0, 0, 0, 0) calc(50% + 1.5px),
+      rgba(0, 0, 0, 0) 100%
+    ); */
+}
+
+.inner-box {
+  transition: 0.1s all ease;
+}
+.inner-box:before {
+  position: absolute;
+  content: '';
+  width: 100px;
+  height: 100px;
+  /* border: 4px solid yellow; */
+  transform: translateZ(-200px);
+}
+.inner-box:after {
+  position: absolute;
+  pointer-events: none;
+  content: '';
+  width: 200px;
+  height: 200px;
+  /* border: 1px solid powderblue; */
+  transform: translateZ(100px);
+}
+
+.items-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: start; */
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.box-item {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+}
+.box-item img {
+  vertical-align: middle;
+}
+.box-item:hover {
+  transform: scale(1.5) translateZ(50px);
+  transition: 0.15s all ease;
+  cursor: pointer;
+}

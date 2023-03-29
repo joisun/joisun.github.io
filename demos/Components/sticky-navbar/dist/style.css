@@ -1,0 +1,35 @@
+body {
+  width: 100vw; }
+  body .container {
+    width: 100%;
+    height: auto;
+    border: 1px solid; }
+    body .container header {
+      font-size: 24px;
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+      position: sticky;
+      top: 0;
+      height: 6rem;
+      padding: 0 4rem;
+      background-color: #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0px 2px 2px 2px #d3d3d3;
+      transition: height 0.3s ease; }
+      body .container header ul {
+        display: flex;
+        gap: 4rem; }
+      body .container header.active {
+        height: 4rem; }
+    body .container main {
+      padding: 2rem 4rem;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      margin: 0 auto;
+      width: 80vw;
+      background-color: #ebebeb; }
+    body .container #footer {
+      height: 10rem;
+      background-color: #c0c0c0; }

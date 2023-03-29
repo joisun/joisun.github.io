@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+:root {
+  font-size: 20px;
+  font-family: Helvetica;
+}
+#container {
+  perspective: 30rem;
+}
+
+#container > div {
+  display: block;
+  height: 6rem;
+  font-size: 6rem;
+  overflow: hidden;
+}
+
+#container > div > span {
+  display: block;
+  height: 6rem;
+  /* border: 1px solid; */
+  font-weight: bold;
+  letter-spacing: -0.2rem;
+  text-align: center;
+  transition: 0.3s transform ease-in-out;
+}
+
+#container:hover > div > span {
+  transform: translateY(-100%);
+}
+
+#container > div:nth-child(1) {
+  background-color: rgba(0, 0, 0, 0.02);
+  transform: rotateX(30deg);
+  /* 给容器 #container 加上 perspective 属性，就会有透视效果 */
+}
+#container > div:nth-child(2) {
+  background-color: rgba(0, 0, 0, 0.08);
+  /* 两个间隔元素 rotateX 之后会产生空隙，所以通过 translateY 上移一点 */
+  transform: translateY(-0.5rem) rotateX(-30deg);
+}
+#container > div:nth-child(3) {
+  background-color: rgba(0, 0, 0, 0.02);
+  transform: translateY(-1rem) rotateX(30deg);
+}
+#container > div:nth-child(4) {
+  background-color: rgba(0, 0, 0, 0.08);
+  transform: translateY(-1.5rem) rotateX(-30deg);
+}

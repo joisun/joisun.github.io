@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "node16",
+    "rootDir": "src",
+  }
+}

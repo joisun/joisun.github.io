@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css" />
+    <title>Theme Clock</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="digital.css" />
+    <link rel="stylesheet" href="material.css" />
+  </head>
+  <body>
+    <!-- digital style clock -->
+
+    <div id="digital-style" class="container digital-original center">
+      <div class="digital-clock">
+        <div class="flip hour_ten">
+          <div class="digital front"></div>
+          <div class="digital back"></div>
+        </div>
+        <div class="flip hour_unit">
+          <div class="digital front"></div>
+          <div class="digital back"></div>
+        </div>
+        <div class="colon">
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="flip min_ten">
+          <div class="digital front"></div>
+          <div class="digital back"></div>
+        </div>
+        <div class="flip min_unit">
+          <div class="digital front"></div>
+          <div class="digital back"></div>
+        </div>
+        <div class="colon">
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="flip sec_ten">
+          <div class="digital front"></div>
+          <div class="digital back"></div>
+        </div>
+        <div class="flip sec_unit">
+          <div class="digital front"></div>
+          <div class="digital back"></div>
+        </div>
+      </div>
+      <div class="date-text"></div>
+    </div>
+
+    <!-- material style clock -->
+    <div id="material-style" class="container material-original">
+      <div class="clock">
+        <div class="hour-pointer"></div>
+        <div class="minute-pointer"></div>
+        <div class="second-pointer"></div>
+        <div class="center-dot"></div>
+      </div>
+      <div class="text-clock">
+        <div class="time"></div>
+        <div class="date"></div>
+      </div>
+    </div>
+    <div id="theme-toggle"></div>
+    <script src="script.js"></script>
+    <script src="digital.js"></script>
+    <script src="material.js"></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+/* digital clock START */
+.date-text {
+  margin-top: 2rem;
+  color: var(--flip-card-bg-color);
+}
+.digital-clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.colon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+}
+.colon .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--flip-card-color);
+}
+
+/* 预定义卡片数字 START */
+.flip .number0:before,
+.flip .number0:after {
+  content: "0";
+}
+.flip .number1:before,
+.flip .number1:after {
+  content: "1";
+}
+.flip .number2:before,
+.flip .number2:after {
+  content: "2";
+}
+.flip .number3:before,
+.flip .number3:after {
+  content: "3";
+}
+.flip .number4:before,
+.flip .number4:after {
+  content: "4";
+}
+.flip .number5:before,
+.flip .number5:after {
+  content: "5";
+}
+.flip .number6:before,
+.flip .number6:after {
+  content: "6";
+}
+.flip .number7:before,
+.flip .number7:after {
+  content: "7";
+}
+.flip .number8:before,
+.flip .number8:after {
+  content: "8";
+}
+.flip .number9:before,
+.flip .number9:after {
+  content: "9";
+}
+/* 预定义卡片数字 END */
+
+.flip {
+  width: 6rem;
+  height: 8rem;
+  position: relative;
+  line-height: 8rem;
+  text-align: center;
+  font-size: 4rem;
+  line-height: 8rem;
+}
+
+.flip .digital:before,
+.flip .digital:after {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  left: 0;
+  box-shadow: inset 0 0 2px 0px var(--flip-card-bg-color);
+  color: var(--flip-card-color);
+}
+.flip .digital:before {
+  background-color: var(--flip-card-bg-color);
+  top: 0;
+  bottom: 50%;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--bg-color);
+}
+.flip .digital:after {
+  background-color: var(--flip-card-bg-color);
+  top: 50%;
+  bottom: 0;
+  line-height: 0;
+}
+
+/* 向下翻动 */
+.flip .back:before,
+.flip .front:after {
+  z-index: 1;
+}
+
+.flip .back:after {
+  z-index: 2;
+  transform-origin: 50% 0;
+  transform: perspective(400px) rotate(180deg);
+}
+.flip .front:before {
+  z-index: 3;
+}
+
+.flip.down.go .front:before {
+  transform-origin: 50% 100%;
+  animation: FrontFlipDown 0.6s ease-in-out;
+  backface-visibility: hidden;
+}
+.flip.down.go .back:after {
+  animation: BackFlipDown 0.6s ease-in-out;
+}
+
+@keyframes FrontFlipDown {
+  from {
+    transform: perspective(400px) rotateX(0deg);
+  }
+  to {
+    transform: perspective(400px) rotateX(-180deg);
+  }
+}
+
+@keyframes BackFlipDown {
+  from {
+    transform: perspective(400px) rotateX(180deg);
+  }
+  to {
+    transform: perspective(400px) rotateX(0deg);
+  }
+}

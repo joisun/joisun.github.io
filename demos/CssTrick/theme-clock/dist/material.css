@@ -1,0 +1,54 @@
+/* material clock */
+.clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock div {
+  position: absolute;
+  transform-origin: bottom;
+  border-radius: 10px;
+  bottom: 0;
+  /* transition: all 0.3s ease-in-out; */
+}
+.hour-pointer {
+  height: 4rem;
+  width: 10px;
+  background-color: var(--hour-pointer-color);
+  z-index: 0;
+}
+.minute-pointer {
+  height: 8rem;
+  width: 6px;
+  background-color: var(--minute-pointer-color);
+  z-index: 1;
+}
+.second-pointer {
+  height: 10rem;
+  width: 5px;
+  background-color: var(--second-pointer-color);
+  z-index: 2;
+}
+.center-dot {
+  width: 15px;
+  height: 15px;
+  background-color: var(--second-pointer-color);
+  z-index: 3;
+  transform: translateY(50%);
+}
+.text-clock {
+  position: absolute;
+  margin-top: 26rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.text-clock .time {
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+/* material clock END */

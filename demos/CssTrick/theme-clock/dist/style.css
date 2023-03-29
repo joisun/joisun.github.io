@@ -1,0 +1,67 @@
+:root {
+  --bg-color: rgb(255, 255, 255);
+  --color: rgb(0, 0, 0);
+  --second-pointer-color: #f00;
+  --minute-pointer-color: rgb(223, 223, 223);
+  --hour-pointer-color: rgb(164, 164, 164);
+  --flip-card-bg-color: rgb(29, 29, 29);
+  --flip-card-color: rgb(201, 201, 201);
+  --operator-bg-color: rgb(0, 0, 0);
+}
+html.dark {
+  --bg-color: rgb(16, 16, 16);
+  --color: rgb(149, 149, 149);
+  --second-pointer-color: rgb(128, 0, 0);
+  --minute-pointer-color: rgb(173, 173, 173);
+  --hour-pointer-color: rgb(106, 106, 106);
+  --flip-card-bg-color: rgb(68, 68, 68);
+  --flip-card-color: rgb(149, 149, 149);
+  --operator-bg-color: rgb(255, 255, 255);
+}
+
+body,
+html {
+  position: relative;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+  color: var(--color);
+  background-color: var(--bg-color);
+}
+.container {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+.digital-original {
+  left: calc(100vw - 20rem);
+  top: 0;
+}
+
+/* material clock START */
+.material-original {
+  left: 0;
+  top: 100%;
+  transform: translate(0, -100%) scale(0.2);
+}
+#theme-toggle {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--operator-bg-color);
+  margin: 2rem;
+  border-radius: 50%;
+}
+.center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  transition: all 0.5s ease-in-out;
+}

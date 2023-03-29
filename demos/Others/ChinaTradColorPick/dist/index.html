@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <script src="index.js"></script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg t='1675753130718' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='12765' width='128' height='128'%3E%3Cpath d='M511.047 358.481h-0.007c-8.24-0.007-14.911-6.679-14.926-14.911-0.015-4.74-1.604-116.718-104.832-168.583-7.365-3.704-10.34-12.68-6.635-20.052 3.704-7.365 12.651-10.332 20.052-6.635C524.682 208.586 525.98 338.072 525.98 343.555c-0.007 8.247-6.687 14.926-14.933 14.926z' fill='%23323241' p-id='12766'%3E%3C/path%3E%3Cpath d='M523.827272 298.117948a60.428 102.904 37.503 1 0 125.296521-163.271904 60.428 102.904 37.503 1 0-125.296521 163.271904Z' fill='%2373A846' p-id='12767'%3E%3C/path%3E%3Cpath d='M529.648 316.663c-5.017 0-9.909-2.523-12.731-7.102-24.69-40.111-23.756-89.432 2.443-128.727 9.902-14.853 22.757-27.614 38.194-37.931 6.854-4.579 16.129-2.742 20.716 4.12 4.579 6.861 2.734 16.136-4.12 20.716-12.155 8.116-22.232 18.098-29.94 29.663-19.95 29.918-20.643 65.99-1.859 96.498 4.324 7.022 2.136 16.224-4.885 20.548a14.9 14.9 0 0 1-7.818 2.215z' fill='%23323241' p-id='12768'%3E%3C/path%3E%3Cpath d='M536.547356 320.020483a63.159 113.686 60 1 0 196.909929-113.686 63.159 113.686 60 1 0-196.909929 113.686Z' fill='%2373A846' p-id='12769'%3E%3C/path%3E%3Cpath d='M645.64 205.008c20.443-2.842 29.379 30.245 11.678 38.776-17.701 8.531-81.713 39.773-116.419 72.018-7.136-14.805 23.041-70.523 48.2-90.886s56.541-19.908 56.541-19.908z' fill='%234B7226' p-id='12770'%3E%3C/path%3E%3Cpath d='M536.567 334.958c-0.168 0-0.343 0-0.51-0.007-8.247-0.277-14.7-7.19-14.423-15.429 1.75-51.764 29.539-98.102 74.339-123.973 44.807-25.856 98.831-26.768 144.528-2.384a14.941 14.941 0 0 1 7.897 13.679 148.814 148.814 0 0 1-12.184 54.257c-3.281 7.561-12.06 11.04-19.636 7.78-7.569-3.274-11.054-12.068-7.78-19.636a118.774 118.774 0 0 0 9.049-33.892c-34.57-15.086-73.894-13.016-106.94 6.067-35.809 20.672-58.02 57.721-59.42 99.108-0.278 8.072-6.906 14.43-14.92 14.43z' fill='%23323241' p-id='12771'%3E%3C/path%3E%3Cpath d='M511.998 320.812c-282.528 0-305.275 70.95-272.877 221.689 32.397 150.73 167.74 335.365 272.877 335.365S752.444 693.231 784.841 542.5c7.747-36.042 12.343-67.523 10.989-94.563-1.932-38.609-15.993-68.165-50.329-89.018-42.188-25.622-114.986-38.107-233.503-38.107z' fill='%23FF4E20' p-id='12772'%3E%3C/path%3E%3Cpath d='M257.953 590.676c-23.369-73.069 72.152-120.655 103.416-31.128s19.895 169.107 109.422 267.161c27 27-4.471 50.871-39.166 23.994S300.907 742.594 257.953 590.676z' fill='%23BA3015' p-id='12773'%3E%3C/path%3E%3Cpath d='M477.893 542.493m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12774'%3E%3C/path%3E%3Cpath d='M568.851 593.657m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12775'%3E%3C/path%3E%3Cpath d='M449.469 650.505m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12776'%3E%3C/path%3E%3Cpath d='M403.99 462.905m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12777'%3E%3C/path%3E%3Cpath d='M665.493 502.699m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12778'%3E%3C/path%3E%3Cpath d='M563.166 440.166m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12779'%3E%3C/path%3E%3Cpath d='M654.123 644.82m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12780'%3E%3C/path%3E%3Cpath d='M517.687 775.572m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12781'%3E%3C/path%3E%3Cpath d='M557.481 695.984m-14.933 0a14.933 14.933 0 1 0 29.866 0 14.933 14.933 0 1 0-29.866 0Z' fill='%23BA3015' p-id='12782'%3E%3C/path%3E%3Cpath d='M511.965 892.8c-114.618 0-253.852-190.888-287.438-347.164-9.873-45.908-13.212-78.422-10.828-105.438 0.729-8.203 7.926-14.197 16.188-13.562 8.218 0.722 14.284 7.97 13.562 16.188-2.107 23.902 1.065 53.681 10.274 96.542 30.37 141.283 161.051 323.568 258.242 323.568 97.205 0 227.908-182.284 258.285-323.568 13.934-64.852 17.865-114.669-8.283-147.029-31.617-39.134-108.719-56.591-250.002-56.591-113.808 0-185.602 11.455-225.94 36.057-7.051 4.288-16.239 2.056-20.526-4.98-4.288-7.036-2.064-16.231 4.98-20.526 45.223-27.577 121.953-40.418 241.485-40.418 153.191 0 234.908 20.242 273.241 67.689 33.578 41.57 29.976 98.853 14.241 172.069C765.854 701.911 626.598 892.8 511.965 892.8z' fill='%23323241' p-id='12783'%3E%3C/path%3E%3Cpath d='M739.925 605.406c-1.684 0-3.391-0.292-5.068-0.89-7.758-2.8-11.776-11.36-8.983-19.119 6.453-17.886 11.557-35.489 15.174-52.303 3.405-15.859 5.877-29.582 7.547-41.964 1.91-14.044 2.742-25.98 2.552-36.487-0.146-8.247 6.417-15.05 14.664-15.203h0.277c8.123 0 14.773 6.511 14.926 14.664 0.219 12.046-0.707 25.47-2.822 41.038-1.772 13.147-4.375 27.614-7.948 44.224-3.894 18.127-9.37 37.02-16.268 56.168-2.195 6.08-7.934 9.872-14.051 9.872z m13.533-184.559c-4.82 0-9.552-2.326-12.432-6.635a44.277 44.277 0 0 0-2.304-3.121c-5.17-6.424-4.164-15.83 2.26-21 6.417-5.177 15.816-4.164 21 2.26a73.05 73.05 0 0 1 3.879 5.265c4.579 6.854 2.734 16.129-4.12 20.716a14.91 14.91 0 0 1-8.283 2.515z' fill='%23FFFFFF' p-id='12784'%3E%3C/path%3E%3C/svg%3E"
+      type="image/svg+xml"
+    />
+    <!--     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <title>中国传统色Picker</title>
+  </head>
+
+  <body>
+    <dic id="wrapper">
+      <div id="link">
+        <a href="#xingrenhuang">
+          <div
+            style="
+              background-color: rgb(
+                247,
+                232,
+                170
+              );
+            "
+          >
+            杏仁黄
+          </div>
+        </a>
+        <a href="#dantaohong">
+          <div
+            style="
+              background-color: rgb(
+                240,
+                173,
+                160
+              );
+            "
+          >
+            桃红
+          </div>
+        </a>
+        <a href="#niluolan">
+          <div
+            style="
+              background-color: rgb(36, 116, 181);
+            "
+          >
+            尼罗蓝
+          </div>
+        </a>
+        <a href="#meidielv">
+          <div
+            style="
+              background-color: rgb(18, 170, 156);
+            "
+          >
+            美蝶绿
+          </div>
+        </a>
+        <a href="#yudubai">
+          <div
+            style="
+              background-color: rgb(
+                247,
+                244,
+                237
+              );
+            "
+          >
+            鱼肚白
+          </div>
+        </a>
+      </div>
+      <div id="colorpicker">
+        <div id="search">
+          <input
+            id="searchbox"
+            type="text"
+            placeholder="过滤"
+            value="#f9f4dc"
+          />
+        </div>
+        <div id="rows"></div>
+      </div>
+      <div id="foresee">
+        <span id="colorName">乳白</span>
+        <span id="head">中国传统色</span>
+      </div>
+    </dic>
+    <div id="snackbar">
+      Some text some message..
+    </div>
+
+    <style>
+      html {
+      }
+
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100vw;
+        background-color: #323232;
+        font-family: 'Ma Shan Zheng', cursive;
+      }
+
+      a {
+        text-decoration: none;
+        color: #323232;
+      }
+
+      a:visited {
+        text-decoration: none;
+        color: #323232;
+      }
+
+      #wrapper {
+        display: flex;
+        width: 100vw;
+        height: auto;
+      }
+
+      #link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 10%;
+        height: 100vh;
+      }
+
+      #link div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        line-height: 50px;
+        text-align: center;
+        margin: 5px;
+      }
+
+      #colorpicker {
+        width: 40%;
+        height: 100vh;
+      }
+
+      #search {
+        color: lavenderblush;
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #search input {
+        width: 50%;
+        height: 30px;
+        border: 5px solid #00000099;
+        border-radius: 5px;
+        font-size: 24px;
+      }
+
+      #search input:focus {
+        color: lightseagreen;
+      }
+
+      #rows {
+        overflow-y: scroll;
+        height: 88vh;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #323232;
+        scroll-behavior: smooth !important;
+      }
+
+      .kid {
+        line-height: 80px;
+        text-align: center;
+        margin: 10px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .kid span {
+        position: absolute;
+        bottom: -60px;
+        left: 0;
+        color: #dad4cb;
+        text-align: center;
+        width: 100%;
+      }
+
+      #foresee {
+        width: 50%;
+        height: 100vh;
+        background-color: #f9f4dc;
+        transition: background-color 1s ease-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        flex-direction: column;
+      }
+
+      #head {
+        position: absolute;
+        bottom: 50px;
+        font-size: 50px;
+        filter: invert(100%);
+      }
+
+      #colorName {
+        position: absolute;
+        writing-mode: vertical-lr;
+        font-size: 100px;
+        color: linen;
+        filter: invert(100%);
+      }
+      /* 滚动条 */
+
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        overflow: auto;
+        float: left;
+        margin: 0 10px;
+      }
+      /*定义滚动条轨道 内阴影+圆角*/
+
+      ::-webkit-scrollbar-track {
+        background: transform;
+      }
+      /*定义滑块 内阴影+圆角*/
+
+      ::-webkit-scrollbar-thumb {
+        background: #ffffff82;
+        border-radius: 10px;
+      }
+    </style>
+    <style>
+      #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s,
+          fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @-webkit-keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+
+      @-webkit-keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+    </style>
+
+    <script>
+      // copy hex color
+      function copytext(text) {
+        let input =
+          document.createElement('textarea')
+        input.innerHTML = text
+        document.body.appendChild(input)
+        input.select()
+        var result = document.execCommand('copy')
+        document.body.removeChild(input)
+        return result
+      }
+
+      trigger()
+
+      function trigger() {
+        let node = document.getElementById('rows')
+        for (let i = 0; i < color.length; i++) {
+          let ele = document.createElement('div')
+          ele.style.background = color[i].hex
+          let textspan =
+            document.createElement('span')
+          let text = document.createTextNode(
+            color[i].name
+          )
+          textspan.appendChild(text)
+          ele.append(textspan)
+          // 添加点击事件监听
+          ele.addEventListener(
+            'click',
+            function (e) {
+              let copydata = color[i].hex
+              copytext(copydata)
+              myFunction(copydata)
+              let foreseeE =
+                document.getElementById('foresee')
+              foreseeE.style.backgroundColor =
+                copydata
+              let searchboxE =
+                document.getElementById(
+                  'searchbox'
+                )
+              searchboxE.value = copydata
+              let colorNameE =
+                document.getElementById(
+                  'colorName'
+                )
+              colorNameE.style.color =
+                color[i].hex
+              colorNameE.innerHTML = color[i].name
+              let headE =
+                (document.getElementById(
+                  'head'
+                ).style.color = color[i].hex)
+            }
+          )
+          ele.classList.add('kid')
+          node.appendChild(ele)
+
+          // 添加锚点
+          let linkarr = [
+            'xingrenhuang',
+            'dantaohong',
+            'niluolan',
+            'meidielv',
+            'yudubai',
+          ]
+          linkarr.map((item) => {
+            if (color[i].pinyin == item) {
+              let anchor =
+                document.createElement('i')
+              anchor.id = item
+              node.appendChild(anchor)
+            }
+          })
+        }
+      }
+
+      document
+        .querySelectorAll('a[href^="#"]')
+        .forEach((anchor) => {
+          anchor.addEventListener(
+            'click',
+            function (e) {
+              e.preventDefault()
+
+              document
+                .querySelector(
+                  this.getAttribute('href')
+                )
+                .scrollIntoView({
+                  behavior: 'smooth',
+                })
+            }
+          )
+        })
+
+      // toast
+      function myFunction(copydata) {
+        var x =
+          document.getElementById('snackbar')
+        x.innerHTML =
+          copydata +
+          ' has been copied successfully!'
+        x.className = 'show'
+        setTimeout(function () {
+          x.className = x.className.replace(
+            'show',
+            ''
+          )
+        }, 3000)
+      }
+    </script>
+  </body>
+</html>
