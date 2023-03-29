@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 const  { Title,About,Footer} = getTemplates()
 function appendToMain(content:Buffer){
-  fs.appendFileSync(path.join(__dirname,"./templates/Main.md"),content)
+  fs.appendFileSync(path.join(__dirname,"./templates/Main.md"),content + '\n')
 }
 function clearMainContent(){
   fs.writeFile(path.join(__dirname,"./templates/Main.md"),"",(err)=>{
@@ -18,9 +18,19 @@ function clearMainContent(){
     "文件内容已经清除"
   })
 }
-getBody()
+const bodyContent = getBody()
 
-// clearMainContent()
-// appendToMain(Title);
-// appendToMain(About);
-// appendToMain(Footer);
+
+
+clearMainContent()
+appendToMain(Title);
+appendToMain(About);
+
+bodyContent.forEach(({category,mdlinks})=>{
+  appendToMain(category);
+  mdlinks.forEach(mdlink=>{
+    appendToMain(mdlink);
+  })
+})
+
+appendToMain(Footer);
