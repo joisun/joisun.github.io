@@ -1,0 +1,108 @@
+html {
+  --s: 75px; /* control the size */
+
+  --_c: #0000, #086100 1deg 79deg, #0000 81deg;
+  --g0: conic-gradient(
+    from 140deg at 50% 87.5%,
+    var(--_c)
+  );
+  --g1: conic-gradient(
+    from 140deg at 50% 81.25%,
+    var(--_c)
+  );
+  --g2: conic-gradient(
+    from 140deg at 50% 75%,
+    var(--_c)
+  );
+  --g3: conic-gradient(
+    at 10% 20%,
+    #0000 75%,
+    #ff891b 0
+  );
+  background: var(--g0) 0 calc(var(--s) / -4),
+    var(--g0) var(--s) calc(3 * var(--s) / 4),
+    var(--g1), var(--g1) var(--s) var(--s),
+    var(--g2) 0 calc(var(--s) / 4),
+    var(--g2) var(--s) calc(5 * var(--s) / 4),
+    var(--g3) calc(var(--s) / -10) var(--s),
+    var(--g3) calc(9 * var(--s) / 10)
+      calc(2 * var(--s)),
+    repeating-conic-gradient(
+      from 45deg,
+      #ffffff 0 25%,
+      #ffffff 0 50%
+    );
+  background-size: calc(2 * var(--s))
+    calc(2 * var(--s));
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  .radio {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    // transform-origin: center center;
+    transform: translate(50%, 50%);
+    &.outer {
+      width: 0vmax;
+      height: 0vmax;
+      background-color: #000000a2;
+      backdrop-filter: hue-rotate(45deg);
+      transition: all 1s ease-in-out;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 5%,
+        #000000b5 5%,
+        #000000b5 100%
+      );
+      .inner {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid red;
+        background-color: #ffffff80;
+        backdrop-filter: hue-rotate(-45deg);
+        width: 20vmax;
+        height: 20vmax;
+      }
+      &.active {
+        width: 500vmax;
+        height: 500vmax;
+        // width: 3500vmax;
+        // height: 3500vmax;
+        // background: radial-gradient(
+        //   ellipse at center,
+        //   rgba(0, 0, 0, 0) 0%,
+        //   rgba(0, 0, 0, 0) 25%,
+        //   #000000b5 25%,
+        //   #000000b5 100%
+        // );
+      }
+    }
+  }
+
+  div#switcher-box {
+    padding: 0.9rem;
+    background-color: #000000a1;
+    cursor: pointer;
+    user-select: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
+  }
+}

@@ -8,7 +8,7 @@
 
 ## Content Table
 
-#### 玩转 CSS
+#### Play With CSS
 
 1. [Hover Board 多元素渲染](https://jaycethanks.github.io/demos/hover-board)
 2. [Theme clock 主题时钟](https://jaycethanks.github.io/demos/theme-clock)
@@ -38,11 +38,17 @@
 
 #### Pages
 
-1. [梅花生长](https://jaycethanks.github.io/demos/demoPages/plum-effect/dist)
+1. [iphone14pro-text](https://jaycethanks.github.io/demos/demoPages/iphone14pro-text/dist)
 1. [DvD Screensaver](https://jaycethanks.github.io/demos/demoPages/dvd-screensaver/dist)
 1. [iphone14 Product Page](https://jaycethanks.github.io/demos/demoPages/iphone-14/dist)
 
-#### 其它
+
+
+#### Generate Arts
+
+1. [梅花生长](https://jaycethanks.github.io/demos/generateArts/plum-effect/dist)
+
+#### Others
 
 1. [社兔 Share-Talk](https://jaycethanks.github.io/demos/rabbitChat/dist)
 2. [ThreeJS Demo 创建模板](https://jaycethanks.github.io/demos/ThreeJsDemoPlatform/)
