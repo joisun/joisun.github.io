@@ -48,6 +48,8 @@ export default function(insertHtmlStr:string){
   doc.title = __sitetitle
   // 插入body内容
   console.log(" - 6.3插入 body 内容")
+  // 给body 设置一个 #root
+  doc.body.setAttribute('id',"root")
   doc.body.innerHTML = insertHtmlStr
   let s = baseHtmlDom.serialize()
 
