@@ -1,7 +1,10 @@
+import * as dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import * as dotenv from 'dotenv';
+
+import { isDir, isFileEmpty, isHiddenFileOrDir } from './utils.ts';
+
 dotenv.config();
 const __basicurl = process.env.GITHUB_URL
 const __entrydir= process.env.ENTRY_DIR
@@ -9,17 +12,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
 const demosDir = path.join(__dirname, `../../../${__entrydir}`)
 
-function isDir(filename:string){
-  const stats = fs.statSync(path.join(demosDir,filename));
-  return stats.isDirectory();
-}
-function isHiddenFileOrDir(filename:string){
-  return filename.charAt(0) === '.'
-}
-function isFileEmpty(filePath:string){
-  const stats = fs.statSync(filePath);
-  return stats.size === 0;
-}
+
 function ifExistIndexMd(subpath:string){
   try {
     fs.accessSync(path.join(demosDir,subpath,"index.md"));
@@ -42,7 +35,7 @@ function getDemos(category:string){
   const files = fs.readdirSync(path.join(demosDir,category))
   let mdLinks = []
   files.forEach(demofilename=>{
-    if(isDir(path.join(category,demofilename))){
+    if(isDir(path.join(demosDir,category,demofilename))){
       // demos/xxx 是目录
       mdLinks.push(generateMdLink(category,demofilename))
     }
@@ -54,7 +47,7 @@ function getDemos(category:string){
 function getBodyContent(filelist:string[] | Buffer[]){
   const bodyContent = [];
   filelist.forEach(filename=>{
-    let _isDir = isDir(filename)
+    let _isDir = isDir(path.join(demosDir,filename))
     // demos/xxxx/index.md  必须存在
     if(_isDir &&  !isHiddenFileOrDir(filename)  && !ifExistIndexMd(filename)){
       // is Dir but has no demos/xxxx/index.md file
