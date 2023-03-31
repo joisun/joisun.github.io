@@ -46,6 +46,8 @@
 
 - [下拉刷新
 ](https://jaycethanks.github.io/demos/DemoPages/DragPullRefresh/dist)
+- [Bilibili Banner 效果风车鼠标随动效果
+](https://jaycethanks.github.io/demos/DemoPages/bilibili-banner/dist)
 - [DvD 屏保效果
 ](https://jaycethanks.github.io/demos/DemoPages/dvd-screensaver/dist)
 - [iPhone14 效果页
