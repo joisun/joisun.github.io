@@ -1,0 +1,30 @@
+html {
+  background-color: #000; }
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  body .container {
+    width: 80vw;
+    height: 80vh;
+    overflow-y: hidden;
+    padding: 2rem;
+    background-image: linear-gradient(90deg, #0e00ff 0%, #e019ff 18%, #bdbdff 35%, #fbff0c 54%, #ff1212 77%, #72e7ff 100%);
+    animation: dynamic 10s infinite linear;
+    -webkit-background-clip: text;
+    background-size: 200%;
+    color: transparent; }
+    body .container .article p {
+      font-size: 48px;
+      letter-spacing: .2rem; }
+
+@keyframes dynamic {
+  0% {
+    background-position: 0%; }
+  50% {
+    background-position: 100%; }
+  100% {
+    background-position: 0%; } }

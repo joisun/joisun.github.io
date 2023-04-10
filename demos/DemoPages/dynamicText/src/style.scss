@@ -1,0 +1,44 @@
+
+html{
+  background-color: #000;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    width: 80vw;
+    height: 80vh;
+    overflow-y: hidden;
+    padding: 2rem;
+    background-image: linear-gradient(90deg, rgba(14,0,255,1) 0%, rgba(224,25,255,1) 18%, rgba(189,189,255,1) 35%, rgba(251,255,12,1) 54%, rgba(255,18,18,1) 77%, rgba(114,231,255,1) 100%);
+    animation: dynamic 10s infinite linear;
+    -webkit-background-clip:text;
+    background-size: 200%;
+    color: transparent;
+    .article{
+      p{
+        font-size: 48px;
+        letter-spacing: .2rem;
+      }
+    }
+  }
+}
+
+@keyframes dynamic {
+  0% {
+    background-position: 0%;
+  }
+  50%{
+    background-position: 100%;
+
+  }
+  100%{
+    background-position: 0%;
+  }
+  
+}
+
+

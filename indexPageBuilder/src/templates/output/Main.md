@@ -50,6 +50,7 @@
 ](https://jaycethanks.github.io/demos/DemoPages/bilibili-banner/dist)
 - [DvD 屏保效果
 ](https://jaycethanks.github.io/demos/DemoPages/dvd-screensaver/dist)
+- [动态背景+背景字体剪裁](https://jaycethanks.github.io/demos/DemoPages/dynamicText/dist)
 - [iPhone14 效果页
 ](https://jaycethanks.github.io/demos/DemoPages/iphone-14/dist)
 - [iPhone14 动画文字
