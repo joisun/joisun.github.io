@@ -1,0 +1,25 @@
+{
+  "name": "vue3-v-drag",
+  "version": "1.0.1",
+  "description": "vue3自定义指令扩展,用于元素的拖拽",
+  "main": "v-drag.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaycethanks/v-drag.git"
+  },
+  "keywords": [
+    "drag",
+    "v-drag",
+    "vue3",
+    "drag"
+  ],
+  "author": "JayceSun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaycethanks/v-drag/issues"
+  },
+  "homepage": "https://github.com/jaycethanks/v-drag#readme"
+}

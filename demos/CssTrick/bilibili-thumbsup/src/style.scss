@@ -1,0 +1,52 @@
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    width: 400px;
+    height: 200px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      circle{
+        stroke: white;
+        transition: 1s all ease;
+      }
+      &.on circle{
+        stroke: red;
+      }
+    }
+    .toolbar{
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      align-items: center;
+      span{
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+        svg{
+          cursor: pointer;
+          fill: #61666D;
+          transition: all .3s ease;
+          path{
+            pointer-events: none;
+          }
+          &.on{
+            fill: #00AEEC;
+          }
+          &.on + span{
+            color: #00AEEC;
+          }
+        }
+      }
+    }
+  }
+}
+
+

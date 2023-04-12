@@ -1,0 +1,37 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  body .container {
+    width: 400px;
+    height: 200px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    body .container svg circle {
+      stroke: white;
+      transition: 1s all ease; }
+    body .container svg.on circle {
+      stroke: red; }
+    body .container .toolbar {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      align-items: center; }
+      body .container .toolbar span {
+        display: inline-flex;
+        align-items: center;
+        user-select: none; }
+        body .container .toolbar span svg {
+          cursor: pointer;
+          fill: #61666D;
+          transition: all .3s ease; }
+          body .container .toolbar span svg path {
+            pointer-events: none; }
+          body .container .toolbar span svg.on {
+            fill: #00AEEC; }
+          body .container .toolbar span svg.on + span {
+            color: #00AEEC; }
