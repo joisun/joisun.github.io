@@ -26,6 +26,7 @@
 - [Happy New Year 2022 透视文字](https://jaycethanks.github.io/demos/CssTrick/HappyNewYear2022/dist)
 - [视差 Hover Parallax Card](https://jaycethanks.github.io/demos/CssTrick/ParallaxCard/dist)
 - [鼠标视差效果 Parallax Page](https://jaycethanks.github.io/demos/CssTrick/ParallaxPage/dist)
+- [demos/CssTrick/bilibili-thumbsup/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://jaycethanks.github.io/demos/CssTrick/bilibili-thumbsup/dist)
 - [Drag-and-Drap Demo
 ](https://jaycethanks.github.io/demos/CssTrick/drag-n-drop/dist)
 - [Expanding Cards 折叠卡 Banner](https://jaycethanks.github.io/demos/CssTrick/expanding-cards/dist)
@@ -39,6 +40,8 @@
 - [PureCSS 实现文章阅读更多+折叠效果](https://jaycethanks.github.io/demos/CssTrick/purecss-continue-reading/dist)
 - [ Scale+Blur 可爱的眼睛](https://jaycethanks.github.io/demos/CssTrick/scale-blur/dist)
 - [Scroll Animation 视口元素检测案例](https://jaycethanks.github.io/demos/CssTrick/scroll-animation/dist)
+- [Shared Element
+](https://jaycethanks.github.io/demos/CssTrick/shared-element/dist)
 - [H5 声音 API DEMO
 ](https://jaycethanks.github.io/demos/CssTrick/sound-board/dist)
 - [Theme clock 主题时钟](https://jaycethanks.github.io/demos/CssTrick/theme-clock/dist)
@@ -70,6 +73,7 @@
 ](https://jaycethanks.github.io/demos/Others/ThreejsPipesMapping/dist)
 - [Websocket 聊天 Demo ShareTalk 社兔
 ](https://jaycethanks.github.io/demos/Others/rabbitChat/dist)
+- [demos/Others/v-drag/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://jaycethanks.github.io/demos/Others/v-drag/dist)
 <br/>
 <br/>
 <br/>
