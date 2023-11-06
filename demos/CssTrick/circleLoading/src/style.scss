@@ -1,0 +1,136 @@
+
+// $ballSize: 10px;
+// $ballColor1: rgb(0, 0, 0);
+// $ballColor2: rgb(147, 147, 147);
+// $containerSize: 150px;
+// $duration: 2s;
+:root {
+  --container-size: 150px;
+  --ball-size: 10px;
+  --ball-color1: rgb(0, 0, 0);
+  --ball-color2: rgb(147, 147, 147);
+  --duration: 2000ms;
+  --deep: 2;//z轴深度
+  --n: 36;//小球的对数量
+  --deg: calc(360deg / var(--n));  //每个方块的角度
+  --gap: 100%;//小球的间距
+  --rotate-speed:10000ms
+
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  // flex-direction: column;
+  align-items: center;
+  .control-bar {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    li{
+      margin-bottom: .5em;
+      display: flex;
+      align-items: center;
+      label{
+        width: 7em;
+        word-break: keep-all;
+        text-align: right;
+      }
+    }
+  }
+  .container {
+    position: relative;
+    width: var(--container-size);
+    height: var(--container-size);
+    border-radius: 100%;
+    animation: rotate var(--rotate-speed) infinite linear;
+    @keyframes rotate {
+      from{
+        transform: rotate(0);
+      }to{
+        transform: rotate(360deg);
+      }
+      
+    }
+    .dot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: calc(var(--ball-size) / -2);
+      margin-top: calc(var(--ball-size) / -2);
+      width: var(--ball-size);
+      height: var(--ball-size);
+      transform-origin: center calc(var(--container-size) / 2 + var(--ball-size) / 2);
+
+      @for $i from 1 through 36 {
+        &:nth-child(#{$i}) {
+          transform: rotate(calc(var(--deg) * (#{$i} - 1)));
+          &::before,
+          &::after {
+            animation-delay:calc(var(--duration) / var(--n) * (#{$i} - 1) * -6);
+          }
+        }
+      }
+
+      perspective: 75px;
+      transform-style: preserve-3d;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%; //尺寸撑满父元素
+        height: 100%;
+        border-radius: 100%;
+      }
+      &::after {
+        top: var(--gap);
+        background-color: var(--ball-color1);
+        animation: after-ball-move var(--duration) linear infinite;
+      }
+      &::before {
+        top: calc(var(--gap) * -1);
+        background-color: var(--ball-color2);
+        animation: before-ball-move var(--duration) linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes before-ball-move {
+  0% {
+    animation-timing-function: ease-in;
+  }
+  25% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0, 100%, calc(var(--ball-size) * var(--deep)));
+  }
+  50% {
+    animation-timing-function: ease-in;
+    transform: translate3d(0, 200%, 0);
+  }
+  75% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0, 100%, calc(var(--ball-size) * -1 * var(--deep)));
+  }
+}
+
+@keyframes after-ball-move {
+  0% {
+    animation-timing-function: ease-in;
+  }
+  25% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0, -100%, calc(var(--ball-size) * var(--deep)));
+  }
+  50% {
+    animation-timing-function: ease-in;
+    transform: translate3d(0, -200%, 0);
+  }
+  75% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0, -100%, calc(var(--ball-size) * var(--deep)));
+  }
+}

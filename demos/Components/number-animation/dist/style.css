@@ -1,0 +1,17 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  body .container {
+    width: 400px;
+    height: 200px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem; }
+    body .container .number {
+      font-size: 40px;
+      font-weight: 600; }

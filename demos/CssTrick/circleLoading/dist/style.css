@@ -1,0 +1,236 @@
+:root {
+  --container-size: 150px;
+  --ball-size: 10px;
+  --ball-color1: rgb(0, 0, 0);
+  --ball-color2: rgb(147, 147, 147);
+  --duration: 2000ms;
+  --deep: 2;
+  --n: 36;
+  --deg: calc(360deg / var(--n));
+  --gap: 100%;
+  --rotate-speed:10000ms ; }
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center; }
+  body .control-bar {
+    position: absolute;
+    top: 1em;
+    right: 1em; }
+    body .control-bar li {
+      margin-bottom: .5em;
+      display: flex;
+      align-items: center; }
+      body .control-bar li label {
+        width: 7em;
+        word-break: keep-all;
+        text-align: right; }
+  body .container {
+    position: relative;
+    width: var(--container-size);
+    height: var(--container-size);
+    border-radius: 100%;
+    animation: rotate var(--rotate-speed) infinite linear; }
+@keyframes rotate {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(360deg); } }
+    body .container .dot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: calc(var(--ball-size) / -2);
+      margin-top: calc(var(--ball-size) / -2);
+      width: var(--ball-size);
+      height: var(--ball-size);
+      transform-origin: center calc(var(--container-size) / 2 + var(--ball-size) / 2);
+      perspective: 75px;
+      transform-style: preserve-3d; }
+      body .container .dot:nth-child(1) {
+        transform: rotate(calc(var(--deg) * (1 - 1))); }
+        body .container .dot:nth-child(1)::before, body .container .dot:nth-child(1)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (1 - 1) * -6); }
+      body .container .dot:nth-child(2) {
+        transform: rotate(calc(var(--deg) * (2 - 1))); }
+        body .container .dot:nth-child(2)::before, body .container .dot:nth-child(2)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (2 - 1) * -6); }
+      body .container .dot:nth-child(3) {
+        transform: rotate(calc(var(--deg) * (3 - 1))); }
+        body .container .dot:nth-child(3)::before, body .container .dot:nth-child(3)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (3 - 1) * -6); }
+      body .container .dot:nth-child(4) {
+        transform: rotate(calc(var(--deg) * (4 - 1))); }
+        body .container .dot:nth-child(4)::before, body .container .dot:nth-child(4)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (4 - 1) * -6); }
+      body .container .dot:nth-child(5) {
+        transform: rotate(calc(var(--deg) * (5 - 1))); }
+        body .container .dot:nth-child(5)::before, body .container .dot:nth-child(5)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (5 - 1) * -6); }
+      body .container .dot:nth-child(6) {
+        transform: rotate(calc(var(--deg) * (6 - 1))); }
+        body .container .dot:nth-child(6)::before, body .container .dot:nth-child(6)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (6 - 1) * -6); }
+      body .container .dot:nth-child(7) {
+        transform: rotate(calc(var(--deg) * (7 - 1))); }
+        body .container .dot:nth-child(7)::before, body .container .dot:nth-child(7)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (7 - 1) * -6); }
+      body .container .dot:nth-child(8) {
+        transform: rotate(calc(var(--deg) * (8 - 1))); }
+        body .container .dot:nth-child(8)::before, body .container .dot:nth-child(8)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (8 - 1) * -6); }
+      body .container .dot:nth-child(9) {
+        transform: rotate(calc(var(--deg) * (9 - 1))); }
+        body .container .dot:nth-child(9)::before, body .container .dot:nth-child(9)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (9 - 1) * -6); }
+      body .container .dot:nth-child(10) {
+        transform: rotate(calc(var(--deg) * (10 - 1))); }
+        body .container .dot:nth-child(10)::before, body .container .dot:nth-child(10)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (10 - 1) * -6); }
+      body .container .dot:nth-child(11) {
+        transform: rotate(calc(var(--deg) * (11 - 1))); }
+        body .container .dot:nth-child(11)::before, body .container .dot:nth-child(11)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (11 - 1) * -6); }
+      body .container .dot:nth-child(12) {
+        transform: rotate(calc(var(--deg) * (12 - 1))); }
+        body .container .dot:nth-child(12)::before, body .container .dot:nth-child(12)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (12 - 1) * -6); }
+      body .container .dot:nth-child(13) {
+        transform: rotate(calc(var(--deg) * (13 - 1))); }
+        body .container .dot:nth-child(13)::before, body .container .dot:nth-child(13)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (13 - 1) * -6); }
+      body .container .dot:nth-child(14) {
+        transform: rotate(calc(var(--deg) * (14 - 1))); }
+        body .container .dot:nth-child(14)::before, body .container .dot:nth-child(14)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (14 - 1) * -6); }
+      body .container .dot:nth-child(15) {
+        transform: rotate(calc(var(--deg) * (15 - 1))); }
+        body .container .dot:nth-child(15)::before, body .container .dot:nth-child(15)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (15 - 1) * -6); }
+      body .container .dot:nth-child(16) {
+        transform: rotate(calc(var(--deg) * (16 - 1))); }
+        body .container .dot:nth-child(16)::before, body .container .dot:nth-child(16)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (16 - 1) * -6); }
+      body .container .dot:nth-child(17) {
+        transform: rotate(calc(var(--deg) * (17 - 1))); }
+        body .container .dot:nth-child(17)::before, body .container .dot:nth-child(17)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (17 - 1) * -6); }
+      body .container .dot:nth-child(18) {
+        transform: rotate(calc(var(--deg) * (18 - 1))); }
+        body .container .dot:nth-child(18)::before, body .container .dot:nth-child(18)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (18 - 1) * -6); }
+      body .container .dot:nth-child(19) {
+        transform: rotate(calc(var(--deg) * (19 - 1))); }
+        body .container .dot:nth-child(19)::before, body .container .dot:nth-child(19)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (19 - 1) * -6); }
+      body .container .dot:nth-child(20) {
+        transform: rotate(calc(var(--deg) * (20 - 1))); }
+        body .container .dot:nth-child(20)::before, body .container .dot:nth-child(20)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (20 - 1) * -6); }
+      body .container .dot:nth-child(21) {
+        transform: rotate(calc(var(--deg) * (21 - 1))); }
+        body .container .dot:nth-child(21)::before, body .container .dot:nth-child(21)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (21 - 1) * -6); }
+      body .container .dot:nth-child(22) {
+        transform: rotate(calc(var(--deg) * (22 - 1))); }
+        body .container .dot:nth-child(22)::before, body .container .dot:nth-child(22)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (22 - 1) * -6); }
+      body .container .dot:nth-child(23) {
+        transform: rotate(calc(var(--deg) * (23 - 1))); }
+        body .container .dot:nth-child(23)::before, body .container .dot:nth-child(23)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (23 - 1) * -6); }
+      body .container .dot:nth-child(24) {
+        transform: rotate(calc(var(--deg) * (24 - 1))); }
+        body .container .dot:nth-child(24)::before, body .container .dot:nth-child(24)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (24 - 1) * -6); }
+      body .container .dot:nth-child(25) {
+        transform: rotate(calc(var(--deg) * (25 - 1))); }
+        body .container .dot:nth-child(25)::before, body .container .dot:nth-child(25)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (25 - 1) * -6); }
+      body .container .dot:nth-child(26) {
+        transform: rotate(calc(var(--deg) * (26 - 1))); }
+        body .container .dot:nth-child(26)::before, body .container .dot:nth-child(26)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (26 - 1) * -6); }
+      body .container .dot:nth-child(27) {
+        transform: rotate(calc(var(--deg) * (27 - 1))); }
+        body .container .dot:nth-child(27)::before, body .container .dot:nth-child(27)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (27 - 1) * -6); }
+      body .container .dot:nth-child(28) {
+        transform: rotate(calc(var(--deg) * (28 - 1))); }
+        body .container .dot:nth-child(28)::before, body .container .dot:nth-child(28)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (28 - 1) * -6); }
+      body .container .dot:nth-child(29) {
+        transform: rotate(calc(var(--deg) * (29 - 1))); }
+        body .container .dot:nth-child(29)::before, body .container .dot:nth-child(29)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (29 - 1) * -6); }
+      body .container .dot:nth-child(30) {
+        transform: rotate(calc(var(--deg) * (30 - 1))); }
+        body .container .dot:nth-child(30)::before, body .container .dot:nth-child(30)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (30 - 1) * -6); }
+      body .container .dot:nth-child(31) {
+        transform: rotate(calc(var(--deg) * (31 - 1))); }
+        body .container .dot:nth-child(31)::before, body .container .dot:nth-child(31)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (31 - 1) * -6); }
+      body .container .dot:nth-child(32) {
+        transform: rotate(calc(var(--deg) * (32 - 1))); }
+        body .container .dot:nth-child(32)::before, body .container .dot:nth-child(32)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (32 - 1) * -6); }
+      body .container .dot:nth-child(33) {
+        transform: rotate(calc(var(--deg) * (33 - 1))); }
+        body .container .dot:nth-child(33)::before, body .container .dot:nth-child(33)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (33 - 1) * -6); }
+      body .container .dot:nth-child(34) {
+        transform: rotate(calc(var(--deg) * (34 - 1))); }
+        body .container .dot:nth-child(34)::before, body .container .dot:nth-child(34)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (34 - 1) * -6); }
+      body .container .dot:nth-child(35) {
+        transform: rotate(calc(var(--deg) * (35 - 1))); }
+        body .container .dot:nth-child(35)::before, body .container .dot:nth-child(35)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (35 - 1) * -6); }
+      body .container .dot:nth-child(36) {
+        transform: rotate(calc(var(--deg) * (36 - 1))); }
+        body .container .dot:nth-child(36)::before, body .container .dot:nth-child(36)::after {
+          animation-delay: calc(var(--duration) / var(--n) * (36 - 1) * -6); }
+      body .container .dot::before, body .container .dot::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%; }
+      body .container .dot::after {
+        top: var(--gap);
+        background-color: var(--ball-color1);
+        animation: after-ball-move var(--duration) linear infinite; }
+      body .container .dot::before {
+        top: calc(var(--gap) * -1);
+        background-color: var(--ball-color2);
+        animation: before-ball-move var(--duration) linear infinite; }
+
+@keyframes before-ball-move {
+  0% {
+    animation-timing-function: ease-in; }
+  25% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0, 100%, calc(var(--ball-size) * var(--deep))); }
+  50% {
+    animation-timing-function: ease-in;
+    transform: translate3d(0, 200%, 0); }
+  75% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0, 100%, calc(var(--ball-size) * -1 * var(--deep))); } }
+@keyframes after-ball-move {
+  0% {
+    animation-timing-function: ease-in; }
+  25% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0, -100%, calc(var(--ball-size) * var(--deep))); }
+  50% {
+    animation-timing-function: ease-in;
+    transform: translate3d(0, -200%, 0); }
+  75% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0, -100%, calc(var(--ball-size) * var(--deep))); } }
