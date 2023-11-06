@@ -29,7 +29,7 @@
 - [视差 Hover Parallax Card](https://jaycethanks.github.io/demos/CssTrick/ParallaxCard/dist)
 - [鼠标视差效果 Parallax Page](https://jaycethanks.github.io/demos/CssTrick/ParallaxPage/dist)
 - [demos/CssTrick/bilibili-thumbsup/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://jaycethanks.github.io/demos/CssTrick/bilibili-thumbsup/dist)
-- [demos/CssTrick/circleLoading/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://jaycethanks.github.io/demos/CssTrick/circleLoading/dist)
+- [小球Loading效果](https://jaycethanks.github.io/demos/CssTrick/circleLoading/dist)
 - [Drag-and-Drap Demo
 ](https://jaycethanks.github.io/demos/CssTrick/drag-n-drop/dist)
 - [Expanding Cards 折叠卡 Banner](https://jaycethanks.github.io/demos/CssTrick/expanding-cards/dist)
