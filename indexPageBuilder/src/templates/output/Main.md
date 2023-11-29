@@ -52,11 +52,15 @@
 
 - [下拉刷新
 ](https://jaycethanks.github.io/demos/DemoPages/DragPullRefresh/dist)
+- [非矢量图转pathSvg矢量图
+](https://jaycethanks.github.io/demos/DemoPages/GeneratePathSvg/dist)
 - [Bilibili Banner 效果风车鼠标随动效果
 ](https://jaycethanks.github.io/demos/DemoPages/bilibili-banner/dist)
 - [DvD 屏保效果
 ](https://jaycethanks.github.io/demos/DemoPages/dvd-screensaver/dist)
 - [动态背景+背景字体剪裁](https://jaycethanks.github.io/demos/DemoPages/dynamicText/dist)
+- [图片字节流数据渲染
+](https://jaycethanks.github.io/demos/DemoPages/image_binary_render/dist)
 - [iPhone14 效果页
 ](https://jaycethanks.github.io/demos/DemoPages/iphone-14/dist)
 - [iPhone14 动画文字
