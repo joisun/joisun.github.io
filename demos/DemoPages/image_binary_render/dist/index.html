@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read Image as Hex</title>
+  </head>
+  <body>
+    <h2>Render Image Byte Data</h2>
+    <input type="file" id="imageInput" accept="image/*" />
+    <p id="hexOutput"></p>
+
+    <script>
+      const renderElements = [];
+      let tick = 0;
+
+      document
+        .getElementById("imageInput")
+        .addEventListener("change", function (event) {
+          // 获取文件
+          var file = event.target.files[0];
+          if (file) {
+            // 创建FileReader对象
+            var reader = new FileReader();
+            // 当读取完成时的回调函数
+            reader.onload = function (e) {
+              // 获取ArrayBuffer
+              var arrayBuffer = e.target.result;
+              // 截取前10个字节 否则太消耗性能了
+              var first10Bytes = new Uint8Array(arrayBuffer);
+              // 将二进制数据转换为十六进制字符串
+              arrayBufferToHexString(first10Bytes);
+            };
+
+            // 读取文件为ArrayBuffer
+            reader.readAsArrayBuffer(file);
+          }
+        });
+
+      function arrayBufferToHexString(buffer) {
+        var byteArray = new Uint8Array(buffer);
+        var hexString = "";
+        for (var i = 0; i < byteArray.length; i++) {
+          var hex = byteArray[i].toString(16);
+          hex = hex.length === 1 ? "0" + hex : hex; // 补0
+          hex = hex.toUpperCase();
+          renderElements.push(generateNode(hex));
+          // hexString += " " + hex;
+
+          // 空闲的时候再去渲染
+          requestIdleCallback(() => {
+            renderHexStringToDom();
+          });
+        }
+      }
+      function generateNode(hex) {
+        let node = null;
+        node = document.createElement("span");
+        hex == "FF" && (node.className = "high-light");
+        node.textContent = hex;
+        return node;
+      }
+      function renderHexStringToDom() {
+        // 每次渲染取出前100个元素
+        const eles = renderElements.splice(0, 500);
+        for (ele of eles) {
+          document.getElementById("hexOutput").appendChild(ele);
+        }
+      }
+    </script>
+  </body>
+  <style>
+    :root {
+      font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      font-weight: 400;
+      color-scheme: light dark;
+      color: rgba(255, 255, 255, 0.87);
+      background-color: #242424;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      /* display: flex; */
+      place-items: center;
+      min-width: 320px;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    h2{
+        margin:0;
+        margin-bottom:.5rem
+    }
+  
+
+    #hexOutput {
+      word-wrap: break-word;
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+    .high-light {
+      background-color: yellow;
+      color: #000;
+    }
+  </style>
+</html>

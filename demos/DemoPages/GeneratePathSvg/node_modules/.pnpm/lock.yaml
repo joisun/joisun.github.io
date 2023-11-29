@@ -1,0 +1,16 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  potrace-wasm:
+    specifier: ^1.0.4
+    version: 1.0.4
+
+packages:
+
+  /potrace-wasm@1.0.4:
+    resolution: {integrity: sha512-Bj940W9APwIPZgm3VGK2HUAs6BXffgn5r4cOLIzFUtvX8bI+MlA7zbbE01+k71tz2Mu/jmdTGEcVpLevNJLtjg==}
+    dev: false

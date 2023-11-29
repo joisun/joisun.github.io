@@ -1,0 +1,18 @@
+
+{
+  "include": [
+    "src/script.ts",
+    "index.d.ts",
+  ],
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "target": "es2015",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "skipLibCheck": true
+  }
+}
+
