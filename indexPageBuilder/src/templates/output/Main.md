@@ -80,6 +80,7 @@
 ](https://jaycethanks.github.io/demos/Others/ThreejsPipesMapping/dist)
 - [Websocket 聊天 Demo ShareTalk 社兔
 ](https://jaycethanks.github.io/demos/Others/rabbitChat/dist)
+- [demos/Others/svgConvert/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://jaycethanks.github.io/demos/Others/svgConvert/dist)
 - [demos/Others/v-drag/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://jaycethanks.github.io/demos/Others/v-drag/dist)
 <br/>
 <br/>
