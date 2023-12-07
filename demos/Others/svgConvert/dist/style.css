@@ -1,0 +1,127 @@
+body {
+  font-family: 'San Francisco', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; }
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; }
+
+.header {
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 30px;
+  margin: 0;
+  border-bottom: 1px solid #ddd; }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  box-sizing: border-box; }
+
+.input-section {
+  margin-bottom: 30px; }
+  .input-section > * {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 8px; }
+  .input-section label#title {
+    font-weight: bold;
+    font-size: 24px; }
+  .input-section label {
+    display: block;
+    margin-bottom: 10px;
+    color: #1a1a1a; }
+  .input-section .file-upload-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; }
+    .input-section .file-upload-container input[type="file"] {
+      display: none; }
+    .input-section .file-upload-container .file-upload-button {
+      background-color: #1a1a1a;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      transition: background-color 0.3s ease; }
+      .input-section .file-upload-container .file-upload-button:hover {
+        background-color: #010101; }
+    .input-section .file-upload-container .selected-file-name {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+  .input-section textarea {
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease; }
+    .input-section textarea:hover, .input-section textarea:focus {
+      border-color: #1a1a1a; }
+  .input-section button {
+    background-color: #1a1a1a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 8px; }
+    .input-section button:hover {
+      background-color: #010101; }
+
+.result-section {
+  display: flex;
+  margin-top: 20px; }
+  .result-section .result-slot {
+    flex: 1;
+    margin-right: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px; }
+    .result-section .result-slot:last-child {
+      margin-right: 0; }
+    .result-section .result-slot .result-title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #1a1a1a; }
+    .result-section .result-slot textarea {
+      min-height: 100px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px; }
+    .result-section .result-slot button {
+      width: 100%;
+      padding: 15px;
+      background-color: gainsboro;
+      color: #333;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 8px;
+      margin-top: 1rem; }
+      .result-section .result-slot button:hover {
+        background-color: #c3c3c3; }

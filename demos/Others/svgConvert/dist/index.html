@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <title>svgConvert</title>
+  </head>
+  <body>
+    <div class="container">
+      <main class="main">
+        <div class="input-section">
+          <label id="title">Upload SVG or Paste SVG XML:</label>
+          <div class="file-upload-container">
+            <input
+              type="file"
+              id="svgInput"
+              accept=".svg"
+              onchange="handleFile()"
+            />
+            <label class="file-upload-button" for="svgInput">Choose File</label>
+            <div class="selected-file-name" id="selectedFileName">
+              No file selected
+            </div>
+          </div>
+          <textarea
+            id="svgTextarea"
+            rows="5"
+            placeholder="Paste SVG XML here"
+          ></textarea>
+          <button onclick="convertToBase64()">Convert to Base64</button>
+        </div>
+        <div class="result-section">
+          <div id="resultBase64" class="result-slot">
+            <div class="result-title">Base64 Result:</div>
+            <textarea></textarea>
+            <button onclick="copyToClipboard('resultBase64')">
+              Copy to Clipboard
+            </button>
+          </div>
+          <div id="resultDataUrl" class="result-slot">
+            <div class="result-title">Data URL Result:</div>
+            <textarea></textarea>
+            <button onclick="copyToClipboard('resultDataUrl')">
+              Copy to Clipboard
+            </button>
+          </div>
+          <div id="resultImg" class="result-slot">
+            <div class="result-title">Image Result:</div>
+            <textarea></textarea>
+            <button onclick="copyToClipboard('resultImg')">
+              Copy to Clipboard
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

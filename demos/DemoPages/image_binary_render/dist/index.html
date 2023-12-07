@@ -45,13 +45,14 @@
           hex = hex.length === 1 ? "0" + hex : hex; // 补0
           hex = hex.toUpperCase();
           renderElements.push(generateNode(hex));
-          // hexString += " " + hex;
+          hexString += " " + hex;
 
           // 空闲的时候再去渲染
           requestIdleCallback(() => {
             renderHexStringToDom();
           });
         }
+        console.log('hexString',hexString)
       }
       function generateNode(hex) {
         let node = null;
@@ -62,7 +63,7 @@
       }
       function renderHexStringToDom() {
         // 每次渲染取出前100个元素
-        const eles = renderElements.splice(0, 500);
+        const eles = renderElements.splice(0, 100);
         for (ele of eles) {
           document.getElementById("hexOutput").appendChild(ele);
         }
