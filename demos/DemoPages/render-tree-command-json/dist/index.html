@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: #f2f2f2;
+      margin: 14px;
+    }
+    h2{
+      margin: .2em 0;
+    }
+    pre{
+      margin: 0;
+      code{
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+        font-size: 12px;
+        color: green;
+      }
+    }
+
+    svg {
+      /* svg 缩放需要 */
+      pointer-events: all;
+    }
+
+    .btn-set {
+      text-align: left;
+    }
+    .expand-all{
+      margin-bottom: 2.8em;
+      text-align: right;
+    }
+    .expand-all button{
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+
+    textarea {
+      width: 70%;
+      height: 100px;
+      padding: 10px;
+      font-size: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+
+    button {
+      padding: 6px 12px;
+      font-size: 14px;
+      background-color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid;
+      border-color: #000;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    label button {
+      background-color: #333;
+      pointer-events: none;
+      color: #fff;
+      border-color: #333;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+  </style>
+  <title>Tree Output Visualizer</title>
+</head>
+
+<h2>Tree Command Output Visualizer</h2>
+<pre><code>
+  # 复制输出输入
+  tree -J -L 2
+
+  # 文件输入
+  tree -J -L 2 > output.json</code>
+
+</pre>
+<textarea id="data-input" placeholder="Paste data here"></textarea>
+<div class="btn-set">
+  <button onclick="loadData()">Load Data</button>
+  <label for="file-input"><button>Upload JSON File</button></label>
+  <input type="file" id="file-input" accept=".json" />
+</div>
+<div class="expand-all">
+  <button onclick="expandAll()">Expand All</button>
+  <button onclick="collapseAll()">Collapse All</button>
+</div>
+<div id="container"></div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script>
+  let root;
+  let update; //update function
+  let sourceData = [
+    {
+      type: "directory",
+      name: ".",
+      contents: [
+        {
+          type: "directory",
+          name: "components",
+          contents: [
+            { type: "directory", name: "bottom-buttons" },
+            { type: "directory", name: "cad-modal-panel" },
+            { type: "file", name: "check-browser-is-chrome-modal.vue" },
+            { type: "file", name: "context-menu.vue" },
+            { type: "directory", name: "editor-center" },
+            { type: "directory", name: "editor-header" },
+            { type: "directory", name: "global-modal" },
+            { type: "file", name: "history.vue" },
+            { type: "directory", name: "left-side" },
+            { type: "directory", name: "loading" },
+            { type: "file", name: "local-backup.vue" },
+            { type: "file", name: "no-id-tip.vue" },
+            { type: "directory", name: "not-custom-import-modal" },
+            { type: "file", name: "paste-modal.vue" },
+            { type: "file", name: "previewDesign.vue" },
+            { type: "directory", name: "psd-import-modal" },
+            { type: "directory", name: "right-mode-panel" },
+            { type: "directory", name: "setting-panel" },
+            { type: "file", name: "start-page-import.vue" },
+            { type: "file", name: "support-instruction.vue" },
+            { type: "file", name: "vip-paste-modal.vue" },
+          ],
+        },
+        {
+          type: "directory",
+          name: "dev-components",
+          contents: [
+            { type: "file", name: "devcanvas.vue" },
+            { type: "file", name: "devtool-panel.vue" },
+            { type: "file", name: "devtool.vue" },
+            { type: "file", name: "direction.vue" },
+            { type: "file", name: "element-viewer.vue" },
+            { type: "file", name: "fps.vue" },
+          ],
+        },
+        { type: "file", name: "index.vue" },
+        { type: "file", name: "j.json" },
+        { type: "file", name: "output.json" },
+        { type: "file", name: "script.sh" },
+      ],
+    },
+    { type: "report", directories: 13, files: 20 },
+  ];
+  const o = redraw(sourceData); //init
+  root = o.root;
+  update = o.update;
+
+  function loadData() {
+    const inputText = document.getElementById("data-input").value;
+    try {
+      sourceData = JSON.parse(inputText);
+      console.log('sourceData',sourceData)
+      const o = redraw(sourceData);
+      root = o.root;
+      update = o.update;
+    } catch (error) {
+      console.log('error',error)
+      alert("Invalid JSON format. Please check your input.");
+    }
+  }
+
+  // Allow loading data from a file
+  document
+    .getElementById("file-input")
+    .addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          try {
+            sourceData = JSON.parse(e.target.result);
+            const o = redraw(sourceData);
+            root = o.root;
+            update = o.update;
+          } catch (error) {
+            alert("Invalid JSON format in the selected file.");
+          }
+        };
+        reader.readAsText(file);
+      }
+    });
+
+  // expand and unexpand all tree node
+  function expand(d) {
+    if (d._children) {
+      d.children = d._children;
+      d._children = null;
+    }
+    var children = d.children ? d.children : d._children;
+    if (children) children.forEach(expand);
+  }
+  function collapse(d) {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
+    }
+  }
+
+  function expandAll() {
+    expand(root);
+    update(null, root);
+  }
+
+  function collapseAll() {
+    root.children.forEach(collapse);
+    collapse(root);
+    update(null, root);
+  }
+
+  function redraw(sourceData) {
+    d3.select("#container").selectAll("*").remove();
+    // 数据预处理
+    let report = null;
+    sourceData.forEach((item, index) => {
+      if (item.type === "report") {
+        report = sourceData.splice(index, 1);
+      }
+    });
+
+    function travese(data) {
+      return data.map((element) => {
+        if (element.contents) {
+          return {
+            name: element.name,
+            children: travese(element.contents),
+          };
+        } else {
+          return {
+            name: element.name,
+          };
+        }
+      });
+    }
+
+    const data = {
+      name: "root",
+      children: travese(sourceData),
+    };
+
+    // Specify the charts’ dimensions. The height is variable, depending on the layout.
+    const width = 1000;
+    const marginTop = 10;
+    const marginRight = 10;
+    const marginBottom = 10;
+    const marginLeft = 40;
+
+    // Rows are separated by dx pixels, columns by dy pixels. These names can be counter-intuitive
+    // (dx is a height, and dy a width). This because the tree must be viewed with the root at the
+    // “bottom”, in the data domain. The width of a column is based on the tree’s height.
+    const root = d3.hierarchy(data);
+    const dx = 20;
+    const dy = (width - marginRight - marginLeft) / (1 + root.height);
+
+    // Define the tree layout and the shape for links.
+    const tree = d3.tree().nodeSize([dx, dy]);
+    const diagonal = d3
+      .linkHorizontal()
+      .x((d) => d.y)
+      .y((d) => d.x);
+
+    // Create the SVG container, a layer for the links and a layer for the nodes.
+    const svg = d3
+      .create("svg")
+      .attr("width", width)
+      .attr("height", dx)
+      .attr("viewBox", [-marginLeft, -marginTop, width, dx])
+      .attr(
+        "style",
+        "max-width: 100%; height: auto; font: 10px sans-serif; user-select: none;"
+      );
+
+    const gLink = svg
+      .append("g")
+      .attr("fill", "none")
+      .attr("stroke", "#555")
+      .attr("stroke-opacity", 0.4)
+      .attr("stroke-width", 1.5);
+
+    const gNode = svg
+      .append("g")
+      .attr("cursor", "pointer")
+      .attr("pointer-events", "all");
+
+    function update(event, source) {
+      const duration = event?.altKey ? 2500 : 250; // hold the alt key to slow down the transition
+      const nodes = root.descendants().reverse();
+      const links = root.links();
+
+      // Set all nodes to be expanded by default
+
+      // Compute the new tree layout.
+      tree(root);
+
+      let left = root;
+      let right = root;
+      root.eachBefore((node) => {
+        if (node.x < left.x) left = node;
+        if (node.x > right.x) right = node;
+      });
+
+      const height = right.x - left.x + marginTop + marginBottom;
+
+      const transition = svg
+        .transition()
+        .duration(duration)
+        .attr("height", height)
+        .attr("viewBox", [-marginLeft, left.x - marginTop, width, height])
+        .tween(
+          "resize",
+          window.ResizeObserver ? null : () => () => svg.dispatch("toggle")
+        );
+
+      // Update the nodes…
+      const node = gNode.selectAll("g").data(nodes, (d) => d.id);
+
+      // Enter any new nodes at the parent's previous position.
+      const nodeEnter = node
+        .enter()
+        .append("g")
+        .attr("transform", (d) => `translate(${source.y0},${source.x0})`)
+        .attr("fill-opacity", 0)
+        .attr("stroke-opacity", 0)
+        .on("click", (event, d) => {
+          d.children = d.children ? null : d._children;
+          update(event, d);
+        });
+
+      nodeEnter
+        .append("circle")
+        .attr("r", 2.5)
+        .attr("fill", (d) => (d._children ? "#555" : "#999"))
+        .attr("stroke-width", 10);
+
+      nodeEnter
+        .append("text")
+        .attr("dy", "0.31em")
+        .attr("x", (d) => (d._children ? -6 : 6))
+        .attr("text-anchor", (d) => (d._children ? "end" : "start"))
+        .text((d) => d.data.name)
+        .clone(true)
+        .lower()
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-width", 3)
+        .attr("stroke", "white");
+
+      // Transition nodes to their new position.
+      const nodeUpdate = node
+        .merge(nodeEnter)
+        .transition(transition)
+        .attr("transform", (d) => `translate(${d.y},${d.x})`)
+        .attr("fill-opacity", 1)
+        .attr("stroke-opacity", 1);
+
+      // Transition exiting nodes to the parent's new position.
+      const nodeExit = node
+        .exit()
+        .transition(transition)
+        .remove()
+        .attr("transform", (d) => `translate(${source.y},${source.x})`)
+        .attr("fill-opacity", 0)
+        .attr("stroke-opacity", 0);
+
+      // Update the links…
+      const link = gLink.selectAll("path").data(links, (d) => d.target.id);
+
+      // Enter any new links at the parent's previous position.
+      const linkEnter = link
+        .enter()
+        .append("path")
+        .attr("d", (d) => {
+          const o = { x: source.x0, y: source.y0 };
+          return diagonal({ source: o, target: o });
+        });
+
+      // Transition links to their new position.
+      link.merge(linkEnter).transition(transition).attr("d", diagonal);
+
+      // Transition exiting nodes to the parent's new position.
+      link
+        .exit()
+        .transition(transition)
+        .remove()
+        .attr("d", (d) => {
+          const o = { x: source.x, y: source.y };
+          return diagonal({ source: o, target: o });
+        });
+
+      // Stash the old positions for transition.
+      root.eachBefore((d) => {
+        d.x0 = d.x;
+        d.y0 = d.y;
+      });
+    }
+
+    // Do the first update to the initial configuration of the tree — where a number of nodes
+    // are open (arbitrarily selected as the root, plus nodes with 7 letters).
+    root.x0 = dy / 2;
+    root.y0 = 0;
+    root.descendants().forEach((d, i) => {
+      d.id = i;
+      d._children = d.children;
+      if (d.depth && d.data.name.length !== 7) d.children = null;
+    });
+
+    update(null, root);
+
+    container.append(svg.node());
+
+
+    return {
+      root,
+      update,
+    };
+  }
+</script>
