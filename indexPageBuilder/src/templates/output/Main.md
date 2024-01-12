@@ -70,6 +70,7 @@
 - [Tree Output Visualizer](https://jaycethanks.github.io/demos/DemoPages/render-tree-command-json/dist)
 - [Threejs 下雨特效
 ](https://jaycethanks.github.io/demos/DemoPages/threejs-rain/dist)
+- [demos/DemoPages/wheelChange/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://jaycethanks.github.io/demos/DemoPages/wheelChange/dist)
 #### Generate Arts
 
 - [梅花生长
