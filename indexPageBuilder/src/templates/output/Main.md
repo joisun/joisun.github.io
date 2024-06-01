@@ -61,6 +61,8 @@
 - [DvD 屏保效果
 ](https://jaycethanks.github.io/demos/DemoPages/dvd-screensaver/dist)
 - [动态背景+背景字体剪裁](https://jaycethanks.github.io/demos/DemoPages/dynamicText/dist)
+- [Flip 动画原理
+](https://jaycethanks.github.io/demos/DemoPages/flip-animation/dist)
 - [图片字节流数据渲染
 ](https://jaycethanks.github.io/demos/DemoPages/image_binary_render/dist)
 - [iPhone14 效果页
