@@ -58,6 +58,8 @@
 ](https://jaycethanks.github.io/demos/DemoPages/GeneratePathSvg/dist)
 - [Bilibili Banner 效果风车鼠标随动效果
 ](https://jaycethanks.github.io/demos/DemoPages/bilibili-banner/dist)
+- [canvas-clock
+](https://jaycethanks.github.io/demos/DemoPages/canvas-clock/dist)
 - [DvD 屏保效果
 ](https://jaycethanks.github.io/demos/DemoPages/dvd-screensaver/dist)
 - [动态背景+背景字体剪裁](https://jaycethanks.github.io/demos/DemoPages/dynamicText/dist)
