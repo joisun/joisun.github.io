@@ -16,7 +16,7 @@ btn2.onclick = () => {
     move(ul2)
 }
 type ExtendHTMLLIElement = HTMLLIElement & { StartX: number, StartY: number }
-
+// 记录初始位置，保存到各个 元素节点对象上
 function record(ul: HTMLUListElement) {
     const childrens = ul.children
     for (let i = 0; i < childrens.length; i++) {
@@ -26,6 +26,7 @@ function record(ul: HTMLUListElement) {
         li.StartY = li_bcr.y;
     }
 }
+// 变更DOM
 function change(ul: HTMLUListElement) {
     const childrens = ul.children
     for (let i = 0; i < childrens.length; i++) {
@@ -43,7 +44,7 @@ function change(ul: HTMLUListElement) {
         ul.insertBefore(xLiEl, liSibling);
     }
 }
-
+// 获取当前DOM 位置信息，并播放动画
 function move(ul: HTMLUListElement) {
     const childrens = ul.children
     for (let i = 0; i < childrens.length; i++) {

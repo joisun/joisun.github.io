@@ -13,6 +13,7 @@ btn2.onclick = () => {
     change(ul2);
     move(ul2);
 };
+// 记录初始位置，保存到各个 元素节点对象上
 function record(ul) {
     const childrens = ul.children;
     for (let i = 0; i < childrens.length; i++) {
@@ -22,6 +23,7 @@ function record(ul) {
         li.StartY = li_bcr.y;
     }
 }
+// 变更DOM
 function change(ul) {
     const childrens = ul.children;
     for (let i = 0; i < childrens.length; i++) {
@@ -37,6 +39,7 @@ function change(ul) {
         ul.insertBefore(xLiEl, liSibling);
     }
 }
+// 获取当前DOM 位置信息，并播放动画
 function move(ul) {
     const childrens = ul.children;
     for (let i = 0; i < childrens.length; i++) {

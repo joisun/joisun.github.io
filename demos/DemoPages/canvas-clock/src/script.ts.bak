@@ -1,0 +1,247 @@
+// 表类，用于控制和管理表整体逻辑
+class Clock {
+    ctx: CanvasRenderingContext2D
+    constructor() {
+        const canvas = document.querySelector("canvas");
+        this.ctx = canvas.getContext('2d')
+
+        const radius = canvas.height / 2;
+        const circleColor = "#000000";
+        const circleWidth = 3;
+        const fontSize = 18;
+        const outBorderColor = "#545454"
+        const innerColor = "#0f0f0f"
+        const centerColor = "#000000"
+        // 表盘实例
+
+        this.fetchBackgroundImage("https://candybargratis.com/wp-content/uploads/2023/08/alfajores3-candy-bar-pokemon-pikachu-kit-imprimible-300x241.png").then((img) => {
+            const clockFace = new ClockFace(canvas, radius, circleColor, circleWidth, fontSize, outBorderColor, innerColor, centerColor, img)
+            // 指针实例
+            const hourHand = new ClockHand(canvas, 8, 40, "#fff200")
+            const minHand = new ClockHand(canvas, 6, 50, "#00cc5c")
+            const secHand = new ClockHand(canvas, 2, 80, "#ff7842")
+            // this.updateRender(canvas, clockFace, hourHand, minHand, secHand)
+            let _this = this;
+            setInterval(() => {
+                _this.updateRender(canvas, clockFace, hourHand, minHand, secHand)
+                console.log("draw")
+            }, 1000)
+        })
+    }
+    private fetchBackgroundImage(imgSrc: string): Promise<HTMLImageElement> {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.src = imgSrc;
+            img.onload = () => {
+                resolve(img)
+            }
+        })
+    }
+
+    private updateRender(canvas: HTMLCanvasElement, clockFace: ClockFace, hourHand: ClockHand, minHand: ClockHand, secHand: ClockHand) {
+
+        // 清空画布
+        this.clearCanvas()
+
+        // 绘制表盘
+        clockFace.draw();
+
+        // 绘制表针
+        const { hoursAngle, minutesAngle, secondsAngle } = this.getAngles()
+        hourHand.draw(hoursAngle)
+        minHand.draw(minutesAngle)
+        secHand.draw(secondsAngle)
+
+        // 绘制表中心点
+        clockFace.drawCenterPoint()
+    }
+    private clearCanvas() {
+        this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
+    }
+    private getAngles() {
+        const time = new Date()
+        const hours = time.getHours();
+        const minutes = time.getMinutes();
+        const seconds = time.getSeconds()
+        const hoursAngle = ((hours / 12) % 12) * Math.PI * 2
+        const minutesAngle = (minutes / 60) * Math.PI * 2
+        const secondsAngle = (seconds / 60) * Math.PI * 2
+        return { hoursAngle, minutesAngle, secondsAngle }
+    }
+
+}
+
+// 表盘类， 负责绘制表盘，以及数字
+class ClockFace {
+    private ctx: CanvasRenderingContext2D;
+    private radius: number;
+    private center: { x: number; y: number };
+    private circleColor: string;
+    private circleMargin = 10; // 表盘距离画布的margin
+    private circleWidth: number; // 表盘的宽度因该
+    private centerSize = 4; //中心点的大小
+    private centerColor: string; //中心点和字体的颜色
+    private fontSize = 24;
+    private outBorderColor: string
+    private innerColor: string
+    private bgImgEl: HTMLImageElement
+
+
+    /**
+     *
+     * @param el 目标绘制元素
+     * @param radius 表盘的大小
+     * @param circleColor 表圈的颜色
+     * @param circleWidth 表圈的宽度
+     */
+    constructor(
+        el: HTMLCanvasElement,
+        radius: number,
+        circleColor: string,
+        circleWidth: number,
+        fontSize: number,
+        outBorderColor: string,
+        innerColor: string,
+        centerColor: string,
+        bgImgEl: HTMLImageElement
+    ) {
+        this.ctx = el.getContext("2d");
+        this.center = {
+            x: this.ctx.canvas.width / 2,
+            y: this.ctx.canvas.height / 2,
+        };
+        this.radius = radius;
+        this.circleColor = circleColor;
+        this.circleWidth = circleWidth;
+        this.outBorderColor = outBorderColor;
+        this.innerColor = innerColor;
+        this.fontSize = fontSize;
+        this.centerColor = centerColor
+        this.bgImgEl = bgImgEl
+
+    }
+
+    // 绘制入口函数
+    public draw() {
+        this.drawOuterCircle();
+        this.drawInnerCircle();
+        this.drawCenterPoint();
+        this.drawImage()
+        this.drawNumbers();
+    }
+    // 绘制表盘外圈
+    private drawOuterCircle() {
+        this.drawCircle(this.radius - this.circleMargin, this.outBorderColor);
+        this.ctx.fillStyle = this.circleColor;
+        this.ctx.fill();
+    }
+    // 绘制表盘内圈
+    private drawInnerCircle() {
+        this.drawCircle(this.radius - this.circleMargin - this.circleWidth, this.innerColor);
+        this.ctx.fillStyle = "#fff";
+        this.ctx.fill();
+    }
+    // 绘制表心点
+    public drawCenterPoint() {
+        this.drawCircle(this.centerSize, this.centerColor);
+        this.ctx.fillStyle = this.centerColor;
+        this.ctx.fill();
+    }
+    // 绘制圈
+    private drawCircle(radius: number, borderColor: string) {
+        const { x, y } = this.center;
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        this.ctx.closePath();
+        this.ctx.strokeStyle = borderColor
+        this.ctx.stroke();
+    }
+    // 绘制背景
+    public drawImage() {
+        const { x, y } = this.center;
+        const radius = this.radius - this.circleMargin - this.circleWidth;
+
+        // 保存当前context状态
+        this.ctx.save();
+
+        // 创建一个剪裁区域
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        this.ctx.clip();
+
+        // 在剪裁区域内绘制图片
+        this.ctx.drawImage(this.bgImgEl, x - radius, y - radius, radius * 2, radius * 2);
+
+        // 恢复之前保存的context状态
+        this.ctx.restore();
+    }
+
+    // 绘制数字
+    private drawNumbers() {
+
+        const { x, y } = this.center;
+        this.ctx.font = `bold ${this.fontSize}px serif`;
+
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = this.centerColor;
+
+
+        const DELTA = -(Math.PI * 2) / 12;
+        for (let i = 1; i <= 12; i++) {
+            const theta = DELTA * i;
+            const offset = 28;
+            const _x = (this.radius - offset) * Math.sin(theta);
+            const _y = (this.radius - offset) * Math.cos(theta);
+
+            this.ctx.fillText(`${i}`, x - _x, y - _y);
+        }
+    }
+}
+
+
+
+// 指针类，负责绘制表盘指针
+
+class ClockHand {
+    private ctx: CanvasRenderingContext2D;
+    private center: { x: number; y: number };
+
+    /**
+     * @param el 
+     * @param width 指针宽度
+     * @param length 指针长度
+     * @param color 指针颜色
+     */
+    constructor(el: HTMLCanvasElement, private width: number, private length: number, private color: string) {
+        this.ctx = el.getContext("2d");
+        this.center = {
+            x: this.ctx.canvas.width / 2,
+            y: this.ctx.canvas.height / 2,
+        };
+
+    }
+
+    /**
+     * 
+     * @param angle 指针角度
+     */
+    public draw(angle: number) {
+        const { x, y } = this.center
+        this.ctx.beginPath();
+        this.ctx.lineWidth = this.width;
+        this.ctx.lineCap = "round";
+        this.ctx.strokeStyle = this.color;
+        this.ctx.moveTo(x, y);
+        // this.ctx.lineTo(length * Math.sin(angle), length * Math.cos(angle));
+        this.ctx.lineTo(
+            x + this.length * Math.sin(angle),
+            y - this.length * Math.cos(angle)
+        );
+        this.ctx.stroke();
+        // this.ctx.closePath()
+    }
+}
+
+
+const clock = new Clock()
