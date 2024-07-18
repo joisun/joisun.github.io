@@ -1,0 +1,22 @@
+$header-height: 3rem;
+#app {
+  header {
+    height: $header-height;
+  }
+  main {
+    height: calc(100vh - $header-height);
+    display: flex;
+    aside {
+      resize: horizontal;
+      overflow: auto;
+      min-width: 256px;
+      max-width: 40%;
+      &:hover {
+        border-right: 1px solid red;
+      }
+    }
+    .main-content {
+      flex: 1;
+    }
+  }
+}
