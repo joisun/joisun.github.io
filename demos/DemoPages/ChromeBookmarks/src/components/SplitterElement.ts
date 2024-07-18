@@ -95,6 +95,8 @@ export default class CrSplitterElement extends HTMLElement {
         }
     }
     handleMove_(clientX: number) {
+        // 做兼容性处理， 默认浏览器的文字排版时从左到右， 但是有一些国家，例如阿拉伯语国家， 是从右到左， 这时候的 deltaX 的计算规则不同。 
+        // this指的是当前元素实例， 元素实例上的 matches 方法用于匹配css选择器。 
         const deltaX = this.matches(":host-context([dir=rtl]) cr-splitter") ? this.startX_ - clientX : clientX - this.startX_;
         this.handleSplitterDragMove_(deltaX)
     }
@@ -123,6 +125,7 @@ export default class CrSplitterElement extends HTMLElement {
         if (doc && doc.defaultView) {
             const computedWidth = parseFloat(doc.defaultView.getComputedStyle(targetElement).width);
             if (this.startWidth_ !== computedWidth) {
+                // 代码解构，触发 resize 事件， 这样其他模块的代码假如需要收到侧边栏宽度变更，就可以通过监听该事件实现
                 this.dispatchEvent(new CustomEvent("resize"))
             }
         }

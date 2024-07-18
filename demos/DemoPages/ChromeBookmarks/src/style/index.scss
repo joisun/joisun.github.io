@@ -7,15 +7,17 @@ $header-height: 3rem;
     height: calc(100vh - $header-height);
     display: flex;
     aside {
-      resize: horizontal; /* required */
-      overflow: auto; /* required */
+      overflow: auto;
       min-width: 256px;
       max-width: 40%;
-      &:hover {
-        border-right: 1px solid red;
-      }
     }
-
+    #split-bar {
+      width: 15px;
+      cursor: w-resize;
+    }
+    .splitter-active {
+      border-left: 1px solid #939393;
+    }
     .main-content {
       flex: 1;
     }
