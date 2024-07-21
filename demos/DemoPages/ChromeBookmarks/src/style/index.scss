@@ -6,7 +6,7 @@ $header-height: 3rem;
   main {
     height: calc(100vh - $header-height);
     display: flex;
-    aside {
+    bookmark-aside {
       overflow: auto;
       min-width: 256px;
       max-width: 40%;
