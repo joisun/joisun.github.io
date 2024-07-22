@@ -27,7 +27,7 @@ const handleClick = (i:number)=>{
       <h2 class="text-xl mt-2 text-gray-400">Rerum officia hic qui ipsam eveniet non reiciendis.</h2>
       <div class="item-list mt-12 grid grid-cols-4 gap-y-4 gap-x-2">
         <div class="item " v-for="(image, index) in 16" :key="index" @click="handleClick(index)">
-            <img class="aspect-square w-full  cursor-pointer hover:border-gray-200 border border-transparent p-1" :src="`https://placedog.net/100/100?id=${index + 1}`" :alt="`Image ${index + 1}`">
+            <img class="aspect-square w-full  cursor-pointer hover:border-gray-200 border border-transparent p-1" :src="`https://placedog.net/300/300?id=${index + 1}`" :alt="`Image ${index + 1}`">
           <p class="name font-semibold"> {{ randomName(8) }}</p>
           <p class="text-gray-500">{{ randomName(12) }}.</p>
           <p class="text-right font-semibold text-gray-700 text-sm">$99.00</p>
