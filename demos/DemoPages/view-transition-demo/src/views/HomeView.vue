@@ -15,9 +15,7 @@ const randomName = (l: number = 12) => {
 }
 
 const handleClick = (i:number)=>{
-  document.startViewTransition(()=>{
     router.push(`/detail/${i + 1}`)
-  })
 }
 </script>
 
