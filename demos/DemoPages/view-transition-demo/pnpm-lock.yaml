@@ -16,6 +16,9 @@ devDependencies:
   '@tsconfig/node20':
     specifier: ^20.1.4
     version: 20.1.4
+  '@types/dom-view-transitions':
+    specifier: ^1.0.5
+    version: 1.0.5
   '@types/node':
     specifier: ^20.14.5
     version: 20.14.11
@@ -492,6 +495,10 @@ packages:
 
   /@tsconfig/node20@20.1.4:
     resolution: {integrity: sha512-sqgsT69YFeLWf5NtJ4Xq/xAF8p4ZQHlmGW74Nu2tD4+g5fAsposc4ZfaaPixVu4y01BEiDCWLRDCvDM5JOsRxg==}
+    dev: true
+
+  /@types/dom-view-transitions@1.0.5:
+    resolution: {integrity: sha512-N2sILR7fxSMnaFaAPwGj4DtHCXjIyQTHt+xJyf9jATpzUsTkMNM0DWtqZB6W7f501B/Y0tq3uqat/VlbjuTpMA==}
     dev: true
 
   /@types/estree@1.0.5:
