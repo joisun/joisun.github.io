@@ -8,13 +8,7 @@ import { cn } from "@/lib/utils"
 import Linker from "./Linker"
 import { useLocation } from "react-router-dom"
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
-
   const pathname = useLocation().pathname
-
-  
-  
-
-  
     return (
       <nav
         className={cn(

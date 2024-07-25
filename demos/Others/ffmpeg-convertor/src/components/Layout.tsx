@@ -6,12 +6,12 @@ import Header from "./Header";
 import { cn } from "@/lib/utils";
 const sidebarNavItems = [
   {
-    title: "Video to GIF/WEBP",
-    href: ROUTES.VIDEO_TO_GW,
+    title: "Video to X",
+    href: ROUTES.VIDEO_TO_X,
   },
   {
-    title: "Video to Video",
-    href: ROUTES.VIDEO_TO_VIDEO,
+    title: "More",
+    href: ROUTES.MORE,
   },
 ];
 
@@ -28,7 +28,7 @@ export default function Layout() {
         <aside className="-mx-4 lg:w-1/5 ">
           <SidebarNav items={sidebarNavItems} />
         </aside>
-        <div className="flex-1 lg:max-w-2xl ">
+        <div className="flex-1 w-full container">
           <Outlet />
         </div>
       </div>
