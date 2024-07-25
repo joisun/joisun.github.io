@@ -5,9 +5,15 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
     }[]
   }
 import { cn } from "@/lib/utils"
+import Linker from "./Linker"
+import { useLocation } from "react-router-dom"
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
-    const pathname = ""
-    // const pathname = usePathname()
+
+  const pathname = useLocation().pathname
+
+  
+  
+
   
     return (
       <nav
@@ -18,19 +24,20 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
         {...props}
       >
         {items.map((item) => (
-          <a
+          <Linker 
             key={item.href}
-            href={item.href}
+            name={item.title}
+            to={item.href}
             className={cn(
-              pathname === item.href
+              pathname === '/'+item.href
                 ? "bg-muted hover:bg-muted"
                 : "hover:bg-transparent hover:underline",
               "justify-start"
             )}
-          >
-            {item.title}
-          </a>
+          />
+          
         ))}
+        
       </nav>
     )
   }
