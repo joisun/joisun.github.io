@@ -52,6 +52,8 @@
 - [Theme clock 主题时钟](https://jaycethanks.github.io/demos/CssTrick/theme-clock/dist)
 #### Demo Pages
 
+- [Chrome Bookmarks
+](https://jaycethanks.github.io/demos/DemoPages/ChromeBookmarks/dist)
 - [下拉刷新
 ](https://jaycethanks.github.io/demos/DemoPages/DragPullRefresh/dist)
 - [非矢量图转pathSvg矢量图
@@ -74,6 +76,7 @@
 - [Tree Output Visualizer](https://jaycethanks.github.io/demos/DemoPages/render-tree-command-json/dist)
 - [Threejs 下雨特效
 ](https://jaycethanks.github.io/demos/DemoPages/threejs-rain/dist)
+- [demos/DemoPages/view-transition-demo/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://jaycethanks.github.io/demos/DemoPages/view-transition-demo/dist)
 - [Drag and Zoom Draw Canvas Demo
 ](https://jaycethanks.github.io/demos/DemoPages/wheelChange/dist)
 #### Generate Arts
@@ -89,6 +92,7 @@
 ](https://jaycethanks.github.io/demos/Others/ThreejsPipesMapping/dist)
 - [Tree Tool
 ](https://jaycethanks.github.io/demos/Others/TreeTool/dist)
+- [FFmpeg Convertor 转换器](https://jaycethanks.github.io/demos/Others/ffmpeg-convertor/dist)
 - [Websocket 聊天 Demo ShareTalk 社兔
 ](https://jaycethanks.github.io/demos/Others/rabbitChat/dist)
 - [Svg Convert
