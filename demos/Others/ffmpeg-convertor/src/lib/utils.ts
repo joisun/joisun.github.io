@@ -8,15 +8,15 @@ export function cn(...inputs: ClassValue[]) {
 
 export function msToTime(duration: number): string {
   const milliseconds = Math.floor((duration % 1000) / 100),
-      seconds = Math.floor((duration / 1000) % 60),
-      minutes = Math.floor((duration / (1000 * 60)) % 60),
-      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
 
   const hoursStr = (hours < 10) ? "0" + hours : hours;
   const minutesStr = (minutes < 10) ? "0" + minutes : minutes;
   const secondsStr = (seconds < 10) ? "0" + seconds : seconds;
 
-  return hoursStr + ":" + minutesStr + ":" + secondsStr ;
+  return hoursStr + ":" + minutesStr + ":" + secondsStr;
 }
 
 export type GenerateGMParams = {
@@ -30,9 +30,17 @@ export type GenerateGMParams = {
   filetype: string,
   input?: string,
   output?: string
+  timeRange: string
 }
 
-export const generateFFmpegCommand = function (params: GenerateGMParams) {
+
+export type CommandPartsType = {
+  input: string
+  output: string
+  executeParts: string[]
+}
+type GenerateFFmpegCommandType = (params: GenerateGMParams) => { command: string, commandParts: CommandPartsType }
+export const generateFFmpegCommand: GenerateFFmpegCommandType = function (params) {
   // 设置默认值
   const defaults = {
     bitrate: "800k",
@@ -53,6 +61,7 @@ export const generateFFmpegCommand = function (params: GenerateGMParams) {
   // 构建命令数组
   const commandParts = [
     "ffmpeg",
+    ` ${options.timeRange} `,
     `-i "${options.input}"`,
     `-b:v ${options.bitrate}`,
     `-crf ${options.compression}`,
@@ -64,7 +73,17 @@ export const generateFFmpegCommand = function (params: GenerateGMParams) {
   ];
 
 
+  const _execute_parts = Array.from(commandParts)
+  _execute_parts.shift()
+
+
 
   // 过滤掉空字符串，并用空格连接所有部分
-  return commandParts.filter(part => part !== '').join(' ');
+  return {
+    command: commandParts.filter(part => part !== '').join(' '), commandParts: {
+      input: options.input,
+      output: `${options.output}.${options.filetype}`,
+      executeParts: _execute_parts
+    }
+  };
 }

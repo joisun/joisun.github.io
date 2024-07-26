@@ -4,17 +4,16 @@ import { cn, msToTime } from "@/lib/utils";
 
 interface VideoClipperProps extends React.HTMLAttributes<HTMLVideoElement> { 
   src: string
+  onClipChange:(startPoint:string, endPoint:string)=>void
 }
 
-export default function VideoClipper(props:VideoClipperProps) {
+export default function VideoClipper({onClipChange,...props}:VideoClipperProps) {
   const [play, setPlay] = useState(false);
   const [range, setRange] = useState([0, 0])
   const [startPoint, setStartPoint] = useState('')
   const [endPoint, setEndPoint] = useState('')
-  const [volum, setVolum] = useState(0)
   const [volumVisible, setVolumVisible] = useState(false)
   const videoRef = useRef<HTMLVideoElement | null>(null)
-  const volumeSliderRef = useRef<HTMLInputElement | null>(null)
 
   const len = 54003240
   const handleChange = (isStart: boolean, e: number, percentage: number) => {
@@ -23,6 +22,7 @@ export default function VideoClipper(props:VideoClipperProps) {
     setRange(newRange)
     const time = msToTime(len * percentage)
     isStart ? setStartPoint(time) : setEndPoint(time)
+    onClipChange(startPoint, endPoint)
   }
   const handlePlay = function () {
     play ? videoRef.current?.pause() : videoRef.current?.play()

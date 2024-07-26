@@ -7,6 +7,7 @@ interface DropzoneProps {
   onChange: React.Dispatch<React.SetStateAction<string[]>>;
   className?: string;
   fileExtension?: string;
+
 }
 
 // Create the Dropzone component receiving props
