@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@diffusion-studio/ffmpeg-js':
+    specifier: ^0.2.3
+    version: 0.2.3
   '@hookform/resolvers':
     specifier: ^3.9.0
     version: 3.9.0(react-hook-form@7.52.1)
@@ -357,6 +360,10 @@ packages:
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
     dev: true
+
+  /@diffusion-studio/ffmpeg-js@0.2.3:
+    resolution: {integrity: sha512-SkBf6N8FJU1nLfHDO0h1jjfTzpKd84149yTsvyigAmqOgnc4g9mWqBUWzzcAs8yawhMpI1uRj//OAnHxU6WPRw==}
+    dev: false
 
   /@esbuild/aix-ppc64@0.21.5:
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}

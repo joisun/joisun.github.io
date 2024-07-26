@@ -95,7 +95,9 @@ export default function ProfileForm() {
     }
 
     // inputRef.current?.
-    // await execute(files[0], commandParts)
+
+    // files[0]: URL.createObjectURL(file)
+    await execute(files[0], commandParts)
 
   }
 
@@ -119,7 +121,7 @@ export default function ProfileForm() {
 
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit(()=>onSubmit(form.getValues(), false))}
           className="grid w-full  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-4 gap-y-4"
         >
           <FormField

@@ -37,7 +37,7 @@ export default function VideoClipper({onClipChange,...props}:VideoClipperProps) 
   return (
     <div className="relative w-full max-w-[1000px] mx-auto">
       <video ref={videoRef} className="relative w-full" {...props}></video>
-      <div className="absolute flex gap-4 px-4 justify-between items-center z-20 bottom-12 left-1/2 rounded-2xl  backdrop-blur-2xl  -translate-x-1/2 z-1000 controller h-20 w-11/12 bg-black/10">
+      <div className="absolute flex gap-4 px-4 justify-between items-center z-20 bottom-12 left-1/2 rounded-2xl  backdrop-blur-2xl  -translate-x-1/2 z-1000 controller h-20 w-11/12 bg-black/60">
         <button className="text-4xl hover:scale-110 transition-all" onClick={handlePlay}>
           {play ? <IcRoundPause /> : <IcRoundPlayArrow />}
         </button>
@@ -57,7 +57,7 @@ export default function VideoClipper({onClipChange,...props}:VideoClipperProps) 
           "absolute -right-14 -top-0 -rotate-90 transition-all w-20 ",
           "appearance-none bg-transparent",
           "[&::-webkit-slider-runnable-track]:rounded-full",
-          " [&::-webkit-slider-runnable-track]:bg-black/40",
+          " [&::-webkit-slider-runnable-track]:bg-black/60",
           " [&::-webkit-slider-runnable-track]:backdrop-blur-2xl",
           "[&::-webkit-slider-thumb]:appearance-none ",
           "[&::-webkit-slider-thumb]:h-4 ",

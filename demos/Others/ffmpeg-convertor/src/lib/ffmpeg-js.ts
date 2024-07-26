@@ -9,12 +9,6 @@ export const useFFmpeg = () => {
 }
 
 
-// const source = 'https://<path to file>/<filename>.mp4';
-// const result: Uint8Array = ffmpeg
-// .input({ source })
-// .ouput({ format: 'avi' })
-// .export();
-
 
 const readFile = async (file: File) => {
     return new Promise<Blob | undefined>((resolve) => {
@@ -34,10 +28,9 @@ const readFile = async (file: File) => {
     })
 }
 
-export const execute = async (file: string, commandParts:CommandPartsType) => {
+export const execute = async (file: string, commandParts: CommandPartsType) => {
     // const blob = await readFile(file);
     // if (!blob) return;
-
 
     const ffmpeg = new FFmpeg();
 
@@ -63,13 +56,13 @@ export const execute = async (file: string, commandParts:CommandPartsType) => {
     //     .export()
 }
 
-const downloadData = (file: Uint8Array, filename:string) => {
+const downloadData = (file: Uint8Array, filename: string) => {
     // Create link and download
     const a = document.createElement('a');
     document.head.appendChild(a);
     a.download = filename
     a.href = URL.createObjectURL(
-      new Blob([file])
+        new Blob([file])
     )
     a.click();
-  }
+}
