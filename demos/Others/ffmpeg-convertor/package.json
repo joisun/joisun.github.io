@@ -12,7 +12,6 @@
     "add-comp": "npx shadcn-ui@latest add"
   },
   "dependencies": {
-    "@diffusion-studio/ffmpeg-js": "^0.2.3",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-hover-card": "^1.1.1",
