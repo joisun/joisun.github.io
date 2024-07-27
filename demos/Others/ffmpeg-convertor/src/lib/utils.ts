@@ -6,17 +6,17 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-export function msToTime(duration: number): string {
-  const milliseconds = Math.floor((duration % 1000) / 100),
-    seconds = Math.floor((duration / 1000) % 60),
-    minutes = Math.floor((duration / (1000 * 60)) % 60),
-    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+export function secondsToTime(duration: number): string {
+  const totalSeconds = Math.floor(duration);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
-  const hoursStr = (hours < 10) ? "0" + hours : hours;
-  const minutesStr = (minutes < 10) ? "0" + minutes : minutes;
-  const secondsStr = (seconds < 10) ? "0" + seconds : seconds;
+  const hoursStr = hours.toString().padStart(2, '0');
+  const minutesStr = minutes.toString().padStart(2, '0');
+  const secondsStr = seconds.toString().padStart(2, '0');
 
-  return hoursStr + ":" + minutesStr + ":" + secondsStr;
+  return `${hoursStr}:${minutesStr}:${secondsStr}`;
 }
 
 export type GenerateGMParams = {
@@ -84,6 +84,35 @@ export const generateFFmpegCommand: GenerateFFmpegCommandType = function (params
       input: options.input,
       output: `${options.output}.${options.filetype}`,
       executeParts: _execute_parts
+    }
+  };
+}
+
+
+
+export function throttle<T extends (...args: any[]) => any>(
+  func: T,
+  limit: number
+): (...args: Parameters<T>) => void {
+  let inThrottle: boolean;
+  let lastFunc: ReturnType<typeof setTimeout>;
+  let lastRan: number;
+
+  return function (this: any, ...args: Parameters<T>) {
+    const context = this;
+
+    if (!inThrottle) {
+      func.apply(context, args);
+      lastRan = Date.now();
+      inThrottle = true;
+    } else {
+      clearTimeout(lastFunc);
+      lastFunc = setTimeout(() => {
+        if (Date.now() - lastRan >= limit) {
+          func.apply(context, args);
+          lastRan = Date.now();
+        }
+      }, limit - (Date.now() - lastRan));
     }
   };
 }
