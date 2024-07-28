@@ -1,26 +1,35 @@
-import React, { useRef, useState } from 'react';
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 // Define the props expected by the Dropzone component
 interface DropzoneProps {
-  onChange: React.Dispatch<React.SetStateAction<string[]>>;
+  // onChange: React.Dispatch<React.SetStateAction<File[]>>;
+  onChange: (files:File[])=>void;
   className?: string;
   fileExtension?: string;
 
 }
 
 // Create the Dropzone component receiving props
-export default function Dropzone({
+export default forwardRef(({
   onChange,
   className,
   fileExtension,
   ...props
-}: DropzoneProps) {
+}: DropzoneProps, ref) =>{
   // Initialize state variables using the useState hook
   const fileInputRef = useRef<HTMLInputElement | null>(null); // Reference to file input element
   const [fileInfo, setFileInfo] = useState<string | null>(null); // Information about the uploaded file
   const [error, setError] = useState<string | null>(null); // Error message state
+
+  
+  useImperativeHandle(ref, () => {
+    console.log('useImperativeHandle called');
+    return {
+      inputElement: fileInputRef.current
+    }
+  });
 
 
   // Function to handle drag over event
@@ -57,9 +66,10 @@ export default function Dropzone({
 
     const fileSizeInKB = Math.round(uploadedFile.size / 1024); // Convert to KB
 
-    const fileList = Array.from(files).map((file) => URL.createObjectURL(file));
+    // const fileList = Array.from(files).map((file) => URL.createObjectURL(file));
+    const fileList = Array.from(files);
     // onChange((prevFiles) => [...prevFiles, ...fileList]);
-    onChange((prevFiles) => [...fileList]);
+    onChange([...fileList]);
 
     // Display file information
     setFileInfo(`Uploaded file: ${uploadedFile.name} (${fileSizeInKB} KB)`);
@@ -106,4 +116,4 @@ export default function Dropzone({
       </CardContent>
     </Card>
   );
-}
+})

@@ -62,25 +62,22 @@ export const generateFFmpegCommand: GenerateFFmpegCommandType = function (params
   const commandParts = [
     "ffmpeg",
     ` ${options.timeRange} `,
-    `-i "${options.input}"`,
+    `-i ${options.input}`,
     `-b:v ${options.bitrate}`,
     `-crf ${options.compression}`,
     `-r ${options.fps}`,
     options.loop !== 0 ? `-loop ${options.loop}` : '',
-    `-vf "select='not(mod(n,${options.select}))',scale=${options.width}:-1"`,
+    `-vf select='not(mod(n,${options.select}))',scale=${options.width}:-1`,
     `-pix_fmt ${options.pix_fmt}`,
-    `"${options.output}.${options.filetype}"`
+    `${options.output}.${options.filetype}`
   ];
 
-
-  const _execute_parts = Array.from(commandParts)
+  const commandStr = commandParts.filter(part => part !== '').join(' ')
+  
+  const _execute_parts = commandStr.split(' ').filter(i=>!!i)
   _execute_parts.shift()
-
-
-
-  // 过滤掉空字符串，并用空格连接所有部分
   return {
-    command: commandParts.filter(part => part !== '').join(' '), commandParts: {
+    command: commandStr, commandParts: {
       input: options.input,
       output: `${options.output}.${options.filetype}`,
       executeParts: _execute_parts

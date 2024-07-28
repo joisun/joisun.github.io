@@ -42,8 +42,8 @@ import { Input } from "@/components/ui/input";
 import BiteRateSelector from "@/components/bit-rate-selector";
 import { Slider } from "@/components/ui/slider";
 import ColorSpaceSelector from "@/components/color-space-selector";
-import { generateFFmpegCommand } from "@/lib/utils";
-import { ReactElement, SVGProps, useRef, useState } from "react";
+import { CommandPartsType, generateFFmpegCommand } from "@/lib/utils";
+import { ReactElement, SVGProps, useEffect, useRef, useState } from "react";
 import { Label } from "@/components/ui/label";
 import FileTypeSelector from "@/components/file-type-selector";
 import Dropzone from "@/components/DropZone";
@@ -51,7 +51,12 @@ import VideoClipper from "@/components/VideoClipper";
 import { Separator } from "@radix-ui/react-separator";
 import { useToast } from "@/components/ui/use-toast";
 import NoSafariSupport from "@/components/no-safari-support";
-import { execute, useFFmpeg } from "@/lib/ffmpeg-js";
+import { useFFmpeg } from "@/lib/FFmpeg.wasm";
+import DemoFFmpeg from "@/components/DemoFFmpeg";
+import { LineMdLoadingTwotoneLoop, MingcuteCloseFill } from "@/components/icons";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { Progress } from "@/components/ui/progress";
 
 export default function ProfileForm() {
   // 1. Define your form.
@@ -70,14 +75,36 @@ export default function ProfileForm() {
   });
   const [command, setCommand] = useState("");
   const [timeRange, setTimeRange] = useState("");
-  const [files, setFiles] = useState<string[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
+  const [videoSrc, setVideoSrc] = useState("")
   const { toast } = useToast();
+  const ffmpeg = useFFmpeg();
+  const [result, setResult] = useState<Uint8Array | null>(null);
 
   const handleVideoClipperChange = (startPoint: string, endPoint: string) => {
     if (startPoint && endPoint) {
       setTimeRange(`-ss ${startPoint} -t ${endPoint}`);
     } else {
       setTimeRange("");
+    }
+  };
+
+  const handleDropzoneChange = (files: File[]) => {
+    setFiles(() => files)
+    setVideoSrc(URL.createObjectURL(files[0]))
+  }
+  const handleTranscode = async (file: File, commandParts: CommandPartsType) => {
+    if (!ffmpeg.isLoaded) {
+      console.log('FFmpeg is not loaded yet');
+      return;
+    }
+
+    try {
+      const data = await ffmpeg.transcode(file, commandParts);
+      setResult(data);
+      console.log('Transcoding completed');
+    } catch (error) {
+      console.error('Transcoding failed:', error);
     }
   };
 
@@ -99,18 +126,15 @@ export default function ProfileForm() {
       });
       return;
     }
-
-    // inputRef.current?.
-
-    // files[0]: URL.createObjectURL(file)
-    await execute(files[0], commandParts);
+    const result = await handleTranscode(files[0], commandParts)
+    console.log('result', result)
   }
 
   return (
     <>
       <div className="file mb-8">
         {files[0] ? (
-          <VideoClipper src={files[0]} onClipChange={handleVideoClipperChange}>
+          <VideoClipper src={videoSrc} onClipChange={handleVideoClipperChange}>
             <button
               onClick={() => setFiles([])}
               className="w-12 h-12 bg-black/20 hover:bg-black/30 backdrop-blur-xl absolute hover:scale-110 transition-all top-2 right-2 flex justify-center items-center rounded-lg"
@@ -120,13 +144,13 @@ export default function ProfileForm() {
           </VideoClipper>
         ) : (
           <Dropzone
-            onChange={setFiles}
+            onChange={handleDropzoneChange}
             className="w-full h-24 my-12 flex items-center justify-center"
             fileExtension="video/*"
           ></Dropzone>
         )}
       </div>
-      <Separator className="bg-border h-[1px] my-12" />
+      <Separator className="bg-border h-[1px] my-8" />
 
       <Form {...form}>
         <form
@@ -279,47 +303,67 @@ export default function ProfileForm() {
           />
         </form>
       </Form>
-      <Separator className="bg-border h-[1px] mt-12" />
+      <Separator className="bg-border h-[1px] mt-8 mb-4" />
       <Button
         variant={"outline"}
-        className="mt-12 mr-6"
+        className="mr-6"
         onClick={form.handleSubmit(() => onSubmit(form.getValues(), true))}
       >
         仅生成指令
       </Button>
       <Button
         variant={"outline"}
-        className="mt-12"
+        className=""
         onClick={form.handleSubmit(() => onSubmit(form.getValues(), false))}
       >
-        生成指令并开始转换
+        生成指令并开始转换 {ffmpeg.isDoing && <LineMdLoadingTwotoneLoop className="ml-2 inline-block" />}
       </Button>
-      <div className="mt-4">
-        <Label>生成指令:</Label>
-        <pre className="mt-4 whitespace-normal">{command}</pre>
+
+      <span className="ml-4 text-gray-500 inline-flex items-center text-xs">FFmpeg.wasm {ffmpeg.isLoading && <div className="inline-block w-1.5 h-1.5 ml-2 rounded-full bg-yellow-500"></div>} {ffmpeg.isLoaded && <div className="inline-block w-1.5 h-1.5 ml-2 rounded-full bg-green-500"></div>}</span>
+
+
+      <div className="my-4 h-1 flex items-center gap-4">
+        {ffmpeg.progress !== 0 && <> <Progress value={ffmpeg.progress} className="my-4 h-1" /> <span className="text-xs shrink-0">{Math.floor(ffmpeg.transcodedTime)} s</span></>}
       </div>
 
-      <NoSafariSupport className="mt-12" />
-    </>
-  );
-}
+      {ffmpeg.error &&
+        <Alert className="my-4" variant="destructive">
+          <ExclamationTriangleIcon className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>
+            {ffmpeg.error?.message}
+          </AlertDescription>
+        </Alert>
+      }
 
-function MingcuteCloseFill(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      {...props}
-    >
-      <g fill="none" fillRule="evenodd">
-        <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"></path>
-        <path
-          fill="currentColor"
-          d="m12 14.122l5.303 5.303a1.5 1.5 0 0 0 2.122-2.122L14.12 12l5.304-5.303a1.5 1.5 0 1 0-2.122-2.121L12 9.879L6.697 4.576a1.5 1.5 0 1 0-2.122 2.12L9.88 12l-5.304 5.304a1.5 1.5 0 1 0 2.122 2.12z"
-        ></path>
-      </g>
-    </svg>
+      {
+        ffmpeg.logs.length !== 0 &&
+        <Alert className="my-4">
+          <AlertTitle>Logs:{ffmpeg.logs.length}</AlertTitle>
+          <AlertDescription>
+            {ffmpeg.logs.map((i, index) => {
+              return <pre key={index} className="mt-4 whitespace-normal">{i}</pre>
+            })}
+          </AlertDescription>
+        </Alert>
+      }
+
+      {
+        command && <Alert className="my-4">
+          <AlertTitle>生成指令:</AlertTitle>
+          <AlertDescription>
+            <pre className="mt-4 whitespace-normal">{command}</pre>
+          </AlertDescription>
+        </Alert>
+      }
+
+
+      <Alert className="text-border my-4">
+        <AlertTitle className="text-border">No Safari Support !</AlertTitle>
+        <AlertDescription>
+          Sorry that there is no support for safari, since this project is powered by <a target="_blank" className="underline underline-offset-4" href="https://github.com/diffusion-studio/ffmpeg-js">@diffusion-studio/ffmpeg-js</a>
+        </AlertDescription>
+      </Alert>
+    </>
   );
 }
