@@ -42,7 +42,7 @@ export function useFFmpeg(): FFmpegInstance {
 
     const load = useCallback(async () => {
         console.log('1. Load function called');
-        if (isLoaded || isLoading) {
+        if (isLoaded || isLoading || error) {
             console.log('2. Already loaded or loading');
             return;
         }
@@ -68,7 +68,9 @@ export function useFFmpeg(): FFmpegInstance {
                 setTranscodedTime(() => time / 1000000)
             });
 
-            const baseURL = 'https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm';
+            // const baseURL = 'https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm';
+            const baseURL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core-mt@0.12.6/dist/esm';
+            
             // console.log('7. Fetching core URL');
             // const coreURL = await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript');
             // console.log('8. Core URL fetched');
