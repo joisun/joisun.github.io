@@ -82,11 +82,12 @@ export default function VideoClipper({
   // 设定播放时间点并播放
   const playAt = (at: number) => {
     if (videoRef.current) {
+      console.log('at',at)
       videoRef.current.currentTime = at;
       videoRef.current.play();
     }
   };
-  const throttledPlayAt = throttle(playAt, 50);
+  const throttledPlayAt = throttle(playAt, 100);
 
   return (
     <div className="relative w-full max-w-[1000px] mx-auto">

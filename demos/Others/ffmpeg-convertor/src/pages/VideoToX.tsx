@@ -53,7 +53,7 @@ import { useToast } from "@/components/ui/use-toast";
 import NoSafariSupport from "@/components/no-safari-support";
 import { useFFmpeg } from "@/lib/FFmpeg.wasm";
 import DemoFFmpeg from "@/components/DemoFFmpeg";
-import { LineMdLoadingTwotoneLoop, MingcuteCloseFill } from "@/components/icons";
+import { HugeiconsLoading03, MingcuteCloseFill } from "@/components/icons";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { Progress } from "@/components/ui/progress";
@@ -316,7 +316,7 @@ export default function ProfileForm() {
         className=""
         onClick={form.handleSubmit(() => onSubmit(form.getValues(), false))}
       >
-        生成指令并开始转换 {ffmpeg.isDoing && <LineMdLoadingTwotoneLoop className="ml-2 inline-block" />}
+        生成指令并开始转换 {ffmpeg.isDoing && <HugeiconsLoading03 className="animate-spin ml-2 inline-block" />}
       </Button>
 
       <span className="ml-4 text-gray-500 inline-flex items-center text-xs">FFmpeg.wasm {ffmpeg.isLoading && <div className="inline-block w-1.5 h-1.5 ml-2 rounded-full bg-yellow-500"></div>} {ffmpeg.isLoaded && <div className="inline-block w-1.5 h-1.5 ml-2 rounded-full bg-green-500"></div>}</span>
