@@ -1,0 +1,1 @@
+a{color:#7c7cff;font-size:2rem}@view-transition{navigation: auto;}@keyframes bottom-move-out{0%{transform:translateY(0)}to{transform:translateY(100%)}}@keyframes top-move-in{0%{transform:translateY(-100%)}to{transform:translateY(0)}}::view-transition-old(root){animation:.4s ease-in bottom-move-out}::view-transition-new(root){animation:.4s ease-in top-move-in}
