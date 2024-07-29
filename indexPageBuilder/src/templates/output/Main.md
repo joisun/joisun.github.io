@@ -77,6 +77,7 @@
 - [Threejs 下雨特效
 ](https://joisun.github.io/demos/DemoPages/threejs-rain/dist)
 - [demos/DemoPages/view-transition-demo/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://joisun.github.io/demos/DemoPages/view-transition-demo/dist)
+- [view transition mpa demo](https://joisun.github.io/demos/DemoPages/view-transition-demo-mpa/dist)
 - [Drag and Zoom Draw Canvas Demo
 ](https://joisun.github.io/demos/DemoPages/wheelChange/dist)
 #### Generate Arts
