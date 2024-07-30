@@ -1,12 +1,16 @@
 <script lang="ts" setup>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 const route = useRoute()
+const router = useRouter()
 
 </script>
 <template>
   <div class="about container">
+    <button @click="router.back()" class="py-2 px-4 border 
+      dark:bg-white dark:hover:bg-white/70 dark:active:bg-white/60 dark:text-black
+      bg-gray-800 hover:bg-gray-700 active:bg-gray-600 text-white mt-2">Go back</button>
     <section class="grid grid-cols-2 gap-8">
-      <img class="w-full aspect-square" :src="`https://placedog.net/300/300?id=${route.params.id}`" alt="">
+      <img class="dog-card w-full aspect-square" :src="`https://placedog.net/50/50?id=${route.params.id}`" alt="">
       <div class="info py-12 relative">
         <h1 class="text-3xl font-semibold">Eligendi excepturi in</h1>
         <h2 class="text-gray-500 mt-4">Occaecati blanditiis est mollitia similique in iure.</h2>

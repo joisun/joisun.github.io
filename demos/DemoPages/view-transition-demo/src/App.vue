@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import {  RouterView } from 'vue-router'
+import { RouterView, useRouter } from 'vue-router'
 const isDark = ref(false)
 
-const handleThemeSwitch = ()=>{
+const handleThemeSwitch = () => {
   isDark.value = !isDark.value
-  document.documentElement.classList.toggle('dark') 
+  document.documentElement.classList.toggle('dark')
 }
 
 
@@ -46,7 +46,7 @@ function handleClick(e) {
       },
       {
         duration: 500,
-        direction: isDark.value ? 'reverse' :'normal',
+        direction: isDark.value ? 'reverse' : 'normal',
         easing: "ease-in",
         // Specify which pseudo-element to animate
         pseudoElement: "::view-transition-new(root)",
@@ -62,14 +62,20 @@ function handleClick(e) {
 </script>
 
 <template>
-  <div class="app-container  dark:bg-gray-900" >
-    <header class="text-right container mx-auto  px-12">
+  <div class="app-container  dark:bg-gray-900">
+    <header class="text-right container mx-auto px-8 ">
       <button @click="handleClick" class="py-2 px-4 border 
       dark:bg-white dark:hover:bg-white/70 dark:active:bg-white/60 dark:text-black
       bg-gray-800 hover:bg-gray-700 active:bg-gray-600 text-white mt-2">Change {{ isDark }}</button>
     </header>
     <div class="container px-8 py-2 font-sans  mx-auto ">
       <RouterView />
+
+      <!-- <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view> -->
     </div>
   </div>
 

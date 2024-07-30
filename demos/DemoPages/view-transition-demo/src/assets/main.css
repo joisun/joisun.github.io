@@ -2,18 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    view-transition-name: root;
+/* :root {
+  view-transition-name: root;
+} */
+
+/* ::view-transition-image-pair(root) {
+  isolation: auto;
+} */
+
+/* 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+} */
+
+
+.dog-card{
+  view-transition-name: dog-card;
+  /* animation: .3s rotate infinite; */
 }
 
-::view-transition-image-pair(root) {
-    isolation: auto;
+::view-transition-group(dog-card){
+  animation-duration: .5s;
+}
+
+::view-transition-old(dog-card),
+::view-transition-new(dog-card) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+  animation: .5s rotate both;
+
+}
+
+@keyframes rotate{
+  from {
+    transform: rotate(0);
   }
-  
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-    display: block;
+  to{
+    transform: rotate(145deg);
   }
-  
+}
