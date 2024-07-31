@@ -1,5 +1,5 @@
 {
-  "name": "jaycethanks.github.io",
+  "name": "joisun.github.io",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaycethanks/jaycethanks.github.io.git"
+    "url": "git+https://github.com/joisun/joisun.github.io.git"
   },
   "author": "jayce",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaycethanks/jaycethanks.github.io/issues"
+    "url": "https://github.com/joisun/joisun.github.io/issues"
   },
-  "homepage": "https://github.com/jaycethanks/jaycethanks.github.io#readme",
+  "homepage": "https://github.com/joisun/joisun.github.io#readme",
   "devDependencies": {
     "dotenv": "^16.0.3",
     "ts-node": "^10.9.1",

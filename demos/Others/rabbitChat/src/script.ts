@@ -192,7 +192,7 @@ function init() {
   function okDialog(nickName: string) {
     const ws = new WebSocket(
       'wss://jayce.asia/ws'
-      // 'wss://jaycethanks-github-io-8zio.vercel.app:8080'
+      // 'wss://joisun-github-io-8zio.vercel.app:8080'
     )
 
     const tw = new TalkWindow(ws, {
