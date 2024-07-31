@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{
+    --bg-color:#fff;
+    background-color: var(--bg-color);    
+}
+:root.dark{
+--bg-color:#333;
+}
+
+
+.dog-card{
+    view-transition-name: dog-card;
+}
+::view-transition-group(dog-card){
+    animation-duration: .3s;
+}
