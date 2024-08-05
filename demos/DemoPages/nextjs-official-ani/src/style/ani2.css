@@ -1,0 +1,39 @@
+section.ani-2 {
+  --duration: 2s;
+  --delay: 0.1s;
+  .card1,
+  .card2,
+  .card3 {
+    animation: var(--duration) move-tr forwards;
+    animation-play-state: var(--play-state);
+    opacity: 0;
+  }
+  .card1 {
+    left: 300px;
+    bottom: 100px;
+    z-index: 1;
+  }
+  .card2 {
+    left: 220px;
+    bottom: 50px;
+    z-index: 2;
+    animation-delay: calc(var(--delay) + 0.5s);
+  }
+  .card3 {
+    left: 120px;
+    bottom: 0px;
+    z-index: 3;
+    animation-delay: calc(var(--delay) + 1s);
+  }
+}
+
+@keyframes move-tr {
+  from {
+    transform: translateX(-100px) translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px) translateY(0px);
+    opacity: 1;
+  }
+}

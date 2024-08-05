@@ -1,0 +1,47 @@
+section.ani-3 {
+  .spark[data-light] {
+    /* 三种状态的样式颜色 */
+    --light: #3291ff;
+    --lighter: #d3e5ff;
+    --default: #fff;
+    width: 1px;
+    height: 1px;
+    background-color: var(--default);
+    margin: 10px;
+    position: relative;
+    border-radius: 9999px;
+  }
+  /* 设置伪元素 */
+  .spark[data-light]:before,
+  .spark[data-light]:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    transition: opacity 0.5s ease;
+  }
+
+  /* 伪元素样式 */
+  .spark[data-light]:after {
+    background: var(--default);
+    box-shadow: 0 0 1px 1px rgba(50, 145, 255, 0.8),
+      0 0 2px 1px rgba(50, 145, 255, 0.25);
+  }
+
+  .spark[data-light]:before {
+    background: var(--light);
+    box-shadow: 0 0 2px 1px rgba(50, 145, 255, 0.25);
+  }
+
+  /* medium | high 的样式 */
+  .spark[data-state="medium"]:before,
+  .spark[data-state="high"]:after {
+    opacity: 1;
+  }
+  .spark[data-state="off"] {
+    background-color: var(--default);
+  }
+}
