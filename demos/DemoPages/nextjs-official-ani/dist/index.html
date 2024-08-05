@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👀</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nextjs-official-ani</title>
+  <script type="module" crossorigin src="./assets/index-CybMKUZH.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-0Xlf-DqI.css">
+</head>
+
+<body>
+  <div class="container mx-auto  flex flex-col items-center justify-center py-8">
+    <h2 class="text-white text-2xl">Animation 1</h2>
+    <section class="ani-1 relative h-[400px] w-[800px] overflow-hidden">
+      <!-- x -->
+      <div class="x-line top-[10%]"></div>
+      <div class="x-line top-[30%]"></div>
+      <div class="x-line top-[55%]"></div>
+      <div class="x-line top-[90%]"></div>
+
+      <!-- y -->
+      <div class="y-line  left-0"></div>
+      <div class="y-line  left-[30%]"></div>
+      <div class="y-line  left-[70%]"></div>
+      <div class="y-line  left-[calc(100%-var(--line-width))]"></div>
+    </section>
+
+    <!-- animation 3 -->
+    <h2 class="text-white text-2xl ">Animation 3</h2>
+    <section
+      class="ani-3 cursor-pointer grid  grid-cols-[repeat(18,minmax(0,1fr))]  relative h-[180px]  w-[600px] overflow-hidden">
+      <template id="spark">
+        <div data-light data-state="off" class="spark"></div>
+      </template>
+    </section>
+
+    <h2 class="text-white text-2xl ">Animation 4</h2>
+    <section class="ani-4">
+      <svg id="mySvg" style="width: 400px;height:400px" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient gradientUnits="userSpaceOnUse" id="gradient-0" x1="746.3240441607777" y1="250.00944750441704"
+            x2="767.7458673719084" y2="384.3032596510602">
+            <stop stop-color="#FF7432" stop-opacity="0"></stop>
+            <stop offset="0.0531089" stop-color="#FF7432"></stop>
+            <stop offset="0.415114" stop-color="#F7CC4B"></stop>
+            <stop offset="1" stop-color="#F7CC4B" stop-opacity="0"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          d="M 410.001 116.667 L 490 116.667 L 490 276.668 L 276.666 276.668 L 276.666 383.333 L 89.999 383.333 L 89.999 196.666 L 10 196.666 L 10 116.667"
+          fill="none" style="stroke: rgb(0, 0, 0); stroke-width: 4px; stroke-opacity: 0.6;"></path>
+        <path
+          d="M 410.001 116.667 L 490 116.667 L 490 276.668 L 276.666 276.668 L 276.666 383.333 L 89.999 383.333 L 89.999 196.666 L 10 196.666 L 10 116.667"
+          fill="none" style="stroke-width: 4px; stroke-opacity: 0.6; stroke: url(#gradient-0);"></path>
+      </svg>
+    </section>
+
+
+    <!-- animation 2 -->
+    <h2 class="text-white text-2xl ">Animation 2</h2>
+    <section style="--play-state:paused" class="ani-2 relative h-[400px] w-[800px] overflow-hidden text-white">
+      <div class="card1 absolute rounded-xl border border-gray-500 w-[500px] h-[250px] overflow-hidden">
+        <div class="header bg-[#1a1a1a]  flex h-12">
+          <div class="flex-1"></div>
+          <div class="border-l border-gray-500 flex justify-center items-center text-xl px-4">atque</div>
+        </div>
+        <div class="main border border-t  border-gray-500 bg-gray-950  h-[calc(100%-3rem)]"></div>
+      </div>
+      <div class="card2 absolute rounded-xl border border-gray-500 w-[400px] h-[200px] overflow-hidden">
+        <div class="header bg-[#1a1a1a]  flex h-12">
+          <div class="flex-1"></div>
+          <div class="border-l border-gray-500 flex justify-center items-center text-xl px-4">nam</div>
+        </div>
+        <div class="main border border-t  border-gray-500 bg-gray-950  h-[calc(100%-3rem)]"></div>
+      </div>
+      <div class="card3 absolute rounded-xl border border-gray-500 w-[300px] h-[150px] overflow-hidden">
+        <div class="header bg-[#1a1a1a]  flex h-12">
+          <div class="flex-1"></div>
+          <div class="border-l border-gray-500 flex justify-center items-center text-xl px-4">tempore</div>
+        </div>
+        <div class="main border border-t  border-gray-500 bg-gray-950  h-[calc(100%-3rem)]"></div>
+      </div>
+    </section>
+
+  </div>
+</body>
+
+</html>
