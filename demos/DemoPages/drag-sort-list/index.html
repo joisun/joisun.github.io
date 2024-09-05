@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👀</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style/basis.css">
+  <title>%VITE_APP_TITLE%</title>
+
+</head>
+
+<body>
+  <style>
+    .item {
+      @apply bg-neutral-700 my-2 h-12 flex items-center justify-center border-2 border-neutral-500 rounded-lg
+    }
+    .moving{
+      @apply border-dashed bg-neutral-900 opacity-70
+    }
+
+  </style>
+  <div id="app" class="text-white font-mono text-2xl font-semibold">
+    <ul class="w-96 mx-auto mt-10">
+      <li draggable="true" class="item">list item 1</li>
+      <li draggable="true" class="item">list item 2</li>
+      <li draggable="true" class="item">list item 3</li>
+      <li draggable="true" class="item">list item 4</li>
+      <li draggable="true" class="item">list item 5</li>
+      <li draggable="true" class="item">list item 6</li>
+      <li draggable="true" class="item">list item 7</li>
+      <li draggable="true" class="item">list item 8</li>
+      <li draggable="true" class="item">list item 9</li>
+    </ul>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

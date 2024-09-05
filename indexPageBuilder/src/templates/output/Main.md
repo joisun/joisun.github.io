@@ -32,6 +32,7 @@
 - [象棋盘,透明背景效果
 ](https://joisun.github.io/demos/CssTrick/chessboard/dist)
 - [小球Loading效果](https://joisun.github.io/demos/CssTrick/circleLoading/dist)
+- [demos/CssTrick/deletion-ani/index.md 文件缺失,其内容应该是demo项目的名称,内容格式为纯文本](https://joisun.github.io/demos/CssTrick/deletion-ani/dist)
 - [Drag-and-Drap Demo
 ](https://joisun.github.io/demos/CssTrick/drag-n-drop/dist)
 - [Expanding Cards 折叠卡 Banner](https://joisun.github.io/demos/CssTrick/expanding-cards/dist)
@@ -62,6 +63,7 @@
 ](https://joisun.github.io/demos/DemoPages/bilibili-banner/dist)
 - [canvas-clock
 ](https://joisun.github.io/demos/DemoPages/canvas-clock/dist)
+- [DragSort List and FLIP Animation](https://joisun.github.io/demos/DemoPages/drag-sort-list/dist)
 - [DvD 屏保效果
 ](https://joisun.github.io/demos/DemoPages/dvd-screensaver/dist)
 - [动态背景+背景字体剪裁](https://joisun.github.io/demos/DemoPages/dynamicText/dist)
