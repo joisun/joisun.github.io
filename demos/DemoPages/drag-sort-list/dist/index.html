@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👀</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>drag-sort-list</title>
+
+  <script type="module" crossorigin src="/assets/index-CJvfbExs.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DNGyY8om.css">
+</head>
+
+<body>
+  <style>
+    .item {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(115 115 115 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity))
+}
+    .moving {
+    border-style: dashed;
+    --tw-bg-opacity: 1;
+    background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+    opacity: 0.7
+}
+
+  </style>
+  <div id="app" class="text-white font-mono text-2xl font-semibold">
+    <ul class="w-96 mx-auto mt-10">
+      <li draggable="true" class="item">list item 1</li>
+      <li draggable="true" class="item">list item 2</li>
+      <li draggable="true" class="item">list item 3</li>
+      <li draggable="true" class="item">list item 4</li>
+      <li draggable="true" class="item">list item 5</li>
+      <li draggable="true" class="item">list item 6</li>
+      <li draggable="true" class="item">list item 7</li>
+      <li draggable="true" class="item">list item 8</li>
+      <li draggable="true" class="item">list item 9</li>
+    </ul>
+  </div>
+</body>
+
+</html>
