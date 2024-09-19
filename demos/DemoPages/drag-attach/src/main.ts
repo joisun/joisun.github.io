@@ -21,34 +21,45 @@ function collectReferlines(canvas: HTMLDivElement, dragTarget: HTMLElement) {
         const y3 = y1 + height
         xReferlineCollection.push(x1, x2, x3)
         yReferlineCollection.push(y1, y2, y3)
+        // drawReferline(x1, true)
+        // drawReferline(x2, true)
+        // drawReferline(x3, true)
+        // drawReferline(y1, false)
+        // drawReferline(y2, false)
+        // drawReferline(y3, false)
     })
     return { xlines: xReferlineCollection, ylines: yReferlineCollection }
 
 }
+let zIndex = 1000;
 function drawReferline(position: number, isX: boolean) {
     const line = document.createElement('div')
     line.className = 'refer-line'
-    line.style.cssText = `background-color:red; ${isX ? 'width:1px' : 'height:1px'};position:absolute; ${isX ? 'top:0;bottom:0;left:' : 'left:0;right:0;top:'}${position}px`
+    line.style.cssText = `${isX ? 'width:0;border-left:1px dashed red' : 'height:0;border-bottom:1px dashed blue'};position:absolute; ${isX ? 'top:0;bottom:0;left:' : 'left:0;right:0;top:'}${position}px`
     canvas.appendChild(line)
 
 }
-function updateReferline(dragTarget: HTMLElement, xlines: number[], ylines: number[]) {
+function updateReferlineAndAttach(dragTarget: HTMLElement, xlines: number[], ylines: number[]) {
     // 清除之前的辅助线
     canvas.querySelectorAll('.refer-line').forEach(line => line.remove())
+
+    // 收集自动贴合x,y坐标
+    let collectAttachX = 0
+    let collectAttachY = 0
 
     const { left, top, width, height } = dragTarget.getBoundingClientRect()
     const { left: canvasLeft, top: canvasTop } = canvas.getBoundingClientRect()
 
-    const relativeLeft = left - canvasLeft
-    const relativeTop = top - canvasTop
+    const targetX1 = left - canvasLeft
+    const targetY1 = top - canvasTop
     // debug 绘制参考点
     const existedDot = canvas.querySelector('#refer-dot') as HTMLDivElement
     const dot = existedDot || document.createElement('div') as HTMLDivElement
     dot.id = 'refer-dot'
     dot.style.cssText = `
     position: absolute;
-    top:${relativeTop}px;
-    left:${relativeLeft}px;
+    top:${targetX1}px;
+    left:${targetY1}px;
     width:20px;
     height:20px;
     border-radius: 100%;
@@ -57,27 +68,66 @@ function updateReferline(dragTarget: HTMLElement, xlines: number[], ylines: numb
     // if (!existedDot) canvas.appendChild(dot)
 
     // 拖动元素
-    const targetX1 = left - canvasLeft
-    const targetY1 = top - canvasTop
-    const targetX2 = left - canvasLeft + width / 2
-    const targetY2 = top - canvasTop + height / 2
-    const targetX3 = left - canvasLeft + width
-    const targetY3 = top - canvasTop + height;
+    const targetX2 = targetX1 + width / 2
+    const targetX3 = targetX1 + width
+    const targetY2 = targetY1 + height / 2
+    const targetY3 = targetY1 + height;
 
 
-    const offset = 0; // 允许2个像素的误差
+    const offset = 4; // 允许2个像素的误差
+    let minOffsetX = offset;
+    let minOffsetY = offset;
+    let minX = 0;
+    let minY = 0;
     [targetX1, targetX2, targetX3].forEach(i => {
         // 给定误差值，如果距离小于一定值就画线
-        const match = xlines.find(line => Math.abs(line - i) <= offset);
-        match !== undefined && drawReferline(match, true)
+        // 找到最小的偏差, 如果超过了误差范围就不用继续判断了
+        xlines.forEach(line => {
+            // 在误差允许的范围内
+            const abs = Math.abs(line - i)
+            if (abs <= offset) {
+                if (abs <= minOffsetX) {
+                    minOffsetX = abs;
+                    minX = line
+                }
+            }
+        });
+        // if (match !== undefined) {
+        //     // 如果符合条件误差内的距离: 
+        //     // 1.画线， 
+        //     drawReferline(match, true)
+        //     // 2.收集贴合x坐标
+        //     collectAttachX = i + realOffset
+        // }
+
     });
 
     [targetY1, targetY2, targetY3].forEach(i => {
-        const match = ylines.find(line => Math.abs(line - i) <= offset);
-        match !== undefined && drawReferline(match, true)
+        ylines.forEach(line => {
+            // 在误差允许的范围内
+            const abs = Math.abs(line - i)
+            if (abs <= offset) {
+                if (abs <= minOffsetY) {
+                    minOffsetY = abs;
+                    minY = line
+                }
+            }
+        });
+        // const match = ylines.find(line => Math.abs(line - i) <= offset);
+        // if (match !== undefined) {
+        //     drawReferline(match, false)
+        // }
     })
+    // 绘制辅助线
+    minX !== 0 && drawReferline(minX, true);
+    minY !== 0 && drawReferline(minY, false);
+    (minX !== 0 || minY !== 0) && autoAttach(dragTarget, minX, minY)
 
+}
 
+function autoAttach(dragElement: HTMLElement, x: number, y: number) {
+    dragElement.style.left = x + 'px'
+    dragElement.style.top = y + 'px'
 }
 function draggable(el: HTMLElement) {
     const { xlines, ylines } = collectReferlines(canvas, el)
@@ -89,8 +139,9 @@ function draggable(el: HTMLElement) {
 
     let elDragged = false;
     function mouseDownHandler(downEvent: MouseEvent) {
-        downEvent.preventDefault()
-        elDragged = true
+        downEvent.preventDefault();
+        downEvent.target === el && (elDragged = true)
+
     }
     function mouseUpHandler(upEvent: MouseEvent) {
         upEvent.preventDefault()
@@ -103,8 +154,10 @@ function draggable(el: HTMLElement) {
         const { clientX, clientY } = moveEvent
         const { width, height } = el.getBoundingClientRect()
         // 绘制参考线
-        updateReferline(el, xlines, ylines)
-        el.style.transform = `translate(${clientX - canvasLeft - width / 2}px, ${clientY - canvasTop - height / 2}px)`
+        updateReferlineAndAttach(el, xlines, ylines)
+        el.style.left = `${clientX - canvasLeft - width / 2}px`
+        el.style.top = `${clientY - canvasTop - height / 2}px`
+        // el.style.transform = `translate(${clientX - canvasLeft - width / 2}px, ${clientY - canvasTop - height / 2}px)`
     }
 
 
