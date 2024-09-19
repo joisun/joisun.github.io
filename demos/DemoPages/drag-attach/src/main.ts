@@ -43,9 +43,6 @@ function updateReferlineAndAttach(dragTarget: HTMLElement, xlines: number[], yli
     // 清除之前的辅助线
     canvas.querySelectorAll('.refer-line').forEach(line => line.remove())
 
-    // 收集自动贴合x,y坐标
-    let collectAttachX = 0
-    let collectAttachY = 0
 
     const { left, top, width, height } = dragTarget.getBoundingClientRect()
     const { left: canvasLeft, top: canvasTop } = canvas.getBoundingClientRect()
@@ -74,12 +71,25 @@ function updateReferlineAndAttach(dragTarget: HTMLElement, xlines: number[], yli
     const targetY3 = targetY1 + height;
 
 
-    const offset = 4; // 允许2个像素的误差
-    let minOffsetX = offset;
+    const offset = 10; // 允许10个像素的误差
+    let minOffsetX = offset; //记录最小偏移
     let minOffsetY = offset;
-    let minX = 0;
+    let minX = 0;//记录最小偏移所对应的值
     let minY = 0;
-    [targetX1, targetX2, targetX3].forEach(i => {
+    enum AttachTypeX {// 记录是拖拽元素的那个位置用于贴附
+        'left',
+        'center',
+        'right'
+    }
+    enum AttachTypeY {
+        'top',
+        'mid',
+        'bottom'
+    }
+    let attachX: AttachTypeX = AttachTypeX.left
+    let attachY: AttachTypeY = AttachTypeY.top;
+
+    [targetX1, targetX2, targetX3].forEach((i, index) => {
         // 给定误差值，如果距离小于一定值就画线
         // 找到最小的偏差, 如果超过了误差范围就不用继续判断了
         xlines.forEach(line => {
@@ -89,6 +99,7 @@ function updateReferlineAndAttach(dragTarget: HTMLElement, xlines: number[], yli
                 if (abs <= minOffsetX) {
                     minOffsetX = abs;
                     minX = line
+                    attachX = AttachTypeX[index] as unknown as AttachTypeX
                 }
             }
         });
@@ -102,7 +113,7 @@ function updateReferlineAndAttach(dragTarget: HTMLElement, xlines: number[], yli
 
     });
 
-    [targetY1, targetY2, targetY3].forEach(i => {
+    [targetY1, targetY2, targetY3].forEach((i, index) => {
         ylines.forEach(line => {
             // 在误差允许的范围内
             const abs = Math.abs(line - i)
@@ -110,6 +121,8 @@ function updateReferlineAndAttach(dragTarget: HTMLElement, xlines: number[], yli
                 if (abs <= minOffsetY) {
                     minOffsetY = abs;
                     minY = line
+                    attachY = AttachTypeY[index] as unknown as AttachTypeY
+
                 }
             }
         });
@@ -122,12 +135,15 @@ function updateReferlineAndAttach(dragTarget: HTMLElement, xlines: number[], yli
     minX !== 0 && drawReferline(minX, true);
     minY !== 0 && drawReferline(minY, false);
     (minX !== 0 || minY !== 0) && autoAttach(dragTarget, minX, minY)
+    console.log('attachX', attachX)
+    console.log('attachY', attachY)
 
 }
 
 function autoAttach(dragElement: HTMLElement, x: number, y: number) {
     dragElement.style.left = x + 'px'
     dragElement.style.top = y + 'px'
+    dragElement.isAttached = true
 }
 function draggable(el: HTMLElement) {
     const { xlines, ylines } = collectReferlines(canvas, el)
@@ -155,8 +171,10 @@ function draggable(el: HTMLElement) {
         const { width, height } = el.getBoundingClientRect()
         // 绘制参考线
         updateReferlineAndAttach(el, xlines, ylines)
+        // if (!el.isAttached) {
         el.style.left = `${clientX - canvasLeft - width / 2}px`
         el.style.top = `${clientY - canvasTop - height / 2}px`
+        // }
         // el.style.transform = `translate(${clientX - canvasLeft - width / 2}px, ${clientY - canvasTop - height / 2}px)`
     }
 
