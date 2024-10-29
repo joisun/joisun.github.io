@@ -63,6 +63,8 @@
 ](https://joisun.github.io/demos/DemoPages/bilibili-banner/dist)
 - [canvas-clock
 ](https://joisun.github.io/demos/DemoPages/canvas-clock/dist)
+- [Drag refer lines
+](https://joisun.github.io/demos/DemoPages/drag-attach/dist)
 - [DragSort List and FLIP Animation](https://joisun.github.io/demos/DemoPages/drag-sort-list/dist)
 - [DvD 屏保效果
 ](https://joisun.github.io/demos/DemoPages/dvd-screensaver/dist)
@@ -99,6 +101,7 @@
 ](https://joisun.github.io/demos/Others/ThreejsPipesMapping/dist)
 - [Tree Tool
 ](https://joisun.github.io/demos/Others/TreeTool/dist)
+- [Mdiff: Markdown Diff CodeBlock Generator](https://joisun.github.io/demos/Others/markdown-diff-block-generater/dist)
 - [Websocket 聊天 Demo ShareTalk 社兔
 ](https://joisun.github.io/demos/Others/rabbitChat/dist)
 - [Svg Convert
