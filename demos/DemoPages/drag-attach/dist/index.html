@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👀</text></svg>"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>drag-attach</title>
+    <script type="module" crossorigin src="./assets/index-9mnlNN2l.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DuAC2Z7M.css">
+  </head>
+
+  <body>
+    <div
+      id="canvas"
+      class="relative w-[800px] h-[800px] bg-gray-600/50 mx-auto overflow-hidden"
+    >
+      <div class="left-24 top-20 absolute w-24 h-24 bg-red-400"></div>
+      <div class="left-64 top-36 absolute w-24 h-12 bg-blue-400"></div>
+      <div class="left-80 top-56 absolute w-48 h-48 bg-yellow-400"></div>
+      <div class="left-1/2 top-1/2 absolute w-48 h-12 bg-purple-400"></div>
+      <div class="left-3/4 top-3/4 absolute w-64 h-32 bg-green-400"></div>
+      <div
+        id="draggable"
+        class="w-24 h-24 absolute top-0 left-0 flex justify-center items-center text-white bg-blue-700"
+      >
+        draggable
+      </div>
+    </div>
+  </body>
+  <style>
+    div {
+      -webkit-user-select: none;
+         -moz-user-select: none;
+              user-select: none;
+    }
+  </style>
+</html>

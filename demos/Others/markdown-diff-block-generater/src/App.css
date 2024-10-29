@@ -1,0 +1,29 @@
+/* @import 'codemirror/lib/codemirror.css';
+@import 'codemirror/theme/material.css'; */
+
+del {
+	text-decoration: none;
+	color: #b30000;
+	background: #fadad7;
+}
+ins {
+	background: #eaf2c2;
+	color: #406619;
+	text-decoration: none;
+}
+.chunk-header {
+	color: #8a008b;
+	text-decoration: none;
+}
+
+/* .react-codemirror2 {
+	flex: 1 1 auto;
+	margin-top: 0;
+	height: 100%;
+	position: relative;
+  } */
+  
+  .CodeMirror {
+	height: 100%;
+	min-height: 80vh;
+  }
